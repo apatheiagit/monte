@@ -6,7 +6,7 @@
 @quarter-height: 380px;
 @blog-height: 90px;
 @special-height: 475px;
-@index-height: 540px;
+@index-height: 550px;
 @new-review-height: 430px;
 @event-height: 465px;
 @events-height: 165px;
@@ -49,6 +49,7 @@
       max-width: 350px;
     }
     & img{
+      border-radius: 4px;
       transition: 0.5s all ease-in;
     }
     & a{
@@ -787,6 +788,8 @@
     height: 100%;
     overflow: hidden;
     z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
     @media @mobile{
       max-width: 100%;
     }
@@ -810,13 +813,20 @@
     padding-right: 15px;
   }
   & .category{
+    
     color: white;
     font-size: 12px;
     margin-top: 0;
+    & a{
+      background-color: @blue;
+      display: inline-block;
+      padding: 7px 20px;
+      border-radius: 30px;
+    }
   }
   & .title{
     margin: 10px 0 20px;
-    & .big{ font-size: 72px; }
+    & .big{ font-size: 55px; }
     & .small{ font-size: 36px; }
     @media @medium{
       & .big{ font-size: 48px; }
@@ -840,6 +850,7 @@
     & path, & .count{
       fill: white;
       color: white;
+      font-size: 18px;
     }
   }
 }

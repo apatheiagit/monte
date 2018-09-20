@@ -115,11 +115,8 @@ Drupal.behaviors.my_custom_behavior = {
 	    $('.articles--index').owlCarousel({
 		    items: 1,
 		    loop: true,
-		    dots: true,
-		    autoplay:true,
-		    autoplayTimeout: 6000,
-		    autoplaySpeed: 5000,
-		    autoplayHoverPause:true,
+		    dots: false,		   
+		    nav: true,
 		    animateOut: 'fadeOut',
     		animateIn: 'fadeIn',
 		    /*onInitialize: function (event) {
