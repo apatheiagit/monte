@@ -38,35 +38,29 @@
   <?php print render($page['bottom']); ?>
 </div>
 <div class="somit somit-footer">
-  <div class="wide-container-wo container footer-margin-top">
-  <div class="border-top container-first">
-    <div class="row">
-      <div class="col-sm-4 col-md-3 col-lg-2">
-        <a href="/" class="bottom-logo"><img src="/sites/all/themes/cyprus_new/logo.svg" class="img-responsive" alt=""></a>        
-      </div>
-      <div class="col-sm-8 col-md-5">
+  <div class="container">
+  <div class="top-string">
+    <div class="row">      
+      <div class="col-sm-5 col-md-5">
         <div class="bottom-descr"> 
-          <p>© 2011-<?php print date("Y"); ?> <a href="http://cyprusfortravellers.net">CyprusForTravellers.net</a></p>
-          <?php print $site_slogan; ?>          
+          <p>© 2011-<?php print date("Y"); ?> <a href="http://www.montenegrofortravellers.com">www.montenegrofortravellers.com</a></p>
         </div>
+      </div>      
+      <div class="col-sm-7 col-md-7">        
+        <?php print render($page['header']); ?>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-string">
+    <div class="row">
+      <div class="col-sm-7 col-md-6">
         <?php if ($lang == "en"):?>
           <div class="bottom-rights">Reproduction or use of any materials only with the permission of the publisher: <a href="mailto:editor@cyprusfortravellers.net">editor@cyprusfortravellers.net</a></div>
         <?php else: ?>
           <div class="bottom-rights">Перепечатка и использование любых материалов только с&nbsp;разрешения редакции: <a href="mailto:editor@cyprusfortravellers.net">editor@cyprusfortravellers.net</a></div>
-        <?php endif;?>       
-      </div>      
-      <div class="col-sm-8 col-sm-offset-4 col-md-4 col-md-offset-0 icon-links-block">        
-        <div class="icon-link icon-link--subscribe"><a href="<?php print $prefix;?>/subscribe"><?php print t('Subscribe');?></a></div>
-        <div class="icon-link icon-link--mediakit"><a href="/sites/default/files/Media_Kit.pdf">Media kit</a></div>             
+        <?php endif;?>  
       </div>
-    </div>
-  </div>
-  <div class="border-top container-second">
-    <div class="row">
-      <div class="col-sm-12 col-md-9 col-lg-7 col-lg-offset-2">
-        <?php print render($page['footer']); ?> 
-      </div>
-      <div class="col-sm-12 col-md-3 social-block">         
+      <div class="col-sm-5 col-md-6 social-block">         
         <div class="small-share-block share-links">          
           <?php if ($lang == 'en'):?>
             <a class="fa fa-facebook" title="Go Facebook" href="https://www.facebook.com/cyprusfortravellers.net/" rel="nofollow" target="_blank"><span class="visuallyhidden">Facebook</span></a>
@@ -81,9 +75,9 @@
             <a class="fa fa-instagram" title="Перейти на страницу в Instagram" href="https://instagram.com/cyprusfortravellers" rel="nofollow" target="_blank"><span class="visuallyhidden">Instagram</span></a> 
           <?php endif;?>
         </div>
-        </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 <div class="totopcontroller">
