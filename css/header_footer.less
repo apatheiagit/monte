@@ -13,21 +13,15 @@
 	}	
 	& .top-logo{
 		display: block;		
-		margin: 25px 0 25px 66px;		
+		margin: 46px 0 46px 0px;		
 		& img{
 			height: 55px;
 		}
 		@media @medium{
 			margin: 25px 0 25px 0px;		
-		}
-		@media @tablet{
-			margin: -45px 0 25px 0px;
-			& img{
-				width: 100%;
-			}
-		}
+		}		
 		@media @mobile{
-			max-width: 170px;
+			max-width: 190px;
 			text-align: center;
 			margin: 10px auto;
 			& img{
@@ -35,8 +29,9 @@
 			}
 		}
 	}
-	& .logo-mini{
-		display: none;
+	& .mini-logo{
+		display: block;	
+		margin: 25px 0 25px 0px;
 	}
 	& .topMenu{
 		background: white;
@@ -93,168 +88,70 @@
 					}
 				}
 			}
+		}		
+	}		
+	& .main-menu{
+		margin-top: 58px;
+		text-align: center;
+		@media @medium{	
+			margin-top: 38px;
 		}
-		
-	}
-	& .city-filter{
-		cursor: pointer;
-		font-size: 12px;
-		float: left;
-		position: relative;
-		z-index: 300;
-		width: 82px;
-		& .name{
-			background: url(../img/menu.svg) no-repeat right 2px center;
-			display: inline-block;
-			line-height: 20px;
-			padding: 0 18px 0 4px;
-			vertical-align: middle;
-			display: block;
+		@media @tablet{
+			margin-top: 40px;
 		}
-		& .weather-menu{
-			background: url(../img/bg-weather-menu.png) 0 0 no-repeat;
-			display: inline-block;
-			height: 11px;
-			margin-right: 2px;
-			width: 12px;
-			vertical-align: middle;
-		}
-		& .city-label{
-			color: #363636;
-			float: left;
-			line-height: 20px;
-			width: 58px;
-		}
-		& .current-city{	
-			float: left;
-			color: black;
-			font-weight: 700;
-			width: 100%;
-			&.city-list-open{	
-					border-color: @grey-fon;
-					background: @grey-fon;
-					& .weather-menu{
-						background-position: -1px -20px;
-					}
-			}
-			&:hover{
-				border-color: @grey-fon;
-				background: @grey-fon;
-			}
-		}
-		
-		& .city-list{
-			background: #FFF;
-			display: none;
-			position: absolute;			
-			left: 0;
-			top: 20px;
-			& ul {
-				border-style: solid;
-				border-color: @grey-fon;
-				border-width: 1px 1px 1px 1px;
-				padding-bottom: 6px;
-			}
-			& ul li{
-				list-style: none;
-				font-size: 11px;
-				padding: 3px 23px 3px 4px;
-				&:hover{
-					background: lighten(@super-light-text, 10%);
-				}
-			}
-		}
-	}
-	& .weather{
-		margin-top: -5px;
-		margin-left: 5px;
-		float: left;
-		white-space: nowrap;
 		@media @mobile{
-			margin-left: 0px;
-		}
-		& .weather-icon{
-			display: inline-block;
-			margin-top: -10px;
-			height: 29px;
-			width: 36px;
-			& img{
-				width: 100%;
-			}
-		}
-		& .weather-temp{
-			display: inline-block;
-			font-size: 12px;
-			white-space: nowrap; 
-			vertical-align: middle;
-			& .weather-zero{
-				font-size: 10px;
-				vertical-align: super;
-			}
-			& .weather-degree{
-				font-weight: 700;
-			}
-		}
-	}
-	& .bottom-header{
-		clear: both; 		
-		& .block-menu{
-			min-height: 45px;			
-			text-align: center;
-			@media @mobile_tablet{
-				padding-top: 0;
-			}			
-			& ul{
-				width: 100%;
-				& li{
-					color: @text-color;
-					font-size: 18px;
-					font-weight: 500;				
-					text-transform: uppercase;
-					float: none;
-					display: inline-block;
-					margin: 26px 0;
-					&.active-trail>a { 
-						border-radius: 3px;
-  					background-color: @grey-fon;
-					}					
-					@media @medium{
-						font-size: 14px;						
-						& a{
-							padding: 4px 5px !important;
-						}
-					}
-					@media @tablet{
-						font-size: 12px;						
-						margin: 18px 0;
-						& a{
-							padding: 4px 5px !important;
-						}
-					}
-					@media @mobile{
-						margin: 0 0;
-					}
-					& a{
-						padding: 4px 10px;
-						transition: all 0.3s ease-in;						
-						&:hover, &.hover{
-							color: lighten(@text-color, 40%);
-							text-decoration: none;
-						}
-					}					
+			margin-top: 0;
+		}			
+		& ul{
+			width: 100%;
+			& li{
+				color: @text-color;
+				font-size: 18px;
+				font-weight: 500;				
+				float: none;
+				display: inline-block;
+				margin: 0 15px;
+				&.active-trail>a { 
+					color: @blue;
+				}					
+				@media @medium{										
+					margin: 0 10px;
 				}
+				@media @tablet{										
+					margin: 0 7px;
+				}				
+				@media @mobile{
+					margin: 0 0;
+				}
+				& a{
+					padding: 0 0 12px 0px;
+					transition: all 0.3s ease-in;		
+					border-color: transparent;
+					border-width: 0 0 2px 0;
+					border-style: solid;				
+					&:hover, &.hover{
+						color: @blue;
+						text-decoration: none;
+						border-color: @blue
+					}
+				}					
 			}
 		}
 	}
 }
 .search-block{
 	float: right;
-	margin-top: 30px;
+	margin-top: 60px;
+  margin-right: 25px;
+  @media @medium{	
+		margin-top: 40px;
+	}
 	@media @tablet{
-		margin-top: 17px;
+		margin-top: 42px;
 	}
 	@media @mobile{
-		display: none;
+		float: left;
+		margin-top: -8px;
 	}
 	& .search-buttn{
 		background: url(../img/search.svg) no-repeat;				
@@ -262,12 +159,6 @@
 		display: block;
 		height: 20px;
 		width: 20px;
-	}
-}
-.weather-block{
-	margin-top: 42px;
-	@media @mobile{
-		margin-top: 15px;
 	}
 }
 .soc-block{
@@ -423,9 +314,12 @@
 .lang-block{
 	& .language-switcher-locale-url{
 		float: right;
-		margin-top: 42px;
+		margin-top: 58px;
+		@media @medium{	
+			margin-top: 38px;
+		}
 		@media @tablet{
-			margin-top: 0px;
+			margin-top: 40px;
 		}
 		@media @mobile{
 			margin-top: -10px;
@@ -436,22 +330,26 @@
 		& li{
 			display: inline-block;
 			list-style: none;
-			font-size: 12px;
+			font-size: 18px;
+			@media @mobile{
+				font-size: 15px;
+			}
 			& a{
 				display: inline-block;
 				color: @grey;				
-				font-weight: 700;
+				font-weight: normal;
 				position: relative;
 				&:hover{
 					text-decoration: underline;
 				}
 				&.active{
-					color: @text-color;					
+					color: @blue;					
 				}
 			}
 			&.first a{
 				padding-right: 8px;
 				&:before{
+					color: @text-color;
 					content: "/";
 					position: absolute;
 					top: 0;

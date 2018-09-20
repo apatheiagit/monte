@@ -2,48 +2,29 @@
 <?php global $user; $clear_class = "";
       global $language_content; $lang = $language_content->language; if ($lang == 'en') $prefix = '/en'; else $prefix = '';
 ?>
-<div class="somit somit-header <?php print $page_type; ?>">
-  <div class="upper-header">
+<div class="somit somit-header <?php print $page_type; ?> ">  
+  <div class="upper-header topMenu">
     <div class="container">
-    <div class="inside-container">  
-      <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-weather">          
+    <span class="wrap-toggle-btn hidden-sm hidden-md hidden-lg"><span class="toggle-btn"></span></span>      
+      <div class="row">        
+        <div class="col-xs-12 col-sm-2 col-md-3 col-logo">
+           <a href="<?php print $prefix;?>/" class="top-logo hidden-sm "><img src="/sites/all/themes/cyprus_new/logo.png"  alt="MontenegroForTravellers"></a>
+           <a href="<?php print $prefix;?>/" class="mini-logo hidden-lg hidden-md hidden-xs"><img src="/sites/all/themes/cyprus_new/img/logo-mini.png"  alt="MontenegroForTravellers"></a>
         </div>
-        <div class="col-xs-6 col-sm-8 col-md-2 col-lg-2 col-taxi">          
+        <div class="col-xs-12 col-sm-7 col-md-6 main-header">        
+          <div class="main-menu">        
+            <?php print render($page['header']); ?>       
+          </div>
         </div>
-        <div class="clearfix visible-xs-block visible-sm-block"></div>
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-0 col-md-offset-0 col-md-4 col-lg-6 col-logo">
-           <a href="<?php print $prefix;?>/" class="top-logo"><img src="/sites/all/themes/cyprus_new/logo.svg"  alt="Cyprustravellers"></a>
+        <div class="col-xs-12 col-sm-3 col-md-3 lang-block">                  	
+      		<?php
+            $lang_block = module_invoke('locale', 'block_view', 'language');
+            print $lang_block['content'];
+          ?>    
+          <div class="search-block"><span class="search-buttn"></span></div>    	
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 lang-block">        	
-    		<?php
-          $lang_block = module_invoke('locale', 'block_view', 'language');
-          print $lang_block['content'];
-        ?>        	
-        </div>
-      </div>
+      </div>    
     </div>
-    </div>
-  </div>
-  <div class="topMenu">
-  <div class="container">
-  <div class="inside-container">
-    <div class="row">
-      <div class="logo-hidden-xs col-sm-1 col-md-1">       
-        <a href="<?php print $prefix;?>/" class="logo-mini"><img src="/sites/all/themes/cyprus_new/img/logo-mini.png"  alt="Cyprustravellers"></a>
-        <span class="wrap-toggle-btn hidden-sm hidden-md hidden-lg"><span class="toggle-btn"></span></span>
-      </div>
-      <div class="col-sm-10 col-md-10 main-header">        
-        <div class="bottom-header">        
-          <?php print render($page['header']); ?>       
-        </div>
-      </div>
-      <div class="col-sm-1 col-md-1 col-search">
-        <div class="search-block"><span class="search-buttn"></span></div>
-      </div>
-    </div>
-  </div>
-  </div>
   </div>
 </div>
 <div class="somit somit-body <?php print $page_type; ?>">     

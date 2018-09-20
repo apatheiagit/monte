@@ -79,3 +79,21 @@
   url("fonts/bitter/bitter-italic/BitterItalic.woff") format("woff"),
   url("fonts/bitter/bitter-italic/BitterItalic.ttf") format("truetype");
 }
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/PT_Sans/PT_Sans-Web-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/PT_Sans/PT_Sans-Web-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url("fonts/PT_Sans/PT_Sans-Web-Italic.ttf") format("truetype");
+}
