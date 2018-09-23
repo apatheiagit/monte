@@ -49,11 +49,7 @@
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="text">
-		<?php if($type == 'photo'):?>
-			<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
-		<?php endif;?>
-		<div class="category">
+	<div class="category">
 		<?php if($special == 1):?>
 			<?php if(isset($specproekt_tid)):?>
 				<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>
@@ -67,10 +63,11 @@
 		<?php else:?>
 				<a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
 		<?php endif;?>
-		</div>		
+	</div>		
+	<div class="text">		
 		<div class="title"><a href="<?php print $path;?>"><?php print $title?></a></div>		
-		<div class="descr <?php if ($titleLength > 46):?> covert<?php endif;?>"><a href="<?php print $path;?>"><?php print $body;?></a></div>		
-	</div>
+		<div class="descr <?php if ($titleLength > 46):?> covert<?php endif;?>"><a href="<?php print $path;?>"><?php print $body;?></a></div>				
+	</div>	
 	<div class="statistic">
 		<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
 	</div>

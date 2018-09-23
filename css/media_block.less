@@ -7,7 +7,7 @@
 @blog-height: 90px;
 @special-height: 475px;
 @index-height: 550px;
-@new-review-height: 430px;
+@new-review-height: 435px;
 @event-height: 465px;
 @events-height: 165px;
 @photo-height: 692px;
@@ -57,6 +57,7 @@
       position: relative;
       &:after {
         content: '';
+        border-radius: 4px;
         position: absolute;
         top: 0;
         right: 0;
@@ -852,7 +853,8 @@
   }  
 }
 .articles--index.owl-carousel{
-    overflow: hidden;
+  margin-bottom: 40px;
+  overflow: hidden;
   & .owl-controls{
     position: absolute;
     top: 50%;
@@ -909,82 +911,76 @@
   }
   }
 }
-.media-wrapper--medium{
-  & .media-block--new-review{
-    height: @new-review-height; 
-    color: white;
-    @media @medium{
-      height: @new-review-height * 0.8; 
-    }
-    @media @mobile_tablet{
-      height: @new-review-height * 0.62; 
-    }
-    & .photo {
-      position: absolute!important;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-      @media @mobile{
-        max-width: 100%;
-      }
-      &:after{
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-image: linear-gradient(to bottom, rgba(0,0,0,.0) 17%, rgba(0,0,0,.2) 50%,rgba(0,0,0,.7));      
-        z-index: 10;
-      } 
-    }
-    & .title{
-      font-weight: bold;
-    }
-    & .category{
-      color: white;
-      font-size: 12px;
-    }    
-    & .text{
-      position: absolute;
-      left: 20px;
-      top: 200px;
-      z-index: 3;
-      width: calc(~'100% - 40px');
-      @media @medium{
-        top: 120px;
-      }
-      @media @mobile_tablet{
-        top: 20px;
-      }
-    }
-    & .statistic{
-      left: 20px;
-      bottom: 20px;
-      & path, & .count{
-        fill: white;
-        color: white;
-      }
-    }
-    & .descr.covert{
-      display: block;
+& .media-block--new-review{
+  color: white;
+  position: relative;
+  height: @new-review-height; 
+  @media @mobile{
+    height: @new-review-height * 0.7; 
+    & .photo img{
+      height: @new-review-height * 0.7;
     }
   }
-}
-.media-block--new-review{
-  & .descr{
-    font-size: 18px;
-    line-height: 26px;
-    &.covert{
-      display: none;
+  & .category{
+    color: white;
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    margin-top: 0;
+  }  
+  & .text{
+    position: absolute;
+    left: 30px;
+    bottom: 60px;
+    z-index: 100;
+    & .descr{
+      font-size: 18px;
+      line-height: 26px;
+      &.covert{
+        display: none;
+      }
+    }
+    & .title{
+      font-size: 22px;
     }
   }
   & .statistic{
-    bottom: 0px;
+    left: 30px;
+    bottom: 33px;
+    & .count, & .stat-icon{
+      color: white;
+      fill: white;
+    }
+  }
+  & .photo{
+    border-radius: 4px;
+    overflow: hidden;
+    & img{
+      max-width: none;
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,.0) 17%, rgba(0,0,0,.2) 50%,rgba(0,0,0,.7));      
+      z-index: 10;
+    }
   }
 }
+.media-wrapper--eight{
+  & .media-block--new-review{
+    & .title{
+      font-size: 40px;
+      @media @mobile_tablet{
+        font-size: 22px;
+      }
+    }    
+  }
+}
+
 .media-wrapper--wo-image{
   & .media-block--event{
     height: @events-height;
