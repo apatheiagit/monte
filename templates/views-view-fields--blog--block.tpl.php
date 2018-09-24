@@ -26,7 +26,7 @@
 	          'style_name' => 'cyprus150x150',
 	          'path' => $bloger_photo,
 	          'alt' => $bloger_name,
-	          'attributes' => array('class' => array('img-circle', "img-responsive")),
+	          'attributes' => array('class' => array('img-rounded', "img-responsive")),
 	          'getsize' => FALSE,
 	        );
 	        print theme('image_style', $params); ?>
@@ -34,9 +34,6 @@
 		</div>	
 		<div class="title-wrap">	
 			<div class="title"><?php print str_replace("/en/en", "/en", $title)?></div>
-		</div>
-		<div class="statistic">
-			<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
 		</div>		
 	</div>
 </div>

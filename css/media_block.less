@@ -8,9 +8,10 @@
 @special-height: 475px;
 @index-height: 550px;
 @new-review-height: 435px;
-@event-height: 465px;
+@event-height: 435px;
 @events-height: 165px;
-@photo-height: 692px;
+@photo-height: 550px;
+@pop-height: 450px;
 
 .statistic{
   & .count{
@@ -534,26 +535,22 @@
     }
   }
   & .photo{
-    height: 67px;
-    width: 67px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 60px;
+    width: 60px;
     float: left;
+    padding-top: 5px;
     & img{
       transition: all 0.5s ease-in;
       filter: none;
     }
   }
   & .title{
-    font-size: 16px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    font-size: 18px;
   }
   & .title-wrap{
     height: 70px;
     position: relative;
-     margin-left: 87px;
+    margin-left: 80px;
   }
   & .statistic{
     //bottom: 0;
@@ -696,32 +693,29 @@
 
 .media-block--event{
   & .category{
-    margin-bottom: 14px;
-    & a{
-      border: 1px solid @text-color;
-      border-radius: 2px;
-      color: @text-color;
-      display: inline-block;
-      padding: 10px 14px 8px;
-      margin-right: 10px;
-      transition: all 0.3s ease-in;
-      &:hover{
-        background-color: @category-text;
-        border-color: @category-text;
-        color: white;
-        text-decoration: none;
-      } 
-    }
+    background-color: @blue;
+    padding: 7px 30px;
+    border-radius: 30px;
+    display: inline-block;
+    color:white;
+    position: absolute;
+    top: 34px;
+    left: 34px;
+    z-index: 10;
     & .date{
-      text-transform: none;
-      font-size: 14px;
-      vertical-align: middle;
-      letter-spacing: 0;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    & a{
+      display: inline-block;
+      margin-left: 5px;
     }
   }
   & .title{
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 22px;   
+  }
+  & .descr{
+    font-size: 18px;
   }
   & .statistic{
     & path, & .count{
@@ -932,7 +926,7 @@
     position: absolute;
     left: 30px;
     bottom: 60px;
-    z-index: 100;
+    z-index: 20;
     & .descr{
       font-size: 18px;
       line-height: 26px;
@@ -980,56 +974,11 @@
     }    
   }
 }
-
-.media-wrapper--wo-image{
-  & .media-block--event{
-    height: @events-height;
-    @media @large{
-      padding-left: 10px;
-      padding-right: 10px;      
-    }
-    @media @medium{
-      height: @events-height * 1.2;
-    }
-    @media @tablet{      
-      height: @events-height * 1.45;
-    }
-    & .photo{
-      display: none;
-    }
-    & .kind{
-      display: none;
-    }
-    & .statistic{
-      bottom: 0;
-    }
-    & .category{
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: @text-color;
-      & a:hover{
-        background-color: @category-text;
-        border-color: @category-text;
-        color: @event-fon;
-      } 
-    }
-    & .date{
-      @media @tablet{
-        display: block;
-        margin-top: 10px;
-      }
-    }
-    & a:hover{
-      text-decoration: none;
-      color: lighten(@text-color, 30%);
-    }
-  }
-}
 .media-wrapper--large{
   & .media-block--event{
     color: white;
     height: @event-height;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     @media @medium{
       height: @event-height * 0.78;
     }
@@ -1038,10 +987,12 @@
     }
     @media @mobile{
       height: @event-height * 0.6;
+      margin-top: 80px;
       & img{
         max-width: none;
         max-height: @event-height * 0.6;
         width: auto !important;
+        margin-left: -200px;
       }
     }
     & .photo {
@@ -1066,14 +1017,11 @@
       } 
     }
     & .title{
-      font-size: 48px;
+      font-size: 40px;
       font-weight: normal;
       max-width: 800px;
       margin-top: 0;
-      margin-bottom: 18px;
-      @media @medium{
-        font-size: 40px; 
-      }
+      margin-bottom: 6px;
       @media @tablet{
         font-size: 30px;       
       }
@@ -1085,33 +1033,6 @@
       text-decoration: none;
       color: darken(white, 10%);
     }
-    & .date{
-      color: white;
-      font-size: 18px;
-      @media @mobile_tablet{
-        font-size: 14px;
-      }
-    }
-    & .category a{ 
-      background-color: @event-fon;
-      border-color: @event-fon;
-      font-size: 12px;    
-      &:hover{
-        background-color: @category-text;
-        border-color: @category-text;
-        color: white;
-      }  
-      @media @mobile_tablet{
-        font-size: 10px;
-      }      
-    }   
-    & .descr{
-      font-size: 24px;
-      margin-bottom: 18px;
-      @media @mobile_tablet{
-        font-size: 16px;
-      }
-    }
     & .text{
       position: absolute;
       left: 30px;
@@ -1121,15 +1042,26 @@
       @media @medium{
         bottom: 70px;
       }
-      @media @mobile_tablet{
+      @media @tablet{
+        bottom: 45px;
+        left: 30px;
+      }
+      @media @mobile{
         bottom: 45px;
         left: 10px;
       }
+      & .descr{
+        max-width: 600px;
+      }
     }
     & .statistic{
-      bottom: 20px;
+      bottom: 30px;
       left: 30px;
-      @media @mobile_tablet{
+      @media @tablet{
+        bottom: 10px;
+        left: 30px;
+      }
+      @media @mobile{
         bottom: 10px;
         left: 10px;
       }
@@ -1138,35 +1070,71 @@
         color: white;
       }
     }
+    & .category{
+      @media @mobile{
+        top: 10px;
+        left: 10px;
+      }
+    }
   }
 }
-.media-wrapper--normal{
-  & .media-block--pop-place{
+
+.media-block--pop-place{
+  height: @pop-height;
+  color: white;
+  @media @mobile{
+    height: @pop-height * 0.94;
+  }
+  @media @medium{
+    height: @pop-height * 0.94; 
+    & .photo img{
+      height: @pop-height * 0.94;
+    }
+  }
+  @media @tablet{
+    height: @pop-height * 0.94; 
+    & .photo img{
+      height: @pop-height * 0.94;
+    }
+  }
+  & .statistic{
+    bottom: 30px;
+    left: 30px;
+    @media @tablet{
+      bottom: 10px;
+      left: 30px;
+    }
+    & path, & .count{
+      fill: white;
+      color: white;
+    }
+  }
+  & .category{
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    margin-top: 0;
+    font-weight: bold;
+  }  
+  & .text{
+    position: absolute;
+    left: 30px;
+    bottom: 60px;
+    z-index: 20;
     & .descr{
       font-size: 18px;
-      @media @mobile_tablet{
-        font-size: 16px;
+      line-height: 26px;
+      &.covert{
+        display: none;
       }
-    }
-    & .category{
-      font-size: 12px;
-      @media @mobile_tablet{
-        font-size: 10px;
-      }
-    }
-  }
-}
-.media-wrapper--small{
-  & .media-block--pop-place{
-    height: @review-height * 0.875;
-    @media @mobile_tablet{
-      height: @review-height * 0.94;
     }
     & .title{
-      font-size: 20px;
+      font-size: 22px;
     }
   }
 }
+
 .media-block--main-photo{
   height: @photo-height;
   color: white;
@@ -1178,7 +1146,12 @@
     height: @photo-height * 0.6;
   }
   @media @mobile{
-    height: @photo-height * 0.3;
+    height: @photo-height * 0.6;
+    & .photo img{
+      height: @photo-height * 0.6;
+      max-width: none;
+      margin-left: -150px;
+    }
   }
   & .photo{
     border-radius: 5px;
@@ -1234,21 +1207,15 @@
       font-size: 16px;
     }
   }
-  & .category{
-    font-size: 12px;
-    @media @mobile_tablet{
-      font-size: 10px;
-    }
+  & .category{    
     & a{
+      background-color: @blue;
       color: white;
-      border-radius: 2px;
       display: inline-block;
-      padding: 10px 14px 8px;
+      padding: 7px 20px;
+      border-radius: 30px;
     }
   }
-  &.media-block--entertainment .category a{ background-color: @blue; }
-  &.media-block--culture .category a{ background-color: @orange; }
-  &.media-block--cuisine .category a{ background-color: @lime; }
   & .statistic{
     margin-top: 20px;
     position: static;

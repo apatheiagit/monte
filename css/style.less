@@ -1471,7 +1471,7 @@ img.monochrome {
 }
 .border-title{
 	font-size: 24px;
-	font-family: @special-font;
+	font-weight: bold;
   line-height: 1.33;
   text-align: center;
   margin-bottom: 30px;
@@ -1481,7 +1481,7 @@ img.monochrome {
 		position: absolute;
 		height: 2px;
 		width: 40%;
-		background-color: @grey;
+		background-color: @new-grey;
 		top: 50%;
 		@media @tablet{
 			width: 30%;
@@ -1520,13 +1520,15 @@ img.monochrome {
 	}
 }
 #block-views-blog-block-blog-main{
-	& .view-header .container{
-		.wide-container-wo();
-	}
 	& .view-id-blog{
-		border-bottom: 2px solid @grey;
 		margin-bottom: 30px;
-		.wide-container();
+	}
+	& .border-bottom{
+		background-color: @new-grey;
+		height: 2px;
+		width: calc(~'100% - 30px');
+    overflow: hidden;
+    margin: 0 15px;
 	}
 }
 .region-highlighted{
@@ -1590,15 +1592,13 @@ img.monochrome {
 	}
 }
 .front .view-display-id-top3_events{
-	background-color: @event-fon;
-	border-radius: 5px;
 	margin-bottom: 30px;
 	& .index-head{
 		text-align: left;
-		margin: 30px 30px;
+		margin: 30px 0;
 		@media @tablet{
 			font-size: 20px;
-			margin: 30px 10px;
+			margin: 30px 0;
 		}
 		@media @mobile{
 			text-align: center;
@@ -1675,9 +1675,7 @@ img.monochrome {
   text-align: center;
   width: 240px;
   margin-left: -120px;
-  @media @mobile{
-  	display: none;
-  }
+
 	& .nav-btn{		
 		height: 16px;
 		width: 20px;
@@ -1685,26 +1683,60 @@ img.monochrome {
 		float: left;
 	}
 	& .start-date{
-		font-size: 20px;
+		font-size: 24px;
 		font-weight: 600;
 		line-height: 1;
 		color: @text-color;		
 		float: left;
-		width: 195px;
+		width: 194px;
 	}
-	.media-wrapper--wo-image &{
-		display: none;
+	.media-block--event &{
+		& .nav-btn{	
+			width: 23px;
+		  height: 23px;
+		  line-height: 23px;
+		  border-style: solid;
+		  border-width: 2px;
+		  border-radius: 50%;
+		  background-color: @blue;
+		  border-color: @blue;
+			& path{
+				stroke: white;				
+			}
+			& svg{
+				height: 11px;
+				width: 8px;
+				vertical-align: middle;
+				margin-top: -6px;
+			}
+		}
+		& .next-event{
+			& svg{
+				transform: rotate(180deg);
+			}
+		}
 	}
 }
 #event_0{
 	& .next-event {
 		cursor: default;
-		& rect{ fill: @footer-link;}
+		border-color: @text-color;	
+		background-color: white;
+		& path{
+				stroke: @text-color;				
+			}
 	}
 }
-#event_3{
+#event_1, #event_2, #event_3{
+	display: none;
+}
+#event_3, .last-event .media-block--event .nav-block {
 	& .prev-event {
 		cursor: default;
-		rect{ fill: @footer-link;}
-	}
+		background-color: white;
+		border-color: @text-color;
+		& path{
+				stroke: @text-color;				
+			}
+		}
 }

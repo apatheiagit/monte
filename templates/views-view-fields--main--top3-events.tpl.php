@@ -8,8 +8,7 @@
     if($id == 'field_subtitle') { $subtitle = $field->content; }
     if($id == 'totalcount') { $totalcount = $field->content; }
     if($id == 'field_when') { $when = $field->content; }
-    if($id == 'field_when_1') { $when_1 = $field->content; }
-    if($id == 'field_event_type') { $event_type = $field->content; }
+    //if($id == 'field_event_type') { $event_type = $field->content; }
  endforeach; ?>
 
 <?php 	
@@ -27,23 +26,22 @@
 ?>
 <div class="media-block media-block--event">
 	<div class="nav-block">
-		<div class="next-event nav-btn"><?php print file_get_contents($theme_path."/img/left.svg");?></div>
-		<div class="start-date"><?php print $when_1;?></div>
-		<div class="prev-event nav-btn"><?php print file_get_contents($theme_path."/img/right.svg");?></div>
+		<div class="next-event nav-btn"><?php print file_get_contents($theme_path."/img/arrow.svg");?></div>
+		<div class="start-date"><?php print $when;?></div>
+		<div class="prev-event nav-btn"><?php print file_get_contents($theme_path."/img/arrow.svg");?></div>
 	</div>
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
+	<div class="category">
+		<span class="date"><?php print $when;?></span> | <a href="<?php print $prefix;?>/events?city=<?php print $city;?>"><?php print $city_name;?></a>			
+	</div>	
 	<div class="text">	
-		<div class="category">
-			<a href="<?php print $prefix;?>/events?city=<?php print $city;?>"><?php print $city_name;?></a>
-			<span class="date"><?php print $when;?></span>
-		</div>		
 		<div class="title"><a href="<?php print $path;?>"><?php print $title?></a></div>
 		<?php if ($titleLength < 46):?>
 			<div class="descr"><a href="<?php print $path;?>"><?php print $body;?></a></div>
 		<?php endif;?>
-		<div class="kind"><?php print $event_type;?></div>
+		<!--<div class="kind"><?php /* print $event_type; */?></div>-->
 	</div>
 	<div class="statistic">
 		<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>

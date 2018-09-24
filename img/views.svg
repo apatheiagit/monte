@@ -1,6 +1,15 @@
-<svg version="1.1" id="views" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 23.7 23.6" style="enable-background:new 0 0 23.7 23.6;" xml:space="preserve">
-<path class="stat-icon" d="M12.1,2.3c-5.5,0-10,4.5-10,10c0,5.5,4.5,10,10,10c5.5,0,10-4.5,10-10C22.1,6.7,17.7,2.3,12.1,2.3z M12.1,16.3
-	c-5.5,0-8.5-4.1-8.5-4.1s3-4.1,8.5-4.1c5.5,0,8.5,4.1,8.5,4.1S17.7,16.3,12.1,16.3z M12.1,9c-1.8,0-3.3,1.5-3.3,3.3s1.5,3.3,3.3,3.3
-	s3.3-1.5,3.3-3.3S14,9,12.1,9z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="17px" viewBox="0 0 25 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-remove-red-eye-24px copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Afisha" transform="translate(-426.000000, -748.000000)">
+            <g id="ic-remove-red-eye-24px-copy" transform="translate(425.000000, 743.000000)">
+                <polygon id="Shape" points="0 0 27 0 27 27 0 27"></polygon>
+                <path d="M13.5,5.0625 C7.875,5.0625 3.07125,8.56125 1.125,13.5 C3.07125,18.43875 7.875,21.9375 13.5,21.9375 C19.125,21.9375 23.92875,18.43875 25.875,13.5 C23.92875,8.56125 19.125,5.0625 13.5,5.0625 Z M13.5,19.125 C10.395,19.125 7.875,16.605 7.875,13.5 C7.875,10.395 10.395,7.875 13.5,7.875 C16.605,7.875 19.125,10.395 19.125,13.5 C19.125,16.605 16.605,19.125 13.5,19.125 Z M13.5,10.125 C11.6325,10.125 10.125,11.6325 10.125,13.5 C10.125,15.3675 11.6325,16.875 13.5,16.875 C15.3675,16.875 16.875,15.3675 16.875,13.5 C16.875,11.6325 15.3675,10.125 13.5,10.125 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
 </svg>
