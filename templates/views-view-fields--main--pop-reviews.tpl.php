@@ -36,16 +36,12 @@
  	}
  	$titleLength = iconv_strlen($title, 'UTF-8');
 ?>
-<div class="col-sm-4 media-wrapper--normal">		
+	
 <div class="media-block media-block--review media-block--pop-review  media-block--<?php print $type;?> media-block--<?php print $english;?>">
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="text">
-		<?php if($type == 'photo'):?>
-			<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
-		<?php endif;?>
-		<div class="category">
+	<div class="category">
 		<?php if($special == 1):?>
 			<?php if(isset($specproekt_tid)):?>
 				<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>
@@ -60,6 +56,11 @@
 				<a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
 		<?php endif;?>
 		</div>		
+	<div class="text">
+		<?php if($type == 'photo'):?>
+			<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
+		<?php endif;?>
+		
 		<div class="title"><a href="<?php print $path;?>"><?php print $title?></a></div>
 		<?php if ($titleLength < 43):?>
 			<div class="descr"><a href="<?php print $path;?>"><?php print $body;?></a></div>
@@ -68,5 +69,4 @@
 	<div class="statistic">
 		<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
 	</div>
-</div>
 </div>

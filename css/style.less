@@ -1258,12 +1258,9 @@ img.monochrome {
 	}
 }
 .big-share-block{
-	background-color: @new-grey;
 	padding: 30px;
-	//margin-bottom: 30px;
 	& .title{
-		font-family: @special-font;
-	  font-size: 30px;
+	  font-size: 32px;
 	  line-height: 1.07; 
 	  margin-bottom: 10px;
 	  @media @mobile_tablet{
@@ -1277,37 +1274,94 @@ img.monochrome {
 	  }
 	}	
 	& .fa{
-		background-color: @text-color;	
-		height: 38px;
-		width: 38px;
-		margin: 17px 8px 0;
-		@media @medium{
-			margin: 17px 6px 0;
+		border-style: solid;
+		border-width: 1px;
+		border-color: @light-text;
+		border-radius: 4px;
+		color: @dark-text;
+		height: 50px;
+		width: 172px;
+		margin: 10px 25px 0 0;
+		padding: 12px 0px;
+    text-align: center;
+    &:hover{
+    	background-color: @blue;
+    	border-color: @blue;
+    	color: white;
+    	text-decoration: none;   
+    	opacity: 1; 	
+    	&:after{
+    		background-color: white;
+    	}
+    }
+		& .link-name{
+			font-size: 14px;
+		  text-transform: uppercase;
+		  
 		}
-		@media @mobile_tablet{
-			margin: 10px 5px 0 5px;
+		&:after{
+			background-color: black;
+			border-radius: 50%;
+			height: 26px;
+			width: 26px;
+			content: "";
+	    position: absolute;
+	    top: 11px;
+	    z-index: 3;
 		}
-		&.fa-facebook:before{
-			height: 24px;
-			top: 7px;
+		&:before{
+			width: 26px;
+			z-index: 4;
 		}
-		&.fa-twitter:before{
-			height: 20px;
-			top: 9px;
+		&.fa-facebook{
+			&:after{
+				left: 15px;
+			}
+			&:before{
+				height: 18px;
+				top: 15px;
+				left: 15px;
+			}
 		}
-		&.fa-telegram:before{
-			height: 20px;
-			top: 9px;
-			left: -1px;
+		&.fa-twitter{
+			&:after{
+				left: 20px;
+			}
+			&:before{
+				height: 15px;
+		    top: 15px;
+		    left: 20px;
+			}
 		}
-		&.fa-vk:before{
-			height: 16px;
-	    top: 12px;
-	    left: -1px;
+		&.fa-telegram{
+			&:after{
+				left: 15px;
+			}
+			&:before{
+				height: 15px;
+		    top: 16px;
+		    left: 14px;
+			}
+		}		
+		&.fa-vk{
+			&:after{
+				left: 15px;
+			}
+			&:before{
+				height: 12px;
+		   	top: 17px;
+    		left: 14px;
+			}
 		}
-		&.fa-tumblr:before{
-			height: 22px;
-    	top: 8px;
+		&.fa-tumblr{
+			&:after{
+				left: 23px;
+			}
+			&:before{
+				height: 18px;
+	    	top: 15px;
+    		left: 22px;
+			}
 		}
 	}
 }
@@ -1657,12 +1711,6 @@ img.monochrome {
 		margin: 0;
 	}
 }
-.view-display-id-pop_reviews{
-	background-color: @popular-fon;
-  border-radius: 5px;
-  color: white;
-  margin-bottom: 30px;
-}
 .front .share-block-container{
 	padding-left: 0;
 	padding-right: 0;
@@ -1739,4 +1787,69 @@ img.monochrome {
 				stroke: @text-color;				
 			}
 		}
+}
+.view-display-id-pop_reviews{
+  margin-bottom: 30px;
+}
+#block-block-3, #block-block-4{
+  text-align: center;
+  padding: 68px 15px 78px;
+  position: relative;
+  margin: 20px auto;
+  @media @mobile{
+  	padding: 38px 15px 48px;
+  }
+  @media (min-width: 768px){
+    width: 750px;    
+	}
+	@media (min-width: 992px){
+    width: 970px;
+	}
+	@media (min-width: 1200px){
+    width: 1170px;
+  }
+  &:before, &:after{
+  	content: "";
+    position: absolute;
+  	background-image: url(../img/quotation.svg);
+  	height: 36px;
+  	width: 54px;
+  	@media @mobile{
+  		height: 18px;
+  		width: 27px;
+  		background-size: contain;
+  	}
+  }
+  &:before{
+  	top: 0;
+  }
+  &:after{
+		transform: rotate(180deg);
+		bottom: 0;
+  }
+  & .big-quotation{
+  	font-size: 48px;
+  	font-family: @special-font;
+  	line-height: 1.42;
+  	color: #202828;
+  	margin-bottom: 20px;
+  	@media @tablet{
+  		font-size: 40px;
+  	}
+  	@media @mobile{
+  		font-size: 26px;
+  	}
+  }
+  & .big-signature{
+  	font-size: 36px;
+  	font-weight: bold;
+  	color: @blue;
+  	@media @tablet{
+  		font-size: 32px;
+  	}
+  	@media @mobile{
+  		font-size: 20px;
+  	}
+  }
+	
 }
