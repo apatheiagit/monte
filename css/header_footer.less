@@ -90,6 +90,7 @@
 				margin: 0 15px;
 				&.active-trail>a { 
 					color: @blue;
+					border-color: @blue;
 				}					
 				@media @medium{										
 					margin: 0 10px;
@@ -109,7 +110,7 @@
 					&:hover, &.hover{
 						color: @blue;
 						text-decoration: none;
-						border-color: @blue
+						border-color: @blue;
 					}
 				}					
 			}
@@ -473,38 +474,5 @@
 		text-align: center;
 		padding-top: 20px;
 		clear: both;
-	}
-}
-#menu-806, #menu-807, #menu-808,
-#menu-1158, #menu-1159, #menu-1160{
-	&.active-trail{
-		position: relative;			
-		& a{
-			border-radius: 3px;
-			background-color: @grey-fon;
-		}
-		&:before{
-			content: "";
-			position: absolute;
-			bottom: -31px;
-			left: 50%;
-			margin-left: -5px;
-			height: 10px;
-			width: 10px;
-			transform: rotate(-45deg);
-			border-color: @new-grey;
-			border-style: solid;
-			border-width: 2px 2px 0 0;
-			background-color: white;
-			z-index: 100;
-			@media @mobile_tablet{
-				display: none;
-			}
-		}
-	}
-	.fixMenu &{
-		&:before{
-			display: none;
-		}
 	}
 }

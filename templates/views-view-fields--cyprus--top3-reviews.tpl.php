@@ -21,7 +21,7 @@
  		$term_city = taxonomy_term_load($city);
  		$city_name_localize = i18n_taxonomy_localize_terms($term_city);
  		$city_name = $city_name_localize->name;
- 		if ($city == '134' && $lang == 'ru') $city_name = "Весь Кипр";
+ 		if ($city == '279' && $lang == 'ru') $city_name = "Черногория";
  	}
 	if (isset($section)){
  		$terms = taxonomy_term_load($section);
@@ -39,31 +39,34 @@
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="text">
-		<?php if($type == 'photo'):?>
-			<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
-		<?php endif;?>
-		<div class="category">
-		<?php if($special == 1):?>
-			<?php if(isset($specproekt_tid)):?>
-				<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>
-			<?php else:?>
-				<a href="<?php print $prefix;?>/special"><?php print t("Special project"); ?></a>
-			<?php endif;?>
-		<?php elseif($type == 'lifehack'):?>
-				<a href="<?php print $prefix;?>/lifehack"><?php print t("Life hack"); ?></a>
-		<?php elseif($type == 'blog'):?>
-				<a href="<?php print $prefix;?>/blog"><?php print t("Experience");?></a>
-		<?php elseif(isset($city)):?>
-				<a href="<?php print $prefix;?>/reviews/<?php print $city;?>"><?php print $city_name; ?></a>
-		<?php else:?>
-				<a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
-		<?php endif;?>
-		</div>
-		<div class="title"><?php print str_replace("/en/en", "/en", $title)?></div>
-		<div class="descr"><?php print str_replace("/en/en", "/en", $body)?></div>
-	</div>
-	<div class="statistic">
-		<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
+	<div class="container">
+		<div class="text">
+			<?php if($type == 'photo'):?>
+				<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
+			<?php endif;?>	
+			<div class="category">
+				<?php if($special == 1):?>
+					<?php if(isset($specproekt_tid)):?>
+						<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>
+					<?php else:?>
+						<a href="<?php print $prefix;?>/special"><?php print t("Special project"); ?></a>
+					<?php endif;?>
+				<?php elseif($type == 'lifehack'):?>
+						<a href="<?php print $prefix;?>/lifehack"><?php print t("Life hack"); ?></a>
+				<?php elseif($type == 'blog'):?>
+						<a href="<?php print $prefix;?>/blog"><?php print t("Experience");?></a>
+				<?php elseif(isset($city)):?>
+						<a href="<?php print $prefix;?>/reviews/<?php print $city;?>"><?php print $city_name; ?></a>
+				<?php else:?>
+						<a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
+				<?php endif;?>
+			</div>						
+			<div class="title">
+				<?php print str_replace("/en/en", "/en", $title)?>
+			</div>
+			<div class="statistic">
+				<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
+			</div>			
+		</div>		
 	</div>
 </div>

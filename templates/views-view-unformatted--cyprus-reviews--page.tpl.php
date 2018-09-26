@@ -12,12 +12,12 @@
 <?php endif; ?>
 
 <?php foreach ($rows as $id => $row): ?>
-  <?php if (($id == 3)):?>
-		<div class="col-sm-8 media-wrapper--big">
+  <?php if (($id == 0) || ($id == 9)):?>
+		<div class="col-sm-4 col-md-6 media-wrapper--half">
 			<?php print $row; ?>
 		</div>
 	<?php else:?>
-		<div class="col-sm-4 media-wrapper--normal">			
+		<div class="col-sm-4 col-md-3 media-wrapper--third">			
 	    <?php print $row; ?>
 		</div>
 	<?php endif;?>

@@ -44,6 +44,7 @@
     }
   }
   & .photo{
+    border-radius: 4px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -445,86 +446,7 @@
     }
   }
 }
-.media-block--top3review{
-  color: white;
-  & .photo {
-    position: absolute!important;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-    @media @tablet{
-      background-color: #111;
-    }
-    &:after{
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image: linear-gradient(to bottom, rgba(0,0,0,.0) 17%, rgba(0,0,0,.2) 50%,rgba(0,0,0,.7));      
-      z-index: 10;
-    }   
-  }
-  & .text{
-    position: absolute;
-    bottom: 60px;
-    left: 20px;
-    z-index: 20;
-  }
-  & .descr{
-    max-width: 600px;
-  }
-  & .title{
-    max-width: 650px;
-  }
-  & .category{
-    color: white;
-  }
-  & .statistic{
-    //bottom: 20px;
-    left: 20px;
-    & .count{
-      color: white;
-    }
-    & .stat-icon{
-      fill: white;
-    }
-  }
-}
-.media-wrapper--big{
-  & .media-block--top3review{
-    height: @top3reviews1-height; 
-    & .title{
-      font-size: 45px;
-    }
-    @media @mobile_tablet{
-      height: @top3reviews2-height;
-      & .title{
-        font-size: 20px;
-        margin-bottom: 0;
-      }
-      & .descr{
-        display: none;
-      }
-    }    
-  }
-}
-.media-wrapper--normal{
-  & .media-block--top3review{
-    height: @top3reviews2-height;
-    & .title{
-      font-size: 20px;
-      margin-bottom: 0;
-      padding-right: 20px;
-    }
-    & .descr{
-      display: none;
-    }
-  }
-}
+
 .blog-block{
   margin-bottom: 30px;
   position: relative;
@@ -556,91 +478,6 @@
     //bottom: 0;
     left: 87px;
     position: absolute;
-  }
-}
-.media-block--special{
-  color: white;
-  text-align: center;
-  height: @special-height;
-  @media @mobile{
-    height: @special-height/2;
-  }
-  & .photo {
-    position: absolute!important;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;    
-    & img{
-      max-width: none;
-      height: 100%;
-      @media @mobile{
-        transform: translateX(-30%);
-      }
-    }
-    & a{
-      height: 100%;
-        &:after{
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-image: linear-gradient(to bottom, rgba(0,0,0,.0) 17%, rgba(0,0,0,.2) 50%,rgba(0,0,0,.7));      
-        z-index: 10;
-        opacity: 0.6;
-      } 
-    }      
-  }
-  & .centred-block{
-    position: absolute;    
-    z-index: 20;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  & .title{
-    font-size: 70px;
-    @media @medium{
-      font-size: 52px;
-    }
-    @media @tablet{
-      font-size: 32px;
-    }
-    @media @mobile{
-      font-size: 24px;
-    }
-    & a:hover{
-      text-decoration: none;      
-    }
-  }
-  & .descr{
-    font-size: 28px;
-    @media @medium{
-      font-size: 24px;
-    }
-    @media @tablet{
-      font-size: 18px;
-    }
-    @media @mobile{
-      font-size: 16px;
-    }
-  }
-  & .category{
-    color: white;
-  }
-  & .statistic{
-    width: 100%;
-    position: relative;
-    margin-top: 20px;
-    & .count{
-      color: white;
-    }
-    & .stat-icon{
-      fill: white;
-    }
   }
 }
 .video-block{
@@ -724,7 +561,7 @@
     }
   }
 }
-.media-block--index{
+.media-block--index, .media-block--top3review, .media-block--special{
   height: @index-height;
   margin-bottom: 0;
   text-align: center;
@@ -801,6 +638,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 100%;
   }
   & .category{    
     color: white;
@@ -815,8 +653,15 @@
   & .title{
     margin: 10px 0 20px;
     padding: 0 170px;
-    & .big{ font-size: 55px; }
+    font-size: 48px;
+    line-height: 1.25; 
+    & .big{ 
+      font-size: 55px;
+    }
     & .small{ font-size: 36px; }
+    @media @mobile{
+      font-size: 30px;
+    }
     @media @medium{
       padding: 0 120px;
       & .big{ font-size: 48px; }
@@ -837,6 +682,9 @@
       text-decoration: none;
     }
   }
+  & .descr{
+    font-size: 18px;
+  }
   & .statistic{
     position: static;
     & path, & .count{
@@ -845,6 +693,9 @@
       font-size: 18px;
     }
   }  
+}
+.media-block--special{
+  margin-bottom: 60px;
 }
 .articles--index.owl-carousel{
   margin-bottom: 40px;
@@ -905,7 +756,7 @@
   }
   }
 }
-& .media-block--new-review{
+.media-block--new-review, .view-cyprus-reviews.view-display-id-new_reviews .media-block--review-page{
   color: white;
   position: relative;
   height: @new-review-height; 
@@ -972,6 +823,21 @@
         font-size: 22px;
       }
     }    
+  }
+}
+.view-cyprus-reviews.view-display-id-new_reviews {
+  & .media-wrapper--four{
+    & .media-block--review-page .descr{
+      display: none;
+    }
+  }
+  & .media-wrapper--eight{
+    & .media-block--review-page .title{
+      font-size: 40px;
+      @media @mobile_tablet{
+        font-size: 22px;
+      }
+    }
   }
 }
 .media-wrapper--large{
@@ -1232,7 +1098,7 @@
     }
   }
 }
-.media-block--pop-review{
+.media-block--pop-review, .media-block--review-page{
   height: @pop-review-height;
   color: white;  
   @media @mobile{
@@ -1285,6 +1151,7 @@
     left: 30px;
     margin-top: 0;
     font-weight: bold;
+    z-index: 10;
   }  
   & .text{
     position: absolute;
@@ -1292,9 +1159,8 @@
     bottom: 60px;
     max-width: 450px;
     z-index: 20;
-    @media @mobile{
       padding-right: 10px;
-    }
+    
     & .descr{
       font-size: 18px;
       line-height: 26px;

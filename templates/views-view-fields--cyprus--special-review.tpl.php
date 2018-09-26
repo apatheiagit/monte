@@ -22,7 +22,7 @@
  		$term_city = taxonomy_term_load($city);
  		$city_name_localize = i18n_taxonomy_localize_terms($term_city);
  		$city_name = $city_name_localize->name;
- 		if ($city == '134' && $lang == 'ru') $city_name = "Весь Кипр";
+ 		if ($city == '279' && $lang == 'ru') $city_name = "Черногория";
  	}
  	if (isset($section)){
  		$terms = taxonomy_term_load($section);
@@ -41,7 +41,7 @@
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="centred-block">
+	<div class="container">
 		<div class="text">
 			<?php if($type == 'photo'):?>
 				<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
@@ -64,10 +64,10 @@
 			<?php endif;?>
 			</div>
 			<div class="title"><?php print str_replace("/en/en", "/en", $title)?></div>
-			<div class="descr"><?php print str_replace("/en/en", "/en", $body)?></div>
-		</div>
-		<div class="statistic">
-			<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
-		</div>
+			<div class="descr"><?php print $body;?></div>
+			<div class="statistic">
+				<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
+			</div>
+		</div>		
 	</div>
 </div>
