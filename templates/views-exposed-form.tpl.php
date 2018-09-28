@@ -62,23 +62,8 @@
 })(jQuery);    
 </script>
 <div class="main-filter">
-  <div class="row">
-    <?php if (current_path() == 'events'):?>
-    <div class="col-sm-6 col-md-3">
-    	<div class="filter-header">    	
-    		<div class="title subtitle"><?php print t("Events in Cyprus");?>:<br> <?php print t("where to go");?></div>
-      </div>
-    </div>
-  	<?php elseif (current_path() == 'places'):?>
-      <div class="col-sm-6 col-md-3">
-        <div class="filter-header">   
-  		    <div class="title"><?php print t("Places to visit in Cyprus");?></div> 
-        </div>
-      </div>		
-  	<?php endif;?>  	
+  <div class="views-exposed-filter">  	
     <?php foreach ($widgets as $id => $widget): ?>
-      <div class="col-sm-6 col-md-3">
-
           <?php if (!empty($widget->label)): ?>
             <label for="<?php print $widget->id; ?>">
               <?php print $widget->label; ?>
@@ -89,10 +74,7 @@
               <?php print $widget->operator; ?>
             </div>
           <?php endif; ?>
-
           <?php print $widget->widget; ?>         
-
-      </div>
     <?php endforeach; ?>
     <?php if (!empty($sort_by)): ?>
       <div class="views-exposed-widget views-widget-sort-by">

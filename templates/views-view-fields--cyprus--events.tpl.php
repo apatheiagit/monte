@@ -25,22 +25,21 @@
  	}
  	$titleLength = iconv_strlen($title, 'UTF-8');
 ?>
-<div class="col-sm-6 col-md-4 media-wrapper--normal">
-<div class="media-block media-block--review media-block--event">
+<div class="media-block media-block--review media-block--review-page media-block--event">
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="text">
-		<div class="category">
-			<a href="<?php print $prefix;?>/events?city=<?php print $city;?>"><?php print $city_name;?></a>
-			<span class="date">
-				<?php if ($when_start == $when_end){
-					print $when;
-				}else{
-					print $when_start." - ".$when_end;
-				}?>
-			</span>
-		</div>		
+	<div class="category">		
+		<span class="date">
+			<?php if ($when_start == $when_end){
+				print $when;
+			}else{
+				print $when_start." - ".$when_end;
+			}?>
+		</span> | 
+		<a href="<?php print $prefix;?>/events?city=<?php print $city;?>"><?php print $city_name;?></a>		
+	</div>
+	<div class="text">				
 		<div class="title"><a href="<?php print $path;?>"><?php print $title?></a></div>
 		<?php if ($titleLength < 46):?>
 			<div class="descr"><a href="<?php print $path;?>"><?php print $body;?></a></div>
@@ -49,5 +48,4 @@
 	<div class="statistic">
 		<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
 	</div>
-</div>
 </div>

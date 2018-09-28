@@ -23,8 +23,8 @@
     vertical-align: middle;
   }
   & svg{
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     vertical-align: middle;    
   }
   & .stat-icon{
@@ -48,9 +48,6 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    @media @mobile{
-      max-width: 350px;
-    }
     & img{
       border-radius: 4px;
       transition: 0.5s all ease-in;
@@ -561,7 +558,7 @@
     }
   }
 }
-.media-block--index, .media-block--top3review, .media-block--special{
+.media-block--index, .media-block--top3review, .media-block--special, .media-wrapper--full .media-block--top3places{
   height: @index-height;
   margin-bottom: 0;
   text-align: center;
@@ -591,18 +588,18 @@
     }
   }
   @media @tablet{
-    height: @index-height * 0.65;
+    height: @index-height * 0.75;
     & img{
       max-width: none;
-      max-height: @index-height * 0.65;
+      max-height: @index-height * 0.75;
       width: auto !important;
     }
   }
   @media @mobile{
-    height: @index-height * 0.46;
+    height: @index-height * 0.7;
     & img{
       max-width: none;
-      max-height: @index-height * 0.46;
+      max-height: @index-height * 0.7;
       width: auto !important;
     }
   }
@@ -638,7 +635,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
+    width: calc(~'100% - 30px');
   }
   & .category{    
     color: white;
@@ -651,7 +648,7 @@
     }
   }
   & .title{
-    margin: 10px 0 20px;
+    margin: 10px 0;
     padding: 0 170px;
     font-size: 48px;
     line-height: 1.25; 
@@ -684,19 +681,34 @@
   }
   & .descr{
     font-size: 18px;
+    margin-bottom: 10px;
   }
   & .statistic{
     position: static;
     & path, & .count{
       fill: white;
       color: white;
-      font-size: 18px;
     }
   }  
+}
+.media-block--index{
+  & .statistic{
+    & path, & .count{
+      font-size: 18px;
+    }
+    & svg {
+      width: 22px;
+      height: 22px;
+      vertical-align: middle;
+    }
+  } 
 }
 .media-block--special{
   margin-bottom: 60px;
 }
+.media-wrapper--full .media-block--top3places{
+    margin-bottom: 30px;
+  }
 .articles--index.owl-carousel{
   margin-bottom: 40px;
   overflow: hidden;
@@ -756,14 +768,15 @@
   }
   }
 }
-.media-block--new-review, .view-cyprus-reviews.view-display-id-new_reviews .media-block--review-page{
+.media-block--new-review, .view-cyprus-reviews.view-display-id-new_reviews .media-block--review-page,
+.media-wrapper--small .media-block--top3places{
   color: white;
   position: relative;
   height: @new-review-height; 
   @media @mobile{
     height: @new-review-height * 0.7; 
     & .photo img{
-      height: @new-review-height * 0.7;
+      height: @new-review-height * 0.7 !important;
     }
   }
   & .category{
@@ -787,6 +800,9 @@
     }
     & .title{
       font-size: 22px;
+      @media @tablet{
+       font-size: 20px; 
+      }
     }
   }
   & .statistic{
@@ -814,6 +830,63 @@
       z-index: 10;
     }
   }
+}
+.view-display-id-editors_place{
+  & .view-content{
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    &:before{
+      content: "";
+      position: absolute;
+      width: 60%;
+      height: 1px;
+      background-color: @new-grey;
+      left: 20%;
+      bottom: 15px;
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: @blue;
+      left: 50%;
+      margin-left: -5px;
+      bottom: 10px;
+      border-radius: 50%;
+    }
+  }
+}
+.media-wrapper--small .media-block--top3places{
+    & .container{
+      height: 100%;
+      width: 100% !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-left: 0;
+      padding-right: 0;
+      & .descr{
+        display: none;
+      }
+      & .title{
+        position: absolute;
+        left: 30px;
+        bottom: 60px;
+        z-index: 20;
+      }
+      & .text{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+      }      
+    }
+  & .photo img{
+        height: @new-review-height;
+      }
 }
 .media-wrapper--eight{
   & .media-block--new-review{
@@ -965,6 +1038,18 @@
     height: @pop-height * 0.94; 
     & .photo img{
       height: @pop-height * 0.94;
+    }
+  }
+  & .photo{
+    &:after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,.0) 17%, rgba(0,0,0,.2) 50%,rgba(0,0,0,.7));      
+      z-index: 10;
     }
   }
   & .statistic{

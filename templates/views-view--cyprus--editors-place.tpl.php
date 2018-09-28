@@ -33,16 +33,11 @@
     <?php print $title; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-  <?php
-    $exp_block = module_invoke('views', 'block_view', '-exp-cyprus-places');
-    print render($exp_block['content']);
-  ?>
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
     </div>
   <?php endif; ?>
-
 
   <?php if ($attachment_before): ?>
     <div class="attachment attachment-before">
@@ -51,7 +46,7 @@
   <?php endif; ?>
 
   <?php if ($rows): ?>
-    <div class="view-content white-dots margin-bottom">
+    <div class="view-content media-wrapper--full">
       <?php print $rows; ?>
     </div>
   <?php elseif ($empty): ?>
@@ -86,4 +81,4 @@
     </div>
   <?php endif; ?>
 
-</div><?php /* class view */ ?>
+</div>

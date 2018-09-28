@@ -43,7 +43,7 @@
     ?>  
     </div> 
     <div class="main-info">
-      <div class="article-type"><a href="<?php print $prefix;?>/places?city=<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a></div>      
+      <div class="category"><a href="<?php print $prefix;?>/places?city=<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a></div>      
       <h1 class="main-title" id="mainTitle">
         <?php if (isset($content['field_title']['#items']['0']['value'])):?>
           <?php print $content['field_title']['#items']['0']['value']; ?>
@@ -51,12 +51,16 @@
           <?php print $title; ?>
         <?php endif;?>
       </h1>
+      <div class="statistic">
+        <div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
+      </div> 
     </div>
   </div>
   <div class="container">
-    <div class="container-bordered bordered-bottom">     
-        <div class="article-contact-block">        
-          <div class="article-contact">
+    <div >     
+      <div class="article-contact-block">
+        <div class="article-contact row">
+          <div class="col-sm-6">
             <h5 class="article-title"><?php print t("Contact Information");?></h5>
             <?php if (isset($content['field_places']['0']['#markup'])):?>
               <div class="item-row">             
@@ -67,20 +71,13 @@
             <?php if (isset($content['field_address']['#items']['0']['value'])):?>
               <div class="item-row">
                 <span class="item-label"><?php print t("Address");?>:</span>
-                <span class="item-value">
+                <span class="item-value show_map">
                    <?php 
                       foreach ($content['field_address']['#items'] as $key => $value) {
                         print $value['value']."; ";
                       }                  
-                    ?>
-                  <?php if(isset($content['field_latlng']['#items'][0])):?> <span class="show_map">(<?php print t("Show map");?>)</span><?php endif;?>
+                    ?>                  
                 </span>
-              </div>
-            <?php endif;?>
-            <?php if (isset($content['field_phone']['#items']['0']['value'])):?>
-              <div class="item-row">             
-                <span class="item-label"><?php print t("Phone");?>:</span>
-                <span class="item-value"><?php print($content['field_phone']['#items']['0']['value']);?></span>
               </div>
             <?php endif;?>
             <?php if (isset($content['field_time']['#items']['0']['value'])):?>
@@ -94,12 +91,8 @@
                   ?>
               </div>
             <?php endif;?>
-            <?php if (isset($content['field_price']['#items']['0']['value'])):?>
-              <div class="item-row"> 
-                <span class="item-label"><?php print t("Price");?>:</span>
-                <span class="item-value"><?php print ($content['field_price']['#items'][0]['value']);?></span>
-              </div>
-            <?php endif;?>
+          </div>
+          <div class="col-sm-6">
             <?php if (isset($content['field_www']['#items']['0']['value'])):?>              
               <div class="item-row">
                 <?php $newphrase = str_replace('http://', '', $content['field_www']['#items']['0']['value']);?>
@@ -113,8 +106,22 @@
                 </span>
               </div>
             <?php endif;?>
+            <?php if (isset($content['field_phone']['#items']['0']['value'])):?>
+              <div class="item-row">             
+                <span class="item-label"><?php print t("Phone");?>:</span>
+                <span class="item-value"><?php print($content['field_phone']['#items']['0']['value']);?></span>
+              </div>
+            <?php endif;?>
+            
+            <?php if (isset($content['field_price']['#items']['0']['value'])):?>
+              <div class="item-row"> 
+                <span class="item-label"><?php print t("Price");?>:</span>
+                <span class="item-value"><?php print ($content['field_price']['#items'][0]['value']);?></span>
+              </div>
+            <?php endif;?>
           </div>
-        </div>    
+        </div>        
+      </div>    
       <div class="article-detail-block ">
         <div class="article-text bordered-top">
         <?php print($content['body']['#items'][0]['value']);?>

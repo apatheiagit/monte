@@ -43,29 +43,34 @@
     ?>  
     </div> 
     <div class="main-info">
-      <div class="article-type">
+      <div class="category">
+        <span class="date">
+        <?php 
+            print format_date(strtotime($content['field_when']['#items'][0]['value']), 'short_event'); 
+            if ($content['field_when']['#items'][0]['value2'] != $content['field_when']['#items'][0]['value']){
+              print " - ";
+              print format_date(strtotime($content['field_when']['#items'][0]['value2']), 'short_event');
+         } ?>         
+        </span> |
       <?php if (isset($content['field_city']['#items'][0]['taxonomy_term']->tid)):?>
         <a href="/events?city=<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a>
       <?php else:?>
         <a href="/events"><?php print t("All Cyprus") ?></a>
       <?php endif;?>
       </div>
-      <div class="article-date">
-        <?php 
-            print format_date(strtotime($content['field_when']['#items'][0]['value']), 'long_event'); 
-            if ($content['field_when']['#items'][0]['value2'] != $content['field_when']['#items'][0]['value']){
-              print " - ";
-              print format_date(strtotime($content['field_when']['#items'][0]['value2']), 'long_event');
-         } ?>         
-      </div>
+      
       <h1 class="main-title"><?php print $title; ?></h1>
+      <div class="statistic">
+        <div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
+      </div>
     </div>
   </div>
   <div class="container">
-    <div class="container-bordered bordered-bottom">
+    <div class="">
         <div class="article-contact-block">        
-          <div class="article-contact">
+          <div class="article-contact row">
             <h5 class="article-title"><?php print t("Contact Information");?></h5>
+          <div class="col-sm-6">            
             <?php if (isset($content['field_places']['0']['#markup'])):?>
               <div class="item-row">             
                 <span class="item-label"><?php print t("Where");?>:</span>
@@ -96,19 +101,13 @@
             <?php elseif (isset($content['field_places']['0']['#item'])):?>
               <div class="item-row">
                 <span class="item-label"><?php print t("Address");?>:</span>
-                <span class="item-value">
+                <span class="item-value show_map">
                 <?php 
                   foreach($content['field_places']['#items'] as $places){
                     print $places['entity']->field_address['und'][0]['value']."; ";
                   } 
-                ?><span class='show_map'>(<?php print t("Show map");?>)</span>               
+                ?>               
                 </span>
-              </div>
-            <?php endif;?>
-            <?php if (isset($content['field_phone']['#items']['0']['value'])):?>
-              <div class="item-row">             
-                <span class="item-label"><?php print t("Phone");?>:</span>
-                <span class="item-value"><?php print($content['field_phone']['#items']['0']['value']);?></span>
               </div>
             <?php endif;?>
             <?php if (isset($content['field_time']['#items']['0']['value'])):?>
@@ -117,12 +116,8 @@
                 <span class="item-value"><?php print ($content['field_time']['#items'][0]['value']);?></span>
               </div>
             <?php endif;?>
-            <?php if (isset($content['field_price']['#items']['0']['value'])):?>
-              <div class="item-row"> 
-                <span class="item-label"><?php print t("Price");?>:</span>
-                <span class="item-value"><?php print ($content['field_price']['#items'][0]['value']);?></span>
-              </div>
-            <?php endif;?>
+          </div>
+          <div class="col-sm-6">
             <?php if (isset($content['field_www']['#items']['0']['value'])):?>
               <div class="item-row">
                 <?php $newphrase = str_replace('http://', '', $content['field_www']['#items']['0']['value']);?>
@@ -136,6 +131,19 @@
                 </span>
               </div>
             <?php endif;?>
+            <?php if (isset($content['field_phone']['#items']['0']['value'])):?>
+              <div class="item-row">             
+                <span class="item-label"><?php print t("Phone");?>:</span>
+                <span class="item-value"><?php print($content['field_phone']['#items']['0']['value']);?></span>
+              </div>
+            <?php endif;?>            
+            <?php if (isset($content['field_price']['#items']['0']['value'])):?>
+              <div class="item-row"> 
+                <span class="item-label"><?php print t("Price");?>:</span>
+                <span class="item-value"><?php print ($content['field_price']['#items'][0]['value']);?></span>
+              </div>
+            <?php endif;?>            
+          </div>
          </div>
         </div>    
       <div class="article-detail-block ">

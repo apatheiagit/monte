@@ -159,8 +159,8 @@ function cyprus_new_form_alter(&$form, &$form_state, $form_id) {
      $form['#id'] == 'views-exposed-form-cyprus-events') {
     foreach ($form['city']['#options'] as $key => &$option) {
       if ($key == 'All') {
-        if ($lang == 'ru'){ $option = 'Весь Кипр';}
-        else{ $option = 'All Cyprus'; }
+        if ($lang == 'ru'){ $option = 'Вся Черногория';}
+        else{ $option = 'All Montenegro'; }
       }      
     }
     foreach ($form['section']['#options'] as $key => &$option) {

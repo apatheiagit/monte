@@ -566,44 +566,26 @@ html.js fieldset.collapsed{
 	}
 }
 .main-filter{
-	padding-top: 30px;
-	padding-bottom: 30px;
-	border-bottom: 1px solid @grey-fon;
-	.page-places.i18n-en &{
-		& .filter-header{
-			& .title{
-				margin-top: 10px;
-			}
-		}
-	}
-	& .filter-header{
-		& .title{
-			font-size: 20px;
-			font-weight: 600;
-			line-height: 1.1;
-		}
-		& .small-title{
-			font-size: 18px;
-			font-weight: 600;
-			line-height: 1.2;
-		}
-		& .subtitle{
-			font-size: 16px;
-			line-height: 1.2;
-		}
-	}
+	padding-top: 20px;
+	padding-bottom: 50px;
+	min-height: 59px;
+	vertical-align: middle;
+    line-height: 59px;
 	& .dropdown-toggle:focus, & input:focus, 
 	& .dropdown-menu li:focus, & .dropdown-menu a:focus{
     outline: none !important;
     outline-offset: 0px;
 	}
+	& #edit-between-date-filter-value-wrapper{
+		width: 190px;
+    display: inline-block;
+	}
 	& .form-item {
     margin: 0 0;
-    width: 265px;
-    float: right;
-    text-align: right;
+    width: 190px;
+    display: inline-block;
     @media @mobile{
-    	float: none;
+    	display: block;
     	& .form-select, & .form-type-textfield{
 	    	margin: 5px 0;
 	    }
@@ -611,6 +593,14 @@ html.js fieldset.collapsed{
     & .date-padding{
     	float: none;
     }
+	}
+	& .form-item-section{
+		margin-left: -5px;
+		@media @mobile{ margin-left: 0; }
+	}
+	& .form-item-category{
+		margin-left: -6px;
+		@media @mobile{ margin-left: 0; }
 	}
 	& .filter-control{
 		&--apply{
@@ -634,9 +624,11 @@ html.js fieldset.collapsed{
 	}
 	& .btn-default{
 		border-color: @grey-fon;
-		font-size: 16px;
-		height: 44px;	
-		transition: all 0.5s linear;	
+		font-size: 15px;
+		height: 59px;	
+		transition: all 0.5s linear;
+		padding: 6px 18px;
+		color: @text-color;	
 	}
 	& .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){
 		width: 100%;
@@ -651,26 +643,27 @@ html.js fieldset.collapsed{
 			border-width: 1px;
 			border-style: solid;
 			cursor: pointer;
-			font-size: 16px;
+			font-size: 14px;
 			margin-right: 0px;
-			height: 44px;
-			line-height: 44px;
-			padding: 6px 12px;
+			height: 59px;
+			line-height: 59px;
+			padding: 6px 18px;
 			transition: all 0.5s linear;
 		}
 	}
 	& .btn-default:focus, & .btn-default.focus,
 	& .open>.dropdown-toggle.btn-default, & .btn-default:hover,
 	& .form-item-when-value-date input:hover {
-	  	background-color: white !important;
-	  	border-color: @grey-fon;
+	  	background-color: @blue !important;
+	  	border-color: @blue;
+	  	color: white;
+	  	& .caret{ 
+				color: white;				
+			}
 	}
 	& .caret{ 
-		background: url(../img/bg-select.png) no-repeat 0px 0px;
-		border: none;
-		margin-top: -3px !important;
-		height: 8px;
-		width: 16px;
+		color: @blue;
+		right: 18px !important;
 	}
 	& .butn{
 		padding: 7px 14px;
