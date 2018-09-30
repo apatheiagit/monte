@@ -567,10 +567,14 @@ html.js fieldset.collapsed{
 }
 .main-filter{
 	padding-top: 20px;
-	padding-bottom: 50px;
-	min-height: 59px;
+	padding-bottom: 40px;
+	min-height: 60px;
 	vertical-align: middle;
-    line-height: 59px;
+  & .views-exposed-filter{
+  	min-height: 60px;
+  	max-width: 574px;
+  	margin: 0 auto;
+  }
 	& .dropdown-toggle:focus, & input:focus, 
 	& .dropdown-menu li:focus, & .dropdown-menu a:focus{
     outline: none !important;
@@ -578,14 +582,15 @@ html.js fieldset.collapsed{
 	}
 	& #edit-between-date-filter-value-wrapper{
 		width: 190px;
-    display: inline-block;
+    margin-left: -1px;
+    float: left;
+		@media @mobile{ margin-left: 0; }
 	}
 	& .form-item {
     margin: 0 0;
     width: 190px;
-    display: inline-block;
-    @media @mobile{
-    	display: block;
+    float: left;
+    @media @mobile{    	
     	& .form-select, & .form-type-textfield{
 	    	margin: 5px 0;
 	    }
@@ -594,12 +599,12 @@ html.js fieldset.collapsed{
     	float: none;
     }
 	}
-	& .form-item-section{
-		margin-left: -5px;
+	& .form-item-section, & .form-item-type{
+		margin-left: -1px;
 		@media @mobile{ margin-left: 0; }
 	}
 	& .form-item-category{
-		margin-left: -6px;
+		margin-left: -1px;
 		@media @mobile{ margin-left: 0; }
 	}
 	& .filter-control{
@@ -638,7 +643,8 @@ html.js fieldset.collapsed{
 	}
 	& .form-item-when-value-date{
 		& input{
-			background: url(../img/bg-select.png) no-repeat 235px 18px white;
+			background: url(../img/calendar.svg) no-repeat 148px 16px white;
+			background-size: 24px;
 			border-color: @grey-fon;
 			border-width: 1px;
 			border-style: solid;
@@ -813,15 +819,15 @@ html.js fieldset.collapsed{
 	background-color: white;	
 	overflow: hidden;	
 	margin-bottom: 30px;
-	padding-top: 2px;
 	text-align: center;
 	clear: both;
 	& .inside-container{
-		border-top: solid 2px @new-grey;
-		padding-top: 15px;
-		padding-bottom: 15px;
-		min-height: 50px;
-		margin-top: -2px;	
+		border-top: solid 1px #e3e3e3;
+    border-bottom: solid 1px #e3e3e3;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    min-height: 55px;
+    text-align: center;
 	}
 	& .title{
 		display: inline-block;
@@ -841,9 +847,8 @@ html.js fieldset.collapsed{
 		color: @middle-text;
 		cursor: pointer;
 		display: inline-block;
-		font-size: 12px;
+		font-size: 15px;
 		margin-right: 10px;
-		text-transform: uppercase;
 		vertical-align: middle;
 		@media @mobile_tablet{
 			font-size: 11px;

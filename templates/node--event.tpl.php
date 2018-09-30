@@ -69,7 +69,7 @@
     <div class="">
         <div class="article-contact-block">        
           <div class="article-contact row">
-            <h5 class="article-title"><?php print t("Contact Information");?></h5>
+          <div class="col-sm-12"><h5 class="article-title"><?php print t("Contact Information");?></h5></div>
           <div class="col-sm-6">            
             <?php if (isset($content['field_places']['0']['#markup'])):?>
               <div class="item-row">             
@@ -89,13 +89,12 @@
             <?php if (isset($content['field_address']['#items']['0']['value'])):?>
               <div class="item-row">
                 <span class="item-label"><?php print t("Address");?>:</span>
-                <span class="item-value">
+                <span class="item-value show_map">
                 <?php 
                   foreach ($content['field_address']['#items'] as $key => $value) {
                     print $value['value']."; ";
                   }                  
                 ?>
-                  <?php if(isset($content['field_latlng']['#items'][0])):?> <span class="show_map">(<?php print t("Show map");?>)</span><?php endif;?>
                 </span>
               </div>
             <?php elseif (isset($content['field_places']['0']['#item'])):?>
@@ -275,9 +274,9 @@
 </div>
 <?php 
   /* Популярные события в Афише */
-  print views_embed_view('cyprus', 'top_events');  
+  //print views_embed_view('cyprus', 'top_events');  
   /* Популярные места в том же городе */
-  print views_embed_view('cyprus', 'top_places');
+  //print views_embed_view('cyprus', 'top_places');
   /* Популярные обзоры из того же раздела */
-  print views_embed_view('cyprus', 'top_reviews');
+  //print views_embed_view('cyprus', 'top_reviews');
 ?>

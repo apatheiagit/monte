@@ -61,7 +61,7 @@
       <div class="article-contact-block">
         <div class="article-contact row">
           <div class="col-sm-6">
-            <h5 class="article-title"><?php print t("Contact Information");?></h5>
+            <div class="col-sm-12"><h5 class="article-title"><?php print t("Contact Information");?></h5></div>
             <?php if (isset($content['field_places']['0']['#markup'])):?>
               <div class="item-row">             
                 <span class="item-label"><?php print t("Where");?>:</span>

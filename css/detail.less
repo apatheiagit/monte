@@ -476,7 +476,7 @@
 		color: @white;
 		position: absolute;
 		height: 100%;
-		width: 100%;
+		width: calc(~'100% - 30px');
 		& .category{
 			position: absolute;
 			top: 40px;
@@ -489,6 +489,10 @@
 	    position: absolute;
 	    z-index: 10;
 	    font-size: 14px;
+	    @media @mobile{
+	    	top: 20px;
+				left: 20px;
+	    }
 	    & .date {
 		    display: inline-block;
 		    margin-right: 5px;
@@ -500,8 +504,12 @@
 		}
 		& .statistic{
 			position: absolute;
-			bottom: 50px;
+			bottom: 50px;			
 			left: 60px;
+			@media @mobile{
+	    	bottom: 20px;
+				left: 20px;
+	    }
 	    & path, & .count{
 	      fill: white;
 	      color: white;
@@ -517,6 +525,10 @@
 			@media @mobile_tablet{
 				font-size: 25px;
 			}
+			@media @mobile{
+	    	bottom: 33px;
+				left: 20px;
+	    }
 		}
 		& .article-date{
 			font-size: 24px;
@@ -985,6 +997,9 @@
 	    line-height: 1.2;
 	    margin-left: 10px;
 	    vertical-align: middle;
+	    @media @mobile{
+	    	font-size: 14px;
+	    }
 	  }
 	  & path{
 	  	fill: @light-text;
@@ -993,6 +1008,10 @@
 	    width: 30px;
 	    height: 30px;
 	    vertical-align: middle;    
+	    @media @mobile{
+	    	width: 16px;
+	    	height: 16px;
+	    }
 	  }
 	  & .stat-icon{
 	    fill: black;

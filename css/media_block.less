@@ -536,6 +536,14 @@
     top: 34px;
     left: 34px;
     z-index: 10;
+    @media @medium{
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+    @media @tablet{
+      padding: 7px 10px;
+      font-size: 12px;
+    }
     & .date{
       display: inline-block;
       margin-right: 5px;
@@ -709,9 +717,12 @@
 .media-wrapper--full .media-block--top3places{
     margin-bottom: 30px;
   }
-.articles--index.owl-carousel{
+.articles--index.owl-carousel, .affiche-carousel.owl-carousel{
   margin-bottom: 40px;
   overflow: hidden;
+  @media @mobile{
+    margin-bottom: 20px;
+  }
   & .owl-controls{
     position: absolute;
     top: 50%;
@@ -1014,6 +1025,65 @@
       @media @mobile{
         top: 10px;
         left: 10px;
+      }
+    }
+  }
+  .affiche-carousel & .media-block--event{
+    height: @index-height;
+    @media @medium{
+      height: @index-height * 0.83;
+      & img{
+        max-width: none;
+        max-height: @index-height * 0.83;
+        width: auto !important;
+      }
+    }
+    @media @tablet{
+      height: @index-height * 0.75;
+      & img{
+        max-width: none;
+        max-height: @index-height * 0.75;
+        width: auto !important;
+      }
+    }
+    @media @mobile{
+      height: @index-height * 0.7;
+      margin-top: 20px;
+      & img{
+        max-width: none;
+        max-height: @index-height * 0.7;
+        width: auto !important;
+      }
+    }
+    
+    & .statistic, & .category, & .text{
+      left: 43px;
+    }
+    & .text{
+      @media @tablet{
+        bottom: 70px;
+      }      
+    }
+    & .title{
+      font-size: 48px;
+      @media @tablet{
+        font-size: 38px;
+      }
+      @media @mobile{
+        font-size: 30px;
+      }
+    }
+    & .statistic{ 
+      bottom: 43px;
+      @media @mobile{
+        bottom: 23px;
+      }
+      & svg {
+        width: 22px;
+        height: 22px;
+      }
+      & .count{
+        font-size: 18px;
       }
     }
   }

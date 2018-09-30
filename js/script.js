@@ -129,7 +129,10 @@ Drupal.behaviors.my_custom_behavior = {
 		  $('.affiche-carousel').owlCarousel({
 		    items: 1,
 		    loop: true,
-		    dots: true,
+		    dots: false,		   
+		    nav: true,
+		    animateOut: 'fadeOut',
+    		animateIn: 'fadeIn',
 		    onInitialize: function (event) {
 	        if ($('.affiche-carousel .article-item').size() <= 1) {
 	           this.settings.loop = false;
@@ -233,7 +236,7 @@ Drupal.behaviors.my_custom_behavior = {
 					let lang = document.documentElement.lang;
 					current_link = $(this).attr('id');
 					$('.link-tooltip').remove();
-					if ((url.indexOf('//cyprusfortravellers') !== -1) || (url.charAt(0) == '/')){
+					if ((url.indexOf('//montenegrofortravellers') !== -1) || (url.charAt(0) == '/')){
 						getURLcontent(url, current_link, lang);
 					}	
 				}			

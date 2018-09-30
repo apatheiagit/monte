@@ -31,11 +31,11 @@
 	</div>	
 	<div class="category">		
 		<span class="date">
-			<?php if ($when_start == $when_end){
+			<?php print $when; /*if ($when_start == $when_end){
 				print $when;
 			}else{
 				print $when_start." - ".$when_end;
-			}?>
+			} */?>
 		</span> | 
 		<a href="<?php print $prefix;?>/events?city=<?php print $city;?>"><?php print $city_name;?></a>		
 	</div>

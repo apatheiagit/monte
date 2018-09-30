@@ -8,7 +8,9 @@
  */
 ?>
 <?php if (!empty($title)): ?>
-  <h3><?php print $title; ?></h3>
+	<div class="clearfix"></div>
+	<div class="col-sm-12"><h3 class="index-head"><?php print $title; ?></h3></div>
+  
 <?php endif; ?>
 
 <?php foreach ($rows as $id => $row): ?>
