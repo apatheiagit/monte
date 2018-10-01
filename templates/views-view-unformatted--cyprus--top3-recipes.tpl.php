@@ -10,11 +10,15 @@
 <?php if (!empty($title)): ?>
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
-
+<div class="row">
 <?php foreach ($rows as $id => $row): ?>
-  <?php if (($id == 0) || ($id == 9)):?>
-		<div class="col-sm-4 col-md-6 media-wrapper--half">
+  <?php if (($id == 0)):?>
+		<div class="col-md-12 media-wrapper--full">
 			<?php print $row; ?>
+		</div>
+	<?php elseif($id == 1):?>
+		<div class="col-sm-4 col-md-6 media-wrapper--half">			
+	    <?php print $row; ?>
 		</div>
 	<?php else:?>
 		<div class="col-sm-4 col-md-3 media-wrapper--third">			
@@ -22,3 +26,4 @@
 		</div>
 	<?php endif;?>
 <?php endforeach; ?>
+</div>

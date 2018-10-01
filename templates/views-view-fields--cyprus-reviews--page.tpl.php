@@ -11,6 +11,7 @@
     if($id == 'field_special') { $special = $field->content; }
     if($id == 'field_type') { $type = $field->content; }
     if($id == 'field_rubtic') { $rubric = $field->content; }
+    if($id == 'field_category_recipe') { $category = $field->content; }
     if($id == 'field_specproekt') { $specproekt_tid = $field->content; }
  endforeach; ?>
 <?php 	
@@ -51,6 +52,7 @@
 		<?php print $image;?>
 	</div>	
 	<div class="category">
+		<?php if(isset($category)) print $category; ?>
 		<?php if($special == 1):?>
 			<?php if(isset($specproekt_tid)):?>
 				<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>

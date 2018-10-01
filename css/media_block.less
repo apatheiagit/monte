@@ -102,73 +102,8 @@
 }
 
 .media-block--recipe{
-  background-color: white;  
-  height: @recipe-height;  
+}
 
-  & .text {
-    padding: 10px 20px 20px 20px;
-  }
-  & .statistic{   
-    left: 20px;
-    //bottom: 20px;    
-  }
-}
-.media-block--fon{
-  color: white;
-  padding-top: 200px;
-  & .photo {
-    position: absolute!important;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-    @media @mobile{
-      max-width: 617px;
-    }
-    &:hover{
-      & img{
-        transform: translateX(-30%) scale(1.1);
-        @media @mobile{ 
-          transform: none;
-        } 
-      }
-    }
-    & img{
-      max-width: none;
-      height: 100%;
-      transform: translateX(-30%);
-      @media @mobile{ 
-        transform: none;
-      }       
-    }
-    &:after{
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image: linear-gradient(to bottom, rgba(0,0,0,.0) 17%, rgba(0,0,0,.2) 50%,rgba(0,0,0,.7));      
-      z-index: 10;
-    }   
-  }
-  & .text{
-    position: relative;
-    z-index: 10;
-  }
-  & .category{
-    color: white;
-  }
-  & .statistic{
-    & .count{
-      color: white;
-    }
-    & .stat-icon{
-      fill: white;
-    }
-  }
-}
 .media-block--review{
   height: @review-height;
   @media @medium{
@@ -648,7 +583,7 @@
   & .category{    
     color: white;
     font-weight: normal;
-    & a{
+    & a, & span{
       background-color: @blue;
       display: inline-block;
       padding: 7px 20px;
@@ -780,7 +715,8 @@
   }
 }
 .media-block--new-review, .view-cyprus-reviews.view-display-id-new_reviews .media-block--review-page,
-.media-wrapper--small .media-block--top3places{
+.media-wrapper--small .media-block--top3places, .media-wrapper--half .media-block--top3places,
+.media-wrapper--third .media-block--top3places{
   color: white;
   position: relative;
   height: @new-review-height; 
@@ -842,7 +778,8 @@
     }
   }
 }
-.view-display-id-editors_place{
+.view-display-id-editors_place,
+.view-display-id-editors_recipe{
   & .view-content{
     padding-bottom: 40px;
     margin-bottom: 40px;
@@ -869,7 +806,9 @@
     }
   }
 }
-.media-wrapper--small .media-block--top3places{
+.media-wrapper--small .media-block--top3places,
+.media-wrapper--half .media-block--top3places,
+.media-wrapper--third .media-block--top3places{
     & .container{
       height: 100%;
       width: 100% !important;
@@ -886,6 +825,7 @@
         left: 30px;
         bottom: 60px;
         z-index: 20;
+        padding-right: 10px;
       }
       & .text{
         position: relative;
@@ -898,6 +838,23 @@
   & .photo img{
         height: @new-review-height;
       }
+}
+.media-wrapper--half .media-block--top3places{
+  & .container {
+    & .descr{
+      display: block;
+    }
+    & .title{      
+      position: static;
+    }
+    & .title-descr{
+      position: absolute;
+      bottom: 60px;
+      left: 30px;
+      z-index: 20;
+      padding-right: 10px;
+    }
+  }
 }
 .media-wrapper--eight{
   & .media-block--new-review{
@@ -1088,7 +1045,6 @@
     }
   }
 }
-
 .media-block--pop-place{
   height: @pop-height;
   color: white;
@@ -1250,6 +1206,27 @@
     & path, & .count{
       fill: white;
       color: white;
+    }
+  }
+}
+.media-block--top3recipes{
+  & .category{ 
+    font-weight: normal;   
+    background-color: @blue;
+    color: white;
+    display: inline-block;
+    padding: 7px 20px;
+    border-radius: 30px;
+    min-width: 170px;
+    text-align: center;
+  }
+  & .statistic{       
+    & svg {
+      width: 22px;
+      height: 22px;
+    }
+    & .count{
+      font-size: 18px;
     }
   }
 }

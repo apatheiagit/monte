@@ -27,23 +27,18 @@
  * @ingroup views_templates
  */
 ?>
-<div class="<?php print $classes; ?> ">
+<div class="<?php print $classes; ?>">
   <?php print render($title_prefix); ?>
   <?php if ($title): ?>
     <?php print $title; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-  <?php
-    $exp_block = module_invoke('views', 'block_view', '-exp-cyprus-recipes');
-    print render($exp_block['content']);
-  ?>
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
     </div>
   <?php endif; ?>
 
-  
   <?php if ($attachment_before): ?>
     <div class="attachment attachment-before">
       <?php print $attachment_before; ?>
@@ -51,11 +46,9 @@
   <?php endif; ?>
 
   <?php if ($rows): ?>
-
-    <div class="view-content wide-container ">
-        <?php print $rows; ?>
+    <div class="view-content media-wrapper--full">
+      <?php print $rows; ?>
     </div>
-
   <?php elseif ($empty): ?>
     <div class="view-empty">
       <?php print $empty; ?>
@@ -63,9 +56,7 @@
   <?php endif; ?>
 
   <?php if ($pager): ?>
-    <div class="wide-container container">
-      <?php print $pager; ?>
-    </div>
+    <?php print $pager; ?>
   <?php endif; ?>
 
   <?php if ($attachment_after): ?>
@@ -89,4 +80,5 @@
       <?php print $feed_icon; ?>
     </div>
   <?php endif; ?>
-</div><?php /* class view */ ?>
+
+</div>

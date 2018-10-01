@@ -21,29 +21,28 @@
 ?>
 
 <div class="recipe-filter">
-  <div class="container">
-   <div class="inside-container">
-    <div class="title"><?php print t("recipes");?></div>
+  <div class="">
+   <div class="inside-container">    
     <div class="item" value="125">
-     <span class="text"><?php print t("soups");?></span>
+     <span class="text"><?php print t("Soups");?></span>
     </div>
     <div class="item" value="126">
-     <span class="text"><?php print t("meat dishes");?></span>
+     <span class="text"><?php print t("Meat dishes");?></span>
     </div>
     <div class="item" value="127">
-     <span class="text"><?php print t("seafood");?></span>
+     <span class="text"><?php print t("Seafood");?></span>
     </div>
     <div class="item" value="128">
-     <span class="text"><?php print t("snacks");?></span>
+     <span class="text"><?php print t("Snacks");?></span>
     </div>
     <div class="item" value="129">
-     <span class="text"><?php print t("salads");?></span>
+     <span class="text"><?php print t("Salads");?></span>
     </div>
     <div class="item" value="130">
-     <span class="text"><?php print t("desserts");?></span>
+     <span class="text"><?php print t("Desserts");?></span>
     </div>
     <div class="item" value="131">
-     <span class="text"><?php print t("drinks");?></span>
+     <span class="text"><?php print t("Drinks");?></span>
    </div> 
   </div>
 </div>
