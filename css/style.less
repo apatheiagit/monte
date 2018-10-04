@@ -821,6 +821,9 @@ html.js fieldset.collapsed{
 	margin-bottom: 50px;
 	text-align: center;
 	clear: both;
+	@media @mobile{
+		margin-bottom: 20px;
+	}
 	& .inside-container{
 		border-top: solid 1px #e3e3e3;
     border-bottom: solid 1px #e3e3e3;
@@ -839,9 +842,6 @@ html.js fieldset.collapsed{
 		margin-right: 10px;
 		text-transform: uppercase;
 		vertical-align: middle;
-		@media @mobile_tablet{
-			font-size: 11px;
-		}
 	}
 	& .item{
 		color: @middle-text;
@@ -851,7 +851,6 @@ html.js fieldset.collapsed{
 		margin-right: 10px;
 		vertical-align: middle;
 		@media @mobile_tablet{
-			font-size: 11px;
 			margin-right: 0px;
 		}
 		@media @mobile{

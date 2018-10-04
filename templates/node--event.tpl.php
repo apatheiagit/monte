@@ -13,7 +13,7 @@
     <?php
       if ($content['field_cut_photo']['#items']['0']['value'] == 'top'){
         $params = array(
-          'style_name' => 'cyprus1140x440top',
+          'style_name' => 'monte1140x550top',
           'path' => $content['field_main_img']['#items']['0']['uri'],
           'alt' => $title,
           'title' => $title,
@@ -22,7 +22,7 @@
         );
       }elseif($content['field_cut_photo']['#items']['0']['value'] == 'bottom'){
         $params = array(
-          'style_name' => 'cyprus1140x440bottom',
+          'style_name' => 'monte1140x550bottom',
           'path' => $content['field_main_img']['#items']['0']['uri'],
           'alt' => $title,
           'title' => $title,
@@ -31,7 +31,7 @@
         );
       }else{
         $params = array(
-          'style_name' => 'cyprus1140x440',
+          'style_name' => 'monte1140x550',
           'path' => $content['field_main_img']['#items']['0']['uri'],
           'alt' => $title,
           'title' => $title,
@@ -66,11 +66,11 @@
     </div>
   </div>
   <div class="container">
-    <div class="">
-        <div class="article-contact-block">        
-          <div class="article-contact row">
-          <div class="col-sm-12"><h5 class="article-title"><?php print t("Contact Information");?></h5></div>
-          <div class="col-sm-6">            
+    <div class="row">
+      <div class="article-contact-block">        
+        <div class="article-contact">
+          <div class="col-md-8 col-md-offset-2"><h5 class="article-title"><?php print t("Contact Information");?></h5></div>
+          <div class="col-sm-6 col-md-4 col-md-offset-2">            
             <?php if (isset($content['field_places']['0']['#markup'])):?>
               <div class="item-row">             
                 <span class="item-label"><?php print t("Where");?>:</span>
@@ -116,7 +116,7 @@
               </div>
             <?php endif;?>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 col-md-4">
             <?php if (isset($content['field_www']['#items']['0']['value'])):?>
               <div class="item-row">
                 <?php $newphrase = str_replace('http://', '', $content['field_www']['#items']['0']['value']);?>
@@ -143,13 +143,15 @@
               </div>
             <?php endif;?>            
           </div>
-         </div>
-        </div>    
-      <div class="article-detail-block ">
+        </div>
+        <div class="clearfix "></div> 
+      </div>    
+      <div class="article-detail-block col-md-8 col-md-offset-2">
         <div class="article-text bordered-top">
         <?php print($content['body']['#items'][0]['value']);?>
         </div>
       </div> 
+      <div class="clearfix "></div>  
   </div>
   <div class="map-wrapper">
     <div id="map_canvas" class="map-container"></div>
@@ -246,7 +248,8 @@
 </div>
 <?php /* Поделитесь с друзьями */?>
 <?php $current_url = url(current_path(), array('absolute' => TRUE)); $current_title = drupal_get_title();?>
-<div class="wide-container container detail-share-block">  
+<div class="container"> 
+  <div class="detail-share-block">  
   <div class="title"><?php print t("Share with friends");?></div>       
   <div class="share-links">         
     <a href="http://www.facebook.com/sharer.php?src=sp&amp;u=<?php print urlencode($current_url);?>" class="fa fa-facebook" target="_blank">
@@ -271,6 +274,7 @@
      })
   })(jQuery);    
   </script>
+</div>
 </div>
 <?php 
   /* Популярные события в Афише */
