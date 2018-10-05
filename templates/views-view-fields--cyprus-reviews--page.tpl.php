@@ -40,6 +40,11 @@
  		$specproekt_name_localize = i18n_taxonomy_localize_terms($specproekt_term);
  		$specproekt = $specproekt_name_localize->name;	
  	}
+ 	if (isset($category)){
+ 		$term_category = taxonomy_term_load($category);
+		$category_name_localize = i18n_taxonomy_localize_terms($term_category);
+		$category_name = $category_name_localize->name;
+	}
  	$titleLength = iconv_strlen($title, 'UTF-8');
 ?>
 <div class="media-block media-block--review media-block--review-page <?php if(isset($rubric_type)):?>media-block--rubric<?endif;?> media-block--<?php print $type;?> media-block--<?php print $english;?>">
@@ -52,7 +57,9 @@
 		<?php print $image;?>
 	</div>	
 	<div class="category">
-		<?php if(isset($category)) print $category; ?>
+		<?php if(isset($category)):?>
+			<a href="<?php print $prefix;?>/recipes?category_recipe=<?php print $category;?>"><?php print $category_name;?></a>
+		<?php endif;?>
 		<?php if($special == 1):?>
 			<?php if(isset($specproekt_tid)):?>
 				<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>
@@ -66,7 +73,7 @@
 		<?php else:?>
 				<a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
 		<?php endif;?>
-		</div>		
+	</div>		
 	<div class="text">
 		<?php if($type == 'photo'):?>
 			<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>

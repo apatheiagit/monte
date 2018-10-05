@@ -23,7 +23,7 @@
     ?>  
     </div> 
     <div class="main-container main-info-center text-center">   
-      <div class="category"><span><?php print $translated_term_city->name;?></span></div>          
+      <div class="category"><a href="<?php print $prefix;?>/recipes?category_recipe=<?php print $content['field_category_recipe']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a></div>          
       <h1 class="title">
           <?php print $title; ?>
           <div class="small"><?php   print $content['field_subtitle']['#items']['0']['value']; ?></div>
@@ -39,10 +39,10 @@
  <div class="article-recipe container">
     <div class="row">
       <div class="recipe-content">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-lg-8 col-lg-offset-2">
           <!--<div class="recipe-introduction"><?php print $content['body']['#items'][0]['value']; ?></div>-->
         </div>
-        <div class="col-sm-6 col-md-3 col-md-offset-2">
+        <div class="col-sm-6 col-md-5 col-lg-3 col-lg-offset-2">
           <h6 class="cuisine cuisine-ingredients"><?php print t("Ingredients");?></h6>
           <div class="recipe-ingredients">            
             <?php if (isset($content['field_title']['#items'][0]['value'])):?>
@@ -65,7 +65,7 @@
             <?php endif;?> 
           </div>
         </div>
-        <div class="col-sm-6 col-md-5">
+        <div class="col-sm-6 col-md-7 col-lg-5">
           <div class="recipe-cooking">
             <h6 class="cuisine"><?php print t("Cooking method");?></h6>
              <?php 
@@ -132,6 +132,12 @@
           var Url = $(this).attr('href');
           var newWin = window.open(Url, 'example', 'width=600,height=400');
           return false;
+        });
+        $curr_href = "<?php print $prefix;?>/recipes?category_recipe=<?php print $content['field_category_recipe']['#items'][0]['taxonomy_term']->tid;?>";
+        $('#block-menu-menu-recipes li a').each(function(){
+          if($(this).attr('href') == $curr_href){
+            $(this).addClass('active');
+          }
         });
        })
     })(jQuery);    

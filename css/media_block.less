@@ -573,6 +573,8 @@
     z-index: 2;
     color: white;
     height: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
   & .text{
     position: absolute;
@@ -588,10 +590,11 @@
       display: inline-block;
       padding: 7px 20px;
       border-radius: 30px;
+      min-width: 170px;
     }
   }
   & .title{
-    margin: 10px 0;
+    margin: 20px 0;
     padding: 0 170px;
     font-size: 48px;
     line-height: 1.25; 
@@ -624,7 +627,8 @@
   }
   & .descr{
     font-size: 18px;
-    margin-bottom: 10px;
+    max-width: 600px;
+    margin: 0 auto 20px;
   }
   & .statistic{
     position: static;
@@ -837,6 +841,7 @@
     }
   & .photo img{
         height: @new-review-height;
+        margin-left: -50%;
       }
 }
 .media-wrapper--half .media-block--top3places{
@@ -1209,17 +1214,7 @@
     }
   }
 }
-.media-block--top3recipes{
-  & .category{ 
-    font-weight: normal;   
-    background-color: @blue;
-    color: white;
-    display: inline-block;
-    padding: 7px 20px;
-    border-radius: 30px;
-    min-width: 170px;
-    text-align: center;
-  }
+.media-wrapper--full .media-block--top3recipes{
   & .statistic{       
     & svg {
       width: 22px;
@@ -1308,6 +1303,7 @@
     & .photo img{
       height: @pop-review-height;
       max-width: none;
+      margin-left: -50%;
     }
     & .descr{
       display: none;
