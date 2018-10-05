@@ -6,6 +6,10 @@
     $term_city = taxonomy_term_load($content['field_city']['#items'][0]['taxonomy_term']->tid);
     $translated_term_city = i18n_taxonomy_localize_terms($term_city); 
 ?>
+<?php
+    $exp_block = module_invoke('views', 'block_view', '-exp-cyprus-places');
+    print render($exp_block['content']);
+  ?>
 <?php $totalcount = isset($content['links']['statistics']['#links']['statistics_counter']['title']) ? (int) $content['links']['statistics']['#links']['statistics_counter']['title'] : 10;?>
 <div class="media-detail media-detail--place article-detail article-detail--event">
   <div class="article-photo-wrapper container">
@@ -43,14 +47,11 @@
     ?>  
     </div> 
     <div class="main-info">
-      <div class="category"><a href="<?php print $prefix;?>/places?city=<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a></div>      
-      <h1 class="main-title" id="mainTitle">
-        <?php if (isset($content['field_title']['#items']['0']['value'])):?>
-          <?php print $content['field_title']['#items']['0']['value']; ?>
-        <?php else:?>
-          <?php print $title; ?>
-        <?php endif;?>
-      </h1>
+      <div class="category"><a href="<?php print $prefix;?>/places?city=<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a></div>
+      <div class="title-descr">     
+        <h1 class="main-title" id="mainTitle"><?php print $title; ?></h1>
+        <div class="descr"><?php print $content['body']['#items'][0]['summary']; ?></div>
+      </div> 
       <div class="statistic">
         <div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
       </div> 
@@ -286,6 +287,9 @@
         var newWin = window.open(Url, 'example', 'width=600,height=400');
         return false;
       });
+      $('#edit-section').val('<?php print $content['field_section']['#items'][0]['taxonomy_term']->tid; ?>');
+      $('#edit-city').val('<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid; ?>');
+      $('#edit-category').val('<?php print $content['field_category']['#items'][0]['taxonomy_term']->tid; ?>');
      })
   })(jQuery);    
   </script>

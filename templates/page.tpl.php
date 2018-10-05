@@ -9,7 +9,7 @@
       <div class="row">        
         <div class="col-xs-12 col-sm-2 col-md-3 col-logo">
            <a href="<?php print $prefix;?>/" class="top-logo hidden-sm "><img src="/sites/all/themes/cyprus_new/logo.svg"  alt="MontenegroForTravellers"></a>
-           <a href="<?php print $prefix;?>/" class="mini-logo hidden-lg hidden-md hidden-xs"><img src="/sites/all/themes/cyprus_new/img/logo-mini.png"  alt="MontenegroForTravellers"></a>
+           <a href="<?php print $prefix;?>/" class="mini-logo hidden-lg hidden-md hidden-xs"><img src="/sites/all/themes/cyprus_new/img/logo-mini.svg"  alt="MontenegroForTravellers"></a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-6 main-header">        
           <div class="main-menu">        

@@ -96,7 +96,7 @@
           'path' => $bloger->field_image['und'][0]['uri'],
           'alt' => $bloger->name,
           'title' => $bloger->name,
-          'attributes' => array('class' => array('img-circle')),
+          'attributes' => array('class' => array('img-rounded')),
           'getsize' => FALSE,
         );
       ?>
@@ -125,7 +125,7 @@
           'path' => $author->field_image['und'][0]['uri'],
           'alt' => $author->name,
           'title' => $author->name,
-          'attributes' => array('class' => array('img-circle')),
+          'attributes' => array('class' => array('img-rounded')),
           'getsize' => FALSE,
         );
       ?>

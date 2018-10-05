@@ -6,6 +6,10 @@
     $term_city = taxonomy_term_load($content['field_city']['#items'][0]['taxonomy_term']->tid);
     $translated_term_city = i18n_taxonomy_localize_terms($term_city); 
 ?>
+<?php
+    $exp_block = module_invoke('views', 'block_view', '-exp-cyprus-events');
+    print render($exp_block['content']);
+  ?>
 <?php $totalcount = isset($content['links']['statistics']['#links']['statistics_counter']['title']) ? (int) $content['links']['statistics']['#links']['statistics_counter']['title'] : 10;?>
 <div class="media-detail media-detail--event article-detail article-detail--event">
   <div class="article-photo-wrapper container">
@@ -55,11 +59,13 @@
       <?php if (isset($content['field_city']['#items'][0]['taxonomy_term']->tid)):?>
         <a href="/events?city=<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a>
       <?php else:?>
-        <a href="/events"><?php print t("All Cyprus") ?></a>
+        <a href="/events"><?php print t("Montenegro") ?></a>
       <?php endif;?>
       </div>
-      
-      <h1 class="main-title"><?php print $title; ?></h1>
+      <div class="title-descr">     
+        <h1 class="main-title" id="mainTitle"><?php print $title; ?></h1>
+        <div class="descr"><?php print $content['body']['#items'][0]['summary']; ?></div>
+      </div>
       <div class="statistic">
         <div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
       </div>
@@ -218,7 +224,7 @@
             $('<span class="lb-close"></span>').prependTo('.map-wrapper');
             //$('.map-wrapper').show();
             $('.map-wrapper').css('visibility','visible');
-        })
+        });        
      });
   })(jQuery);   
   </script>
@@ -271,6 +277,9 @@
         var newWin = window.open(Url, 'example', 'width=600,height=400');
         return false;
       });
+      $('#edit-when-value-date').val('<?php print format_date(strtotime($content['field_when']['#items'][0]['value']), 'date');?>');
+      $('#edit-type').val('<?php print $content['field_event_type']['#items'][0]['taxonomy_term']->tid; ?>');
+      $('#edit-city').val('<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid; ?>');
      })
   })(jQuery);    
   </script>

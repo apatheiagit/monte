@@ -515,20 +515,27 @@
 	      color: white;
 	    }
 	  }
-		& .main-title{
-			font-size: 48px;
-			line-height: 1.25;
-			max-width: 800px;
-			position: absolute;
+	  & .title-descr{
+	  	position: absolute;
 			bottom: 93px;
 			left: 60px;
-			@media @mobile_tablet{
-				font-size: 25px;
-			}
+			max-width: 800px;
 			@media @mobile{
 	    	bottom: 33px;
 				left: 20px;
 	    }
+	  }
+		& .main-title{
+			font-size: 48px;
+			line-height: 1.25;	
+			margin: 20px 0;		
+			@media @mobile_tablet{
+				font-size: 25px;
+			}			
+		}
+		& .descr{
+			font-size: 18px;
+			margin: 20px 0;
 		}
 		& .article-date{
 			font-size: 24px;
@@ -839,7 +846,7 @@
   }
 	& .photo{		
 		& img{
-			max-width: 67px;
+			max-width: 60px;
 		}
 	}
 	& .info{
@@ -1128,27 +1135,25 @@
     height: 100%;
   }
   & .text{
-    width: calc(~'100% - 30px');
     position: absolute;
-    top: 30px;    
-    padding-left: 15px;
-    padding-right: 15px;
-    @media @mobile{
-    	top: 15px;
-    }
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(~'100% - 30px');
   }
   & .category{
+    background-color: @blue;
+    padding: 7px 30px;
+    border-radius: 30px;
+    min-width: 170px;
+    display: inline-block;
     color: white;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.6px;
     @media @mobile{
-    	font-size: 10px;
+    	font-size: 12px;
     }
   }
   & .title{
-    margin: 0 0 10px 0;
-    & .big{ font-size: 72px; line-height: 1.25; font-family: @special-font;	}
+    margin: 20px 0;
+    & .big{ font-size: 72px; line-height: 1.21; font-family: @special-font;	}
     & .small{ font-size: 30px; }
     @media @medium{
       & .big{ font-size: 48px; }
@@ -1168,22 +1173,17 @@
     }
   }
   & .statistic{
-    position: static;
-    opacity: 1;
-    margin-top: 10px;
-    margin-right: 0;
-    & svg{
-    	width: 20px;
-    	height: 20px;
-    }
-    & .count{
-    	font-size: 12px;
-    }
-    & .stat-icon, & .count{
-      fill: white;
+    & path, & .count{
+      font-size: 18px;
       color: white;
+      fill: white;
     }
-  }
+    & svg {
+      width: 22px;
+      height: 22px;
+      vertical-align: middle;
+    }
+  }   
 }
 .media-detail--top5{
 	& .photo{
@@ -1272,7 +1272,7 @@
     position: relative;
     border-radius: 4px;    
     &:after{
-    	
+
     background: rgba(0,0,0,.2);
     
       background-image: linear-gradient(to bottom, rgba(0,0,0,.0) 17%, rgba(0,0,0,.2) 30%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.2) 80%, rgba(0,0,0,.0));

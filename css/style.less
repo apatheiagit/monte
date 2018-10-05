@@ -566,7 +566,7 @@ html.js fieldset.collapsed{
 	}
 }
 .main-filter{
-	padding-top: 20px;
+	//padding-top: 20px;
 	padding-bottom: 40px;
 	min-height: 60px;
 	vertical-align: middle;
@@ -1582,13 +1582,17 @@ img.monochrome {
 	position: relative;
 	z-index: 10;
 	& .block-menu{
-		border-top: solid 1px #e3e3e3;
-		border-bottom: solid 1px #e3e3e3;
+		border-top: solid 1px @grey-fon;;
+		border-bottom: solid 1px @grey-fon;
     padding-top: 11px;
     padding-bottom: 11px;
     margin-bottom: 40px;
     min-height: 55px;	
     text-align: center;	
+    @media @tablet{
+    	margin-top: 20px;
+    	margin-bottom: 20px;
+    }
     & li{
 			color: @middle-text;
 			cursor: pointer;
@@ -1597,8 +1601,7 @@ img.monochrome {
 			margin-right: 10px;
 			vertical-align: middle;
 			float: none;
-			@media @mobile_tablet{
-				font-size: 11px;
+			@media @tablet{
 				margin-right: 0px;
 			}
 			@media @mobile{
