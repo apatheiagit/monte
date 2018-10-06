@@ -170,22 +170,39 @@
             print $new_body;
           }
        ?>
+
       <?php 
         /* Если фотографии просто добавлены в обзор, выводим их крупно в виде ленты */
         if (isset($content['field_photos']['#items'])):?>
-        <?php foreach ($content['field_photos']['#items'] as $photo):?>
-          <div class="photo-intext">
-            <?php 
-                $param = array(
-                  'style_name' => 'cyprus1140x720',
-                  'path' => $photo['uri'],
-                  'getsize' => FALSE,
-                );
-                print theme('image_style', $param);
-              ?> 
-          </div>
-        <?php endforeach; ?>
+        <div class="row photo-gallery">
+        <?php $photo_count = count($content['field_photos']['#items']); 
+              $remainder = $photo_count % 4; $dop_class = (12 - 3 * $remainder) / 2; $dop_class = str_replace(".", "_", $dop_class);             
+        ?>
+        <?php if ($photo_count == 3 || $photo_count % 3 == 0):?>
+          <?php foreach ($content['field_photos']['#items'] as $key => $photo):?>
+            <div class="col-sm-6 col-md-4 photo-item">
+              <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE,);   
+                    print theme('image_style', $photo_param); ?> 
+            </div>
+          <?php endforeach; ?>
+        <?php else:?>
+          <?php for ($i = 0; $i < $photo_count - $remainder; $i++):?>
+            <div class="col-sm-6 col-md-3 photo-item">
+              <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $content['field_photos']['#items'][$i]['uri'],'getsize' => FALSE,);  
+                    print theme('image_style', $photo_param); ?> 
+            </div>
+          <?php endfor;?>
+          <?php for ($i = $photo_count - $remainder; $i < $photo_count; $i++):?>
+            <div class="col-sm-6 col-md-3 photo-item col-md-offset-<?php if ($i == $photo_count - $remainder) print $dop_class;?>">
+              <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $content['field_photos']['#items'][$i]['uri'],'getsize' => FALSE,);  
+                    print theme('image_style', $photo_param); ?> 
+            </div>
+          <?php endfor; ?>
+        <?php endif;?>
+        <div class="clearfix"></div>
+        </div>
       <?php endif;?>
+
 	    <?php
         /* Если к обзору привязаны рецепты, показываем их */
         if (isset($content['field_recipe']['#items']['0'])): ?>
