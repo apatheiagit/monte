@@ -17,23 +17,7 @@
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
   	$(function(){
-  		getWeather("Limassol");
-	  	$('.current-city').click(function(){
-	  		$('.city-list').toggle();
-	  		$('.icon-opener').toggleClass('icon-opener-open');
-	  		$(this).toggleClass('city-list-open');
-	  	});
-	  	$('.city-list li').click(function(){
-	  		$('.current-city').children('.name').text($(this).text());
-	  		getWeather($(this).children('span').attr('data-city'));
-	  		$('.city-list').toggle();
-	  		$('.icon-opener').toggleClass('icon-opener-open');
-	  		$('.current-city').toggleClass('city-list-open');
-	  	});
-	  	/*$('.city-list').hover(function(){}, function(){
-	  		$('.city-list').hide();
-	  		$('.current-city').removeClass('city-list-open');
-	  	}); */	
+  		
 	    $('.wrap-toggle-btn').click(function(){
 	        $(this).toggleClass('mobile-toggle');
 	        $('#block-menu-menu-top-menu').toggleClass('menu-mobile');
@@ -246,6 +230,19 @@ Drupal.behaviors.my_custom_behavior = {
 				$('.link-tooltip').remove();
 			});
 
+			$('.popup-gallery').magnificPopup({
+					delegate: 'a',
+					type: 'image',
+					tLoading: 'Loading image #%curr%...',
+					mainClass: 'mfp-img-mobile',
+					gallery: {
+						enabled: true,
+						navigateByImgClick: true,
+						preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+					}
+					
+				});
+
 			function onLoadLink() {
 			  let data = xhr.responseText;
 			  let el = $( '<div></div>' );
@@ -277,35 +274,7 @@ Drupal.behaviors.my_custom_behavior = {
 	    }
 		})
 	}  
-  function getWeather(city){		
-		$.ajax({
-		  url: "/weather.php",
-		  data: "q="+city+"&units=metric",
-		  success: function(data, status, xhr){
-		    weatherCallBack(data);	
-		    //console.log(xhr.responseText);	  
-		  },
-		  error: function (request, status, error) {
-        //console.log('error');
-        //console.log(request.responseText);
-    	}
-		})		
-	}
-	function weatherCallBack(data){
-	    var w = JSON.parse(data);
-	    //console.log(w);
-	    if(Array.isArray(w.weather)){   
-	    	var icon = w.weather[0].icon;
-	    	var temp = Math.round(w.main.temp)
-	    }else{
-	    	var icon = '01d';
-	    	var temp = 30;
-	    }
-		$('.weather-icon img').attr('src', '/sites/all/themes/cyprus_new/img/weather/'+ icon +'.png');
-		$('.weather-degree').text(temp);
-		$('.weather').css('opacity', 1);
-	   	//console.log('changeWeather');
-	}
+  
 
   }
 };

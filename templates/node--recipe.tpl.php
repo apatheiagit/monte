@@ -54,7 +54,7 @@
                 <span class="param__prop"><?php print $ingredient['first']; ?></span>                
               </div>              
             <?php endforeach;?>
-            <?php if (isset($content['field_www']['#items'][0]['value']) && isset($content['field_latlng']['#items'][0])):?>
+            <?php if (isset($content['field_www']['#items'][0]['value']) && isset($content['field_ingredients2']['#items'][0])):?>
               <p class='bold-text'><?php print $content['field_www']['#items'][0]['value'];?></p>
               <?php foreach($content['field_ingredients2']['#items'] as $ingr):?>
                 <div class="param">

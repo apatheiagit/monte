@@ -41,27 +41,21 @@
 	}
 	& p, & ul, & ol{
 		margin-top: 10px;
-		margin-bottom: 10px;
-		margin-right: 190px;
-		margin-left: 190px;
+		margin-bottom: 10px;		
 		line-height: 1.62;
-	}
-	& hr{
-		margin-right: 190px;
-		margin-left: 190px;
 	}	
 	& h1, & h2, & h3, & h4, & h5, & h6, & p, & ul, & ol, & hr{
+		margin-right: 16.66666667%;
+		margin-left: 16.66666667%;
+		padding-left: 15px;
+		padding-right: 15px;
 		@media @medium{
-			margin-left: 150px !important;
-			margin-right: 150px !important;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
 		}
-		@media @tablet{
-			margin-left: 20px !important;
-			margin-right: 20px !important;
-		}
-		@media @mobile{
-			margin-left: 10px !important;
-			margin-right: 10px !important;
+		@media @mobile_tablet{
+			margin-left: 0 !important;
+			margin-right: 0 !important;
 		}
 	}
 	& .article-content-text a{
@@ -216,10 +210,10 @@
 			margin-right: auto !important;
 			margin-left: auto !important;
 			border-radius: 4px;
-			@media @tablet{
-				max-width: 100%;
+			@media @medium{
+				max-width: 760px ;
 			}
-			@media @mobile{
+			@media @mobile_tablet{
 				max-width: 100%;
 			}
 		}
@@ -252,15 +246,11 @@
 	}
 	& h1{
 		font-size: 30px;
-		margin-right: 170px;
-		margin-left: 170px;
 	}
 	& h2{
 		font-size: 26px;
 		margin-top: 40px;
 		margin-bottom: 20px;
-		margin-right: 170px;
-		margin-left: 170px;
 		&.bordered{
 			border-bottom: 1px solid @light-grey;
 			padding-bottom: 20px;
@@ -270,39 +260,25 @@
 		font-size: 26px;
 		margin-top: 30px;
 		margin-bottom: 5px;
-		margin-right: 170px;
-		margin-left: 170px;
 	}
 	& h4{
 		font-size: 20px;
 		margin-top: 5px;
 		margin-bottom: 20px;
-		margin-right: 170px;
-		margin-left: 170px;
 	}
 	& h5{
 		font-size: 20px;
 		margin-top: 20px;
 		margin-bottom: 10px;
-		margin-right: 170px;
-		margin-left: 170px;
 		&.uppercase{
 			font-size: 18px;
 			text-transform: uppercase;
 		}
 	}	
 	& h6{
-		font-size: 17px;
+		font-size: 18px;
 		margin-top: 20px;
-		margin-bottom: 10px;
-		margin-right: 170px;
-		margin-left: 170px;
-		&.cuisine{
-			color: @lime;
-		}
-		&.green2{
-			color: @green2;
-		}
+		margin-bottom: 10px;		
 	}
 	
 	& big{
@@ -311,8 +287,6 @@
 	}
 	hr.grey{
 		border-top: 1px solid @light-grey;
-		margin-right: 170px;
-		margin-left: 170px;
 		@media @tablet{
 			margin-left: 20px;
 			margin-right: 20px;
@@ -371,7 +345,7 @@
 			margin: -10px 0 10px 0;
 		}
 	}
-	& .photo-gallery{
+	& .popup-gallery{
 		margin-top: 30px;
 		margin-bottom: 30px;
 		& .photo-item{
@@ -380,6 +354,9 @@
 				border-radius: 4px;
 			}
 		}
+	}
+	& img{
+		border-radius: 4px;
 	}
 }
 
@@ -825,8 +802,6 @@
 		background-color: white;
 	}
 	&--small{
-		margin-right: 170px;
-    margin-left: 170px;
 		padding-bottom: 0;
     @media @tablet{
 			margin-left: 20px;
@@ -1336,37 +1311,7 @@
 	  }  
   }  
 }
-.recipe-content{
-	& .cuisine{
-		font-family: @special-font;
-		font-size: 24px;
-		margin : 30px 0;
-		&.cuisine-ingredients{
-			padding-left: 20px;
-			@media @mobile{
-				padding-left: 0;
-			}
-		}
-	}	
-	& .recipe-introduction{
-		font-family: @special-font;
-		font-size: 24px;
-		margin : 30px 0 0 0;
-		line-height: 1.42;
-		color: @middle-text;
-	}
-	& .recipe-ingredients{
-		padding: 20px;
-		border-radius: 4px;
-  	background-color: rgba(36, 184, 209, 0.11);
-  	font-size: 16px;
-	  line-height: 1.75;
-	  & .bold-text{
-	  	color: @blue;
-	  	font-weight: bold;
-	  	margin-bottom: 10px;	
-	  }
-	}
+.recipe-ingredients{
 	& .param {
   	margin-bottom: 10px;	  
 		& .param__prop {
@@ -1403,12 +1348,49 @@
 			width: 35%;
 			box-sizing: border-box;
 		}
+	}	
+}
+.recipe-content{
+	& .cuisine{
+		font-family: @special-font;
+		font-size: 24px;
+		margin : 30px 0;
+		&.cuisine-ingredients{
+			padding-left: 20px;
+			@media @mobile{
+				padding-left: 0;
+			}
+		}
+	}	
+	& .recipe-introduction{
+		font-family: @special-font;
+		font-size: 24px;
+		margin : 30px 0 0 0;
+		line-height: 1.42;
+		color: @middle-text;
 	}
+	& .recipe-ingredients{
+		padding: 20px;
+		border-radius: 4px;
+  	background-color: rgba(36, 184, 209, 0.11);
+  	font-size: 16px;
+	  line-height: 1.75;
+	  & .bold-text{
+	  	color: @blue;
+	  	font-weight: bold;
+	  	margin-bottom: 10px;	
+	  }
+	}
+	
 	& .recipe-cooking{
 		font-size: 18px;
 	  line-height: 1.56;
 	  & p{
 	  	margin-bottom: 15px;
 	  }
+	}
+	& h5, & p, & h6{
+		margin-left: 0!important;
+		margin-right: 0!important;
 	}
 }
