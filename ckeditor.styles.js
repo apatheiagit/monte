@@ -132,6 +132,14 @@ if(typeof(CKEDITOR) !== 'undefined') {
                     'class' : 'big-signature'
                 }
             },
+            {
+                name : 'Заметка на полях',
+                element : 'div',
+                attributes :
+                {
+                    'class' : 'monte-lemma'
+                }
+            },
 
     ]);
 }

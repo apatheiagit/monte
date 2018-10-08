@@ -27,10 +27,7 @@
       <h1 class="title">
           <?php print $title; ?>
           <div class="small"><?php   print $content['field_subtitle']['#items']['0']['value']; ?></div>
-      </h1>
-      <div class="descr">
-        <?php print $content['body']['#items'][0]['value']; ?>
-      </div>
+      </h1>      
       <div class="statistic">
         <div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
       </div>
@@ -40,7 +37,7 @@
     <div class="row">
       <div class="recipe-content">
         <div class="col-lg-8 col-lg-offset-2">
-          <!--<div class="recipe-introduction"><?php print $content['body']['#items'][0]['value']; ?></div>-->
+          <div class="recipe-introduction"><?php print $content['body']['#items'][0]['value']; ?></div>
         </div>
         <div class="col-sm-6 col-md-5 col-lg-3 col-lg-offset-2">
           <h6 class="cuisine cuisine-ingredients"><?php print t("Ingredients");?></h6>

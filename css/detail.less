@@ -2,6 +2,7 @@
 @main-photo-height: 793px;
 
 .introduction{
+	.media-detail  &{
 	border-bottom: solid 1px @grey-fon;
 	font-size: 24px !important;
 	font-family: @special-font;
@@ -12,6 +13,7 @@
 	@media @mobile_tablet{
 		font-size: 18px;
 	}
+}
 }
 .elegant{
 	background: url(../img/hr.svg) no-repeat center;
@@ -49,10 +51,6 @@
 		margin-left: 16.66666667%;
 		padding-left: 15px;
 		padding-right: 15px;
-		@media @medium{
-			margin-left: 0 !important;
-			margin-right: 0 !important;
-		}
 		@media @mobile_tablet{
 			margin-left: 0 !important;
 			margin-right: 0 !important;
@@ -693,6 +691,10 @@
 	}
 	& .show_map{
 		cursor: pointer;
+		background: url(../img/explore.svg) no-repeat left center;
+		padding-left: 28px;
+		display: inline-block;
+		margin-left: 5px;
 	}
 }
 & .tags-block{
@@ -816,14 +818,19 @@
 .bloger-block{
   margin-top: 50px;
   overflow: hidden;
-  width: 150px;
+  width: 170px;
   float: left;
   text-align: right;
-  padding-right: 30px;
+  padding-right: 10px;
+  @media @tablet{
+  	padding-right: 20px;
+  }
   @media @mobile{
   	margin-top: 20px;
   	width: 100%;
   	float: none;
+  	padding-left: 15px;
+  	padding-right: 15px;
   }
   &:hover{
   	& img{
@@ -857,6 +864,36 @@
 		border-top: 1px solid @grey;
 		margin-top: 10px;
 		padding-top: 10px;
+	}
+}
+.monte-lemma{
+  overflow: hidden;
+  width: 170px;
+  float: left;
+  text-align: right;
+  padding-right: 10px;
+  @media @mobile{
+  	margin: 30px 0;
+  	width: 100%;
+  	float: none;
+  	padding-left: 15px;
+  	padding-right: 15px;
+  	text-align: center;
+  }
+  @media @tablet{
+  	padding-right: 20px;
+  }
+  & img{
+		max-width: 60px;
+    display: block;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    @media @tablet{
+  		margin-left: 90px;
+  	}
+  	@media @mobile{
+  		margin: 10px auto;
+  	}
 	}
 }
 .map-wrapper{
@@ -1179,7 +1216,6 @@
 		}
 	}
 	& .text{
-		color: @text-color;
 		transform: none;
 		top: 40px;
 		& .title{
@@ -1203,15 +1239,14 @@
 			}
 		}
 		& .small{
-			color: @text-color;
 			font-family: @special-font;	
-			font-size: 60px;
+			font-size: 50px;
 			line-height: 1.2;							
 			@media @tablet{
-				font-size: 40px;
+				font-size: 30px;
 			}
 			@media @mobile{
-				font-size: 24px;
+				font-size: 20px;
 			}
 			@media @mobile_tablet{
 				background-color: rgba(255,255,255,0.8);
@@ -1354,20 +1389,16 @@
 	& .cuisine{
 		font-family: @special-font;
 		font-size: 24px;
-		margin : 30px 0;
-		&.cuisine-ingredients{
-			padding-left: 20px;
-			@media @mobile{
-				padding-left: 0;
-			}
-		}
+		margin : 30px 0;		
 	}	
 	& .recipe-introduction{
 		font-family: @special-font;
 		font-size: 24px;
-		margin : 30px 0 0 0;
+		margin : 40px 0 10px 0;
 		line-height: 1.42;
 		color: @middle-text;
+		padding-bottom: 40px;
+		border-bottom: 1px solid @new-grey;
 	}
 	& .recipe-ingredients{
 		padding: 20px;

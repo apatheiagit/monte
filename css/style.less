@@ -1089,175 +1089,39 @@ img.monochrome {
 			width: 100%;
 		}
 		&.fa-facebook:before{
-			background-image: url(../img/facebook.png);
+			background-image: url(../img/FB.svg);
 		}
 		&.fa-twitter:before{
-			background-image: url(../img/twitter.png);
+			background-image: url(../img/Twit.svg);
 		}
 		&.fa-telegram:before{
-			background-image: url(../img/telegram.png);
+			background-image: url(../img/Telegram.svg);
 		}
 		&.fa-vk:before{
-			background-image: url(../img/vkontakte.png);
+			background-image: url(../img/Vk.svg);
 		}
 		&.fa-tumblr:before{
-			background-image: url(../img/tumblr.png);
-		}
-		&.fa-instagram:before{
-			background-image: url(../img/instagram.png);
+			background-image: url(../img/Tmblr.svg);
 		}
 	}
 }
 .detail-share-block{
-	background-color: @grey-fon;
-	border-radius: 5px;
-	text-align: center;
-	padding-top: 50px;
-  padding-bottom: 35px;
-  margin-bottom: 30px;
-	& .title{
-		font-family: @special-font;
-	  font-size: 32px;
-	  line-height: 1.07; 
-	  margin-bottom: 20px;
-	  @media @mobile_tablet{
-	  	font-size: 24px;
-	  	margin-bottom: 10px;
-	  }
-	}
-	& .fa{
-		display: inline-block;
-		position: relative;
-		border-radius: 2px;
-  	border: solid 1px @text-color;
-  	padding: 16px 30px 16px 70px;
-    margin: 15px;
-    @media @mobile{
-    	height: 56px;
-    	width: 56px;
-    	padding: 0;
-    	margin: 5px;
-    	& span{
-    		display: none;
-    	}
-    	&:before, &:after{
-    		left: 13px !important;
-    	}
-    }
-    &:hover{
-    	color: white;
-    	text-decoration: none;
-    	opacity: 1;
-    	&:after{
-    		background-color: white;
-    	}
-    }
-  	& span{
-  		font-size: 14px;
-  		letter-spacing: 2.3px;
-  		text-transform: uppercase;
-  	}
-  	&.fa-facebook{
-  		&:hover{
-				background-color: rgb(57, 87, 154);
-				border-color: rgb(57, 87, 154);
-				&:before{
-					background-image: url(../img/facebook-c.png);
-				}
-  		}
-  		&:before{
-				height: 18px;
-	    	top: 18px;
-	    }
-		}
-		&.fa-twitter{
-			&:hover{
-				background-color: rgb(0, 171, 240);
-				border-color: rgb(0, 171, 240);
-				&:before{
-					background-image: url(../img/twitter-c.png);
-				}
-			}
-  		&:before{
-				height: 15px;
-    		top: 19px;
-	    }
-		}
-		&.fa-telegram{
-			&:hover{
-				background-color: rgb(0, 136, 204);
-				border-color: rgb(0, 136, 204);
-				&:before{
-					background-image: url(../img/telegram-c.png);
-				}
-			}
-  		&:before{
-				height: 15px;
-	   		top: 19px;
-	   		margin-left: -1px;
-	   	}
-		}
-		&.fa-vk{
-			&:hover{
-				background-color: rgb(65, 101, 139);
-				border-color: rgb(65, 101, 139);
-				&:before{
-					background-image: url(../img/vkontakte-c.png);
-				}
-			}
-  		&:before{
-				height: 12px;
-		    top: 21px;
-		    margin-left: -1px;
-	    }
-		}
-		&.fa-tumblr{
-			&:hover{
-				background-color: rgb(46, 78, 103);
-				border-color: rgb(46, 78, 103);
-				&:before{
-					background-image: url(../img/tumblr-c.png);
-				}
-			}
-  		&:before{
-				height: 18px;
-	    	top: 18px;
-	    }
-		}
-		&:before{
-			left: 30px;
-			width: 30px;
-			z-index: 3;
-			transition: all 0.5s ease-in;
-		}
-		&:after{
-  		content: "";
-  		border-radius: 50%;
-  		background-color: @text-color;
-  		height: 30px;
-  		width: 30px;
-  		position: absolute;
-  		top: 12px;
-  		left: 30px;
-  		z-index: 2;
-  	}
-	}
-}
-.big-share-block{
 	padding: 30px;
 	margin: 30px 0;
-	.page-views &{
+	text-align: center;
+	.not-front &{
 		background-color: @almost-white;
 		border-radius: 4px;
-		margin: 30px 0;
+		margin: 0 0 30px 0;
 		padding: 30px 30px 50px 30px;
 	}
 	& .title{
 	  font-size: 32px;
 	  line-height: 1.07; 
-	  margin-bottom: 22px;
+	  margin-bottom: 30px;
 	  @media @mobile_tablet{
 	  	font-size: 24px;
+	  	margin-bottom: 20px;
 	  }
 	}
 	& .text{
@@ -1283,76 +1147,54 @@ img.monochrome {
     	color: white;
     	text-decoration: none;   
     	opacity: 1; 	
-    	&:after{
-    		background-color: white;
-    	}
+    	&.fa-facebook:before{
+				background-image: url(../img/FB_White.svg);
+			}
+			&.fa-twitter:before{
+				background-image: url(../img/Twit_White.svg);
+			}
+			&.fa-telegram:before{
+				background-image: url(../img/telegram_White.png);
+			}
+			&.fa-vk:before{
+				background-image: url(../img/Vk_White.svg);
+			}
+			&.fa-tumblr:before{
+				background-image: url(../img/Tmblr_White.svg);
+			}
     }
 		& .link-name{
 			font-size: 14px;
-		  text-transform: uppercase;
-		  
-		}
-		&:after{
-			background-color: black;
-			border-radius: 50%;
-			height: 26px;
-			width: 26px;
-			content: "";
-	    position: absolute;
-	    top: 11px;
-	    z-index: 3;
+		  text-transform: uppercase;		  
 		}
 		&:before{
-			width: 26px;
+			top: 10px;
+			width: 27px;
+			height: 27px;
 			z-index: 4;
 		}
 		&.fa-facebook{
-			&:after{
-				left: 15px;
-			}
 			&:before{
-				height: 18px;
-				top: 15px;
 				left: 15px;
 			}
 		}
 		&.fa-twitter{
-			&:after{
-				left: 20px;
-			}
 			&:before{
-				height: 15px;
-		    top: 15px;
 		    left: 20px;
 			}
 		}
 		&.fa-telegram{
-			&:after{
-				left: 15px;
-			}
 			&:before{
-				height: 15px;
-		    top: 16px;
 		    left: 14px;
 			}
 		}		
 		&.fa-vk{
-			&:after{
-				left: 15px;
-			}
 			&:before{
-				height: 12px;
-		   	top: 17px;
     		left: 14px;
 			}
 		}
 		&.fa-tumblr{
-			&:after{
-				left: 23px;
-			}
 			&:before{
-				height: 18px;
-	    	top: 15px;
     		left: 22px;
 			}
 		}
@@ -1366,6 +1208,24 @@ img.monochrome {
 		height: 29px;
 		width: 29px;
 		margin-left: 6px;
+		&.fa-facebook:before{
+			background-image: url(../img/facebook.png);
+		}
+		&.fa-twitter:before{
+			background-image: url(../img/twitter.png);
+		}
+		&.fa-telegram:before{
+			background-image: url(../img/telegram.png);
+		}
+		&.fa-vk:before{
+			background-image: url(../img/vkontakte.png);
+		}
+		&.fa-tumblr:before{
+			background-image: url(../img/tumblr.png);
+		}
+		&.fa-instagram:before{
+			background-image: url(../img/instagram.png);
+		}
 		&.fa-facebook:before{
 			height: 18px;
 			top: 5px;

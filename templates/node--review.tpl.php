@@ -31,8 +31,12 @@
   $totalcount = isset($content['links']['statistics']['#links']['statistics_counter']['title']) ? (int) $content['links']['statistics']['#links']['statistics_counter']['title'] : 10;
   $type = $content['field_type']['#items']['0']['value']; 
   $special = $content['field_special']['#items']['0']['value']; 
-  $city = $content['field_city']['#items']['0']['value']; 
+  $city = $content['field_city']['#items']['0']['taxonomy_term']->tid; 
+  $term_city = taxonomy_term_load($city);  $city_name_localize = i18n_taxonomy_localize_terms($term_city);
+  $city_name = $city_name_localize->name;
   $section = $content['field_section']['#items']['0']['taxonomy_term']->tid; 
+  $terms = taxonomy_term_load($section); $english = $terms->field_english['und'][0]['value']; 
+  $russian_name_localize = i18n_taxonomy_localize_terms($terms); $russian = $russian_name_localize->name;
 ?>
 <div class="media-detail media-detail--<?php print $type;?>">
 
@@ -62,8 +66,9 @@
           <a href="<?php print $prefix;?>/lifehack"><?php print t("Life hack");?></a>
         <?php elseif($type == 'blog'):?>
           <a href="<?php print $prefix;?>/blog"><?php print t("Personal experience");?></a>
-        <?php else:?>
-          <?php $terms = taxonomy_term_load($section); $english = $terms->field_english['und'][0]['value']; $russian_name_localize = i18n_taxonomy_localize_terms($terms); $russian = $russian_name_localize->name;?>
+        <?php elseif(isset($city)):?>
+          <a href="<?php print $prefix;?>/reviews/<?php print $city;?>"><?php print $city_name; ?></a>
+        <?php else:?>          
           <a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
         <?php endif;?>
       </div>    
@@ -91,7 +96,7 @@
     <?php $bloger = $content['field_bloger']['#items']['0']['taxonomy_term'];?>
     <a href="<?php print $prefix;?>/blog/<?php print $bloger->tid;?>">          
       <?php 
-        $params = array(
+        $autor_params = array(
           'style_name' => 'cyprus150x150',
           'path' => $bloger->field_image['und'][0]['uri'],
           'alt' => $bloger->name,
@@ -100,7 +105,7 @@
           'getsize' => FALSE,
         );
       ?>
-      <?php  print theme('image_style', $params); ?>
+      <?php $autor_photo = theme('image_style', $autor_params); print $autor_photo;  ?>
     </a></div>
     <div class="info">      
       <div class="name"><a href="<?php print $prefix;?>/blog/<?php print $bloger->tid;?>"><?php print $bloger->name;?></a></div>
@@ -120,7 +125,7 @@
     <div class="photo">
     <?php $author = $content['field_author']['#items']['0']['taxonomy_term'];?>              
       <?php 
-        $params = array(
+        $autor_params = array(
           'style_name' => 'cyprus150x150',
           'path' => $author->field_image['und'][0]['uri'],
           'alt' => $author->name,
@@ -130,7 +135,7 @@
         );
       ?>
       <?php if (isset($author->field_image['und'][0]['uri'])):?>
-        <?php print theme('image_style', $params); ?>
+        <?php $autor_photo = theme('image_style', $autor_params); print $autor_photo; ?>
       <?php endif;?>
     </div>
     <div class="info">      
@@ -160,8 +165,10 @@
       <?php 
           /* Находим в тексте все картинки и к родительскому параграфу добавляем класс photo-intext */
           $new_body = str_replace('<p><img', '<p class="photo-intext"><img', $content['body']['#items'][0]['value']);
+          /* Находим в тексте все Заметки на полях и добавляем к ним фото автора статьи */
+          $new_body = str_replace('<div class="monte-lemma">', '<div class="monte-lemma">'.$autor_photo, $new_body);
           /* Делим весь текст по значку параграфа § чтобы вставить Фотогалерею (если она есть) */
-          $body_array = explode("§",$new_body);
+          $body_array = explode("§", $new_body);
           $global_key = 0;
           /* Если не одного значка § не найдено, то просто выводим текст*/ 
           if (count($body_array) > 1){
@@ -293,6 +300,8 @@
         $new_body_continue = "";
         if(isset($content['field_body'])){
           $new_body_continue = str_replace('<p><img', '<p class="photo-intext"><img', $content['field_body']['#items'][0]['value']);
+          /* Находим в тексте все Заметки на полях и добавляем к ним фото автора статьи */
+          $new_body_continue = str_replace('<div class="monte-lemma">', '<div class="monte-lemma">'.$autor_photo, $new_body_continue);
         }
       ?>
       <?php 
@@ -314,13 +323,43 @@
           }
       ?>
       <?php 
-        /* Если к обзору привязан фотообзор, то показываем фото в виде галереи */
+        /* Если к обзору привязан фотообзор, то показываем фото в виде magnific-popup */
         if (isset($content['field_photo_review']['#items']['0'])):?>
-        <?php 
-          $photo_review = $content['field_photo_review']['#items']['0']['entity'];
-          $photo_review_photos = $photo_review->field_photos['und'];
-          print_gallery($photo_review_photos, "review", $photo_review->title); 
-        ?>     
+        <div class="row popup-gallery">
+        <?php $photo_review = $content['field_photo_review']['#items']['0']['entity'];
+              $photo_review_photos = $photo_review->field_photos['und'];
+              $photo_count = count($photo_review_photos); 
+              $remainder = $photo_count % 4; $dop_class = (12 - 3 * $remainder) / 2; $dop_class = str_replace(".", "_", $dop_class);             
+        ?>
+        <?php if ($photo_count == 3 || $photo_count % 3 == 0):?>
+          <?php foreach ($photo_review_photos as $key => $photo):?>
+            <div class="col-sm-6 col-md-4 photo-item">
+              <a href="<?php print file_create_url($photo['uri']) ?>">
+                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE,);   
+                    print theme('image_style', $photo_param); ?>
+              </a>
+            </div>
+          <?php endforeach; ?>
+        <?php else:?>
+          <?php for ($i = 0; $i < $photo_count - $remainder; $i++):?>
+            <div class="col-sm-6 col-md-3 photo-item">
+              <a href="<?php print file_create_url($photo_review_photos[$i]['uri']) ?>">
+                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_review_photos[$i]['uri'],'getsize' => FALSE,);  
+                    print theme('image_style', $photo_param); ?> 
+              </a>
+            </div>
+          <?php endfor;?>
+          <?php for ($i = $photo_count - $remainder; $i < $photo_count; $i++):?>
+            <div class="col-sm-6 col-md-3 photo-item col-md-offset-<?php if ($i == $photo_count - $remainder) print $dop_class;?>">
+              <a href="<?php print file_create_url($photo_review_photos[$i]['uri']) ?>">
+                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_review_photos[$i]['uri'],'getsize' => FALSE,);  
+                    print theme('image_style', $photo_param); ?>
+              </a>
+            </div>
+          <?php endfor; ?>
+        <?php endif;?>
+        <div class="clearfix"></div>
+        </div>           
       <?php endif; ?> 
       </div>
       <div class="tags-block">
@@ -343,7 +382,8 @@
 </div>
 <?php /* Поделитесь с друзьями */?>
 <?php $current_url = url(current_path(), array('absolute' => TRUE)); $current_title = drupal_get_title();?>
-<div class="wide-container container detail-share-block">  
+<div class="wide-container container">
+<div class="detail-share-block">  
   <div class="title"><?php print t("Share with friends");?></div>       
   <div class="share-links">         
     <a href="http://www.facebook.com/sharer.php?src=sp&amp;u=<?php print urlencode($current_url);?>" class="fa fa-facebook" target="_blank">
@@ -357,6 +397,7 @@
     <a href="http://www.tumblr.com/share/link?url=<?php print urlencode($current_url);?>&amp;name=<?php print $current_title;?>" class="fa fa-tumblr" target="_blank">
       <span class="note"><?php print t("Tumblr");?></span></a>  
   </div>
+  
   <script type="text/javascript">
   (function($) {
     $(function() {          
@@ -365,9 +406,16 @@
         var newWin = window.open(Url, 'example', 'width=600,height=400');
         return false;
       });
+      var Section = "<?php print $russian;?>";
+      $('#block-menu-menu-top-menu li a').each(function(){
+          if($(this).text() == Section){
+            $(this).addClass('active');
+          }
+        });
      })
   })(jQuery);    
   </script>
+</div>
 </div>
 <?php   
   /* Популярные обзоры */

@@ -1,7 +1,7 @@
 <?php $current_url = url(current_path(), array('absolute' => TRUE)); $current_title = drupal_get_title();?>
 <div class="container">
 <div class="share-block-container">	
-	<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?> big-share-block">
+	<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?> detail-share-block">
 		<div class="text-center">
 			<div class="title">Поделитесь с друзьями</div>					
 			<div class="share-links">					

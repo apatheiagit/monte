@@ -1,10 +1,11 @@
 <?php if (!empty($title)): ?>
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
-<?php foreach ($rows as $id => $row): ?>
+<?php $i = 0;?>
+<?php foreach ($rows as  $row): ?>
 	<?php
 	$md = 8; $class_name = 'eight';
-	switch ($id) {
+	switch ($i) {
     case 0:
         $md = 8; $class_name = 'eight'; break;
     case 1:
@@ -14,6 +15,7 @@
     case 3:
         $md = 7; $class_name = 'seven'; break;
 	} 
+    $i++;
 	?>
 	<div class="col-sm-6 col-md-<?php print $md;?> media-wrapper--<?php print $class_name;?>">
 		<?php print $row; ?>
