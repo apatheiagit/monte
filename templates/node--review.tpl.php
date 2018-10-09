@@ -5,27 +5,42 @@
     if ($lang == 'en') $prefix = '/en'; else $prefix = '';
     $term_city = taxonomy_term_load($content['field_city']['#items'][0]['taxonomy_term']->tid);
     $translated_term_city = i18n_taxonomy_localize_terms($term_city); 
-    function print_gallery($photo_array, $image_style, $p_title){
-      $gallery = '<div class="somit somit-gallery">';
-      $gallery .= '<div class="photo-carousel">';
-      foreach ($photo_array as $key => $photo) {
-        $gallery .= '<div class="photo-item">';
-        $photo_title = $photo['title'] == null ? $p_title : $photo['title'];
-        $param = array(
-          'style_name' => 'cyprus1140x720',
-          'path' => $photo['uri'],
-          'getsize' => FALSE,
-        );
-        $gallery .= theme('image_style', $param);
-        $gallery .= '<div class="descr"><div>'.$photo_title.'</div></div>';
-        $gallery .= '</div>';
+    function print_magnific($photo_array){
+      $magnific = '<div class="row popup-gallery">';
+      $photo_count = count($photo_array); 
+      $remainder = $photo_count % 4; $dop_class = (12 - 3 * $remainder) / 2; $dop_class = str_replace(".", "_", $dop_class); 
+      if ($photo_count == 3 || $photo_count % 3 == 0){
+        foreach ($photo_array as $key => $photo){
+          $file_url = file_create_url($photo['uri']);
+          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE,);
+          $magnific .= '<div class="col-sm-6 col-md-4 photo-item">';
+          $magnific .= '<a href="'.$file_url.'">';
+          $magnific .= theme('image_style', $photo_param);
+          $magnific .= '</a></div>';
+        }
+      }else{
+        for ($i = 0; $i < $photo_count - $remainder; $i++){
+          $file_url = file_create_url($photo_array[$i]['uri']);
+          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE,);
+          $magnific .= '<div class="col-sm-6 col-md-3 photo-item">';
+          $magnific .= '<a href="'.$file_url.'">';
+          $magnific .= theme('image_style', $photo_param);
+          $magnific .= '</a></div>';
+        }
+        for ($i = $photo_count - $remainder; $i < $photo_count; $i++){
+          if ($i != $photo_count - $remainder) $dop_class = '';
+          $file_url = file_create_url($photo_array[$i]['uri']);
+          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE,);
+          $magnific .= '<div class="col-sm-6 col-md-3 photo-item col-md-offset-'.$dop_class.'">';
+          $magnific .= '<a href="'.$file_url.'">';
+          $magnific .= theme('image_style', $photo_param);
+          $magnific .= '</a></div>';
+        }
       }
-      $gallery .= '</div>';
-      $gallery .= '<div class="photo-controls-wrapper"><div class="photo-controls"><div class="customBtn customPrevBtn"></div><div class="owl-counter">';  
-      $gallery .= ' <span class="current-photo">1</span> \\ '.count($photo_array).'</div> <div class="customBtn customNextBtn"></div></div></div>';
-      $gallery .= '</div>';
-      print $gallery;
-    }   
+
+      $magnific .= '<div class="clearfix"></div></div>';
+      print $magnific;
+    }  
 ?>
 <?php 
   $totalcount = isset($content['links']['statistics']['#links']['statistics_counter']['title']) ? (int) $content['links']['statistics']['#links']['statistics_counter']['title'] : 10;
@@ -177,7 +192,7 @@
               if(isset($content['field_photogallery']['#items'][$key])){
                 $photo_gallery = $content['field_photogallery']['#items'][$key]['entity'];
                 $photo_gallery_photos = $photo_gallery->field_photos['und'];
-                print_gallery($photo_gallery_photos, "review", $photo_gallery->title);
+                print_magnific($photo_gallery_photos);
                 $global_key = $key;
               }
             }
@@ -190,53 +205,15 @@
         if ($type == 'photo'):?>
         <?php foreach ($content['field_photos']['#items'] as $photo):?>
           <div class="photo-intext">
-            <?php 
-                $param = array(
-                  'style_name' => 'cyprus1140x720',
-                  'path' => $photo['uri'],
-                  'getsize' => FALSE,
-                );
-                print theme('image_style', $param);
-              ?> 
+            <?php $param = array( 'style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE);
+                print theme('image_style', $param); ?> 
           </div>
         <?php endforeach; ?>
       <?php else:?>
       <?php 
         /* Если фотографии просто добавлены в обзор, выводим magnific-popup */
         if (isset($content['field_photos']['#items'])):?>
-        <div class="row popup-gallery">
-        <?php $photo_count = count($content['field_photos']['#items']); 
-              $remainder = $photo_count % 4; $dop_class = (12 - 3 * $remainder) / 2; $dop_class = str_replace(".", "_", $dop_class);             
-        ?>
-        <?php if ($photo_count == 3 || $photo_count % 3 == 0):?>
-          <?php foreach ($content['field_photos']['#items'] as $key => $photo):?>
-            <div class="col-sm-6 col-md-4 photo-item">
-              <a href="<?php print file_create_url($photo['uri']) ?>">
-                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE,);   
-                    print theme('image_style', $photo_param); ?>
-              </a>
-            </div>
-          <?php endforeach; ?>
-        <?php else:?>
-          <?php for ($i = 0; $i < $photo_count - $remainder; $i++):?>
-            <div class="col-sm-6 col-md-3 photo-item">
-              <a href="<?php print file_create_url($content['field_photos']['#items'][$i]['uri']) ?>">
-                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $content['field_photos']['#items'][$i]['uri'],'getsize' => FALSE,);  
-                    print theme('image_style', $photo_param); ?> 
-              </a>
-            </div>
-          <?php endfor;?>
-          <?php for ($i = $photo_count - $remainder; $i < $photo_count; $i++):?>
-            <div class="col-sm-6 col-md-3 photo-item col-md-offset-<?php if ($i == $photo_count - $remainder) print $dop_class;?>">
-              <a href="<?php print file_create_url($content['field_photos']['#items'][$i]['uri']) ?>">
-                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $content['field_photos']['#items'][$i]['uri'],'getsize' => FALSE,);  
-                    print theme('image_style', $photo_param); ?>
-              </a>
-            </div>
-          <?php endfor; ?>
-        <?php endif;?>
-        <div class="clearfix"></div>
-        </div>
+          <?php print_magnific($content['field_photos']['#items']); ?>        
       <?php endif;?>
       <?php endif;?>
 
@@ -314,7 +291,7 @@
               if (isset($content['field_photogallery']['#items'][$global_key])){
                 $photo_gallery = $content['field_photogallery']['#items'][$global_key]['entity'];
                 $photo_gallery_photos = $photo_gallery->field_photos['und'];
-                print_gallery($photo_gallery_photos, "review", $photo_gallery->title);
+                print_magnific($photo_gallery_photos);
                 $global_key = $global_key + 1;
               }
             }
@@ -325,41 +302,7 @@
       <?php 
         /* Если к обзору привязан фотообзор, то показываем фото в виде magnific-popup */
         if (isset($content['field_photo_review']['#items']['0'])):?>
-        <div class="row popup-gallery">
-        <?php $photo_review = $content['field_photo_review']['#items']['0']['entity'];
-              $photo_review_photos = $photo_review->field_photos['und'];
-              $photo_count = count($photo_review_photos); 
-              $remainder = $photo_count % 4; $dop_class = (12 - 3 * $remainder) / 2; $dop_class = str_replace(".", "_", $dop_class);             
-        ?>
-        <?php if ($photo_count == 3 || $photo_count % 3 == 0):?>
-          <?php foreach ($photo_review_photos as $key => $photo):?>
-            <div class="col-sm-6 col-md-4 photo-item">
-              <a href="<?php print file_create_url($photo['uri']) ?>">
-                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE,);   
-                    print theme('image_style', $photo_param); ?>
-              </a>
-            </div>
-          <?php endforeach; ?>
-        <?php else:?>
-          <?php for ($i = 0; $i < $photo_count - $remainder; $i++):?>
-            <div class="col-sm-6 col-md-3 photo-item">
-              <a href="<?php print file_create_url($photo_review_photos[$i]['uri']) ?>">
-                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_review_photos[$i]['uri'],'getsize' => FALSE,);  
-                    print theme('image_style', $photo_param); ?> 
-              </a>
-            </div>
-          <?php endfor;?>
-          <?php for ($i = $photo_count - $remainder; $i < $photo_count; $i++):?>
-            <div class="col-sm-6 col-md-3 photo-item col-md-offset-<?php if ($i == $photo_count - $remainder) print $dop_class;?>">
-              <a href="<?php print file_create_url($photo_review_photos[$i]['uri']) ?>">
-                <?php $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_review_photos[$i]['uri'],'getsize' => FALSE,);  
-                    print theme('image_style', $photo_param); ?>
-              </a>
-            </div>
-          <?php endfor; ?>
-        <?php endif;?>
-        <div class="clearfix"></div>
-        </div>           
+          <?php print_magnific($content['field_photo_review']['#items']); ?>  
       <?php endif; ?> 
       </div>
       <div class="tags-block">
