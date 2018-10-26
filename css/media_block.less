@@ -170,17 +170,6 @@
     }
   }
 }
-.media-block--lifehack{
-  & .category{
-      margin-top: 0;
-      color: white;
-      display: inline-block;
-      margin-bottom: 4px;
-      background: @orange;
-      border-radius: 3px;
-      padding: 6px 24px;
-  }
-}
 .media-wrapper--normal{
   & .media-block--lifehack{
     background-image: url(../img/lifehack.png);
@@ -294,21 +283,7 @@
       width: 54px;     
     }
   }
-  &.media-block--entertainment{
-    & .photo-icon:before{
-      background-color: @blue;
-    }
-  }
-  &.media-block--culture { 
-    & .photo-icon:before{
-      background-color: @orange;
-    }
-  }
-  &.media-block--cuisine { 
-    & .photo-icon:before{
-      background-color: @lime;
-    }
-  }
+  
   .media-wrapper--big &{
     & .photo img{
       transform: none;
@@ -580,7 +555,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: calc(~'100% - 30px');
+    width: 100%;
   }
   & .category{    
     color: white;

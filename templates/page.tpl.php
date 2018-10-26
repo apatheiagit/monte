@@ -55,9 +55,9 @@
     <div class="row">
       <div class="col-sm-7 col-md-6">
         <?php if ($lang == "en"):?>
-          <div class="bottom-rights">Reproduction or use of any materials only with the permission of the publisher: <a href="mailto:editor@cyprusfortravellers.net">editor@cyprusfortravellers.net</a></div>
+          <div class="bottom-rights">Reproduction or use of any materials only with the permission of the publisher: <a href="mailto:editor@montenegrofortravellers.com">editor@montenegrofortravellers.com</a></div>
         <?php else: ?>
-          <div class="bottom-rights">Перепечатка и использование любых материалов только с&nbsp;разрешения редакции: <a href="mailto:editor@cyprusfortravellers.net">editor@cyprusfortravellers.net</a></div>
+          <div class="bottom-rights">Перепечатка и использование любых материалов только с&nbsp;разрешения редакции: <a href="mailto:editor@montenegrofortravellers.com">editor@montenegrofortravellers.com</a></div>
         <?php endif;?>  
       </div>
       <div class="col-sm-5 col-md-6 social-block">         

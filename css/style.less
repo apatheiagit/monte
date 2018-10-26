@@ -547,18 +547,6 @@ html.js fieldset.collapsed{
 	& a{
 		display: inline-block;
 		margin: 0 3px 0 0;
-		&.culture{ color: @orange; }
-		&.cuisine{ color: @lime; }
-		&.entertainment{ color: @blue; }
-	}
-	.culture &{ 
-		& a:first-child{ color: @orange; }
-	}
-	.cuisine & {
-		& a:first-child{ color: @lime; }
-	}
-	.entertainment & {
-		& a:first-child{ color: @blue;}
 	}
 	.page-blog &,  .page-special &, .page-photoreviews &, 
 	.page-lifehack &, .page-recipes &{	
@@ -570,6 +558,9 @@ html.js fieldset.collapsed{
 	padding-bottom: 40px;
 	min-height: 60px;
 	vertical-align: middle;
+	@media @mobile{
+		padding-bottom: 0px;
+	}
   & .views-exposed-filter{
   	min-height: 60px;
   	max-width: 574px;
@@ -590,7 +581,9 @@ html.js fieldset.collapsed{
     margin: 0 0;
     width: 190px;
     float: left;
-    @media @mobile{    	
+    @media @mobile{  
+      width: 100%;
+    	float: none;
     	& .form-select, & .form-type-textfield{
 	    	margin: 5px 0;
 	    }
@@ -785,18 +778,6 @@ html.js fieldset.collapsed{
 	& button{
 		text-transform: uppercase;
 	}	
-	.culture & {
-		& .btn-default, & .btn-default:focus, & .btn-default.focus,
-		& .open>.dropdown-toggle.btn-default, & .btn-default:hover { color: @orange;}
-	}
-	.cuisine & {
-		& .btn-default, & .btn-default:focus, & .btn-default.focus,
-		& .open>.dropdown-toggle.btn-default, & .btn-default:hover { color: @lime;}
-	}
-	.entertainment & {
-		& .btn-default, & .btn-default:focus, & .btn-default.focus,
-		& .open>.dropdown-toggle.btn-default, & .btn-default:hover { color: @blue;}
-	}
 }
 & h3{
 	font-size: 26px;
@@ -1154,7 +1135,7 @@ img.monochrome {
 				background-image: url(../img/Twit_White.svg);
 			}
 			&.fa-telegram:before{
-				background-image: url(../img/telegram_White.png);
+				background-image: url(../img/Telegram_White.svg);
 			}
 			&.fa-vk:before{
 				background-image: url(../img/Vk_White.svg);
@@ -1707,5 +1688,18 @@ img.monochrome {
 .col-md-offset-1_5{
 	@media (min-width: 992px){
 		margin-left: 13%;
+	}
+}
+.view-display-id-top3_places form{
+	overflow: hidden;
+	@media @mobile{
+		margin-bottom: 20px;
+	}
+}
+.node-type-place .ctools-auto-submit-full-form, .node-type-event .ctools-auto-submit-full-form{
+	overflow: hidden;
+	@media @mobile{
+		padding: 0 15px;
+		margin-bottom: 20px;
 	}
 }
