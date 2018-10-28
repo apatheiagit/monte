@@ -28,7 +28,7 @@
  ?>
 	<div class="media-block media-block--review media-block--top3places media-block--place">
 		<div class="photo"><?php print $image;?></div>
-		<div class="container">		
+		<div class="container" onclick="location.href='<?php print $path;?>'">		
 			<div class="text">			
 				<div class="category"><a href="<?php print $prefix;?>/places?city=<?php print $city;?>"><?php print $city_name;?></a></div>
 				<div class="title"><a href="<?php print $path;?>"><?php print $title?></a></div>			

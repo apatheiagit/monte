@@ -15,7 +15,7 @@
 	$city_name = $city_name_localize->name;?>
 <div class="media-block media-block--review media-block--top3places media-block--top3recipes media-block--place">
 		<div class="photo"><?php print $image;?></div>
-		<div class="container">		
+		<div class="container" onclick="location.href='<?php print $path;?>'">		
 			<div class="text">			
 				<div class="category"><a href="<?php print $prefix;?>/recipes?category_recipe=<?php print $city;?>"><?php print $city_name;?></a></div>
 				<div class="title-descr">

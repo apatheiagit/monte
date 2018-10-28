@@ -177,13 +177,20 @@ a:focus {  color: inherit; text-decoration: none;}
 
 	}
 	& .owl-controls{
-		position: absolute;
-	    bottom: 10px;
-	    left: 50%;
-	    margin-left: -36px;
+	/*position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -36px;*/
 		text-align: center;
 		& .disable-dots{
 			visibility: hidden;
+		}
+		& .owl-dots{
+			position: absolute;
+	    bottom: 0;
+	    left: 50%;
+	    width: 200px;
+	    margin-left: -100px;
 		}
 		& .owl-dot {
 	    	display: inline-block;
@@ -1056,7 +1063,7 @@ img.monochrome {
 		display: inline-block;	
 		position: relative;
 		opacity: 1;
-		transition: all 0.5s ease-in;
+		//transition: all 0.5s ease-in;
 		&:hover{
 			opacity: .7;
 		}
@@ -1367,7 +1374,7 @@ img.monochrome {
 	&:before, &:after{
 		content: "";
 		position: absolute;
-		height: 2px;
+		height: 1px;
 		width: 40%;
 		background-color: @new-grey;
 		top: 50%;
@@ -1412,7 +1419,7 @@ img.monochrome {
 		margin-bottom: 30px;
 	}
 	& .border-bottom{
-		border-bottom: 2px solid @new-grey;
+		border-bottom: 1px solid @new-grey;
     clear: both;
     margin-left: 15px;
     margin-right: 15px;
@@ -1585,7 +1592,7 @@ img.monochrome {
 				height: 11px;
 				width: 8px;
 				vertical-align: middle;
-				margin-top: -6px;
+				margin-top: -7px;
 			}
 		}
 		& .next-event{

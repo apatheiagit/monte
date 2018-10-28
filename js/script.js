@@ -99,7 +99,7 @@ Drupal.behaviors.my_custom_behavior = {
 	    $('.articles--index').owlCarousel({
 		    items: 1,
 		    loop: true,
-		    dots: false,		   
+		    dots: true,		   
 		    nav: true,
 		    animateOut: 'fadeOut',
     		animateIn: 'fadeIn',
@@ -113,7 +113,7 @@ Drupal.behaviors.my_custom_behavior = {
 		  $('.affiche-carousel').owlCarousel({
 		    items: 1,
 		    loop: true,
-		    dots: false,		   
+		    dots: true,		   
 		    nav: true,
 		    animateOut: 'fadeOut',
     		animateIn: 'fadeIn',
@@ -156,10 +156,10 @@ Drupal.behaviors.my_custom_behavior = {
 			})
 
 			$(window).scroll(function() {
-			    if ($(this).scrollTop() > 50) {
-			         $('.topMenu').addClass('fixMenu');
+			    if ($(this).scrollTop() > 350) {
+			         $('.topMenu').addClass('fixMenu').css('top', '0');
 			    } else {
-			         $('.topMenu').removeClass('fixMenu');
+			         $('.topMenu').removeClass('fixMenu').css('top', '-90px');
 			    }
 			});
 

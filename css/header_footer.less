@@ -42,13 +42,13 @@
 	& .fixMenu{
 		border-bottom: 2px solid @grey-fon;
 		position:fixed;
-    top:0;
+    top: -90px;
     left:0;
     right:0;
     margin:0;
     z-index: 100;
-    height: 60px;
-    padding: 5px 0;
+    padding: 21px 0 19px 0 ;
+    transition: top .5s ease-out;
     @media @mobile{
     	position: static;
     	border-bottom: none;
@@ -239,7 +239,7 @@
 	font-size: 18px;
 	font-weight: 400;
 	margin-top: 40px;
-	padding: 25px 0 43px 0;
+	padding: 45px 0;
 	& a{
 		color: @text-color;
 	}	
@@ -296,7 +296,7 @@
 				}
 			}
 			&.first a{
-				padding-right: 8px;
+				padding-right: 12px;
 				&:before{
 					color: @text-color;
 					content: "/";
