@@ -38,7 +38,7 @@
 	<div class="photo">
 		<?php print $image;?>
 	</div>
-	<div class="container">
+	<div class="container" onclick="location.href='<?php print $path;?>'">
 		<div class="text">		
 			<div class="category">
 				<?php if(isset($specproekt_tid)):?>

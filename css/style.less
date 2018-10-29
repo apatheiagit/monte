@@ -187,15 +187,16 @@ a:focus {  color: inherit; text-decoration: none;}
 		}
 		& .owl-dots{
 			position: absolute;
-	    bottom: 0;
+	    bottom: 30px;
 	    left: 50%;
 	    width: 200px;
 	    margin-left: -100px;
+	    text-align: center;
 		}
 		& .owl-dot {
 	    	display: inline-block;
 			& span {
-		    border: 1px solid black;	    
+		    border: 1px solid white;	    
 		    border-radius: 50%;
 		    display: block;
 		    height: 9px;
@@ -204,7 +205,7 @@ a:focus {  color: inherit; text-decoration: none;}
 		  }
 		  &.active{
 		  	& span{
-					background: black;
+					background: white;
 		  	}
 		  }
 		}
@@ -582,7 +583,11 @@ html.js fieldset.collapsed{
 		width: 190px;
     margin-left: -1px;
     float: left;
-		@media @mobile{ margin-left: 0; }
+		@media @mobile{ 
+			margin-left: 0; 
+			width: 100%;
+			float: none;
+		}
 	}
 	& .form-item {
     margin: 0 0;
@@ -643,7 +648,10 @@ html.js fieldset.collapsed{
 	}
 	& .form-item-when-value-date{
 		& input{
-			background: url(../img/calendar.svg) no-repeat 148px 18px white;
+			background-image: url(../img/calendar.svg);
+			background-repeat: no-repeat;
+			background-color: white;
+			background-position: right 20px top 18px;
 			background-size: 18px 20px;
 			border-color: @grey-fon;
 			border-width: 1px;
@@ -991,8 +999,8 @@ html.js fieldset.collapsed{
     display: none;
     height: 51px;
     opacity: 0.5;
-	-webkit-transition:all .2s ease-in-out;
-	transition:all .2s ease-in-out;
+		-webkit-transition:all .2s ease-in-out;
+		transition:all .2s ease-in-out;
     position: fixed;
     right: 5%;
     width: 51px;    
@@ -1063,33 +1071,17 @@ img.monochrome {
 		display: inline-block;	
 		position: relative;
 		opacity: 1;
-		//transition: all 0.5s ease-in;
+		transition: all 0.5s ease-in-out;
 		&:hover{
 			opacity: .7;
+		}		
+		& path, & circle{
+			transition: all 0.5s ease-in-out;
 		}
-		&:before{
-			content: "";
-			position: absolute;
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: contain;			
-			left: 0;			
-			width: 100%;
-		}
-		&.fa-facebook:before{
-			background-image: url(../img/FB.svg);
-		}
-		&.fa-twitter:before{
-			background-image: url(../img/Twit.svg);
-		}
-		&.fa-telegram:before{
-			background-image: url(../img/Telegram.svg);
-		}
-		&.fa-vk:before{
-			background-image: url(../img/Vk.svg);
-		}
-		&.fa-tumblr:before{
-			background-image: url(../img/Tmblr.svg);
+		& svg{
+			vertical-align: middle;
+			height: 26px;
+			margin-right: 2px;
 		}
 	}
 }
@@ -1127,29 +1119,27 @@ img.monochrome {
 		height: 50px;
 		width: 172px;
 		margin: 10px 25px 0 0;
-		padding: 12px 0px;
+		padding: 11px 0px 12px 0;
     text-align: center;
     &:hover{
     	background-color: @social;
     	border-color: @social;
     	color: white;
     	text-decoration: none;   
-    	opacity: 1; 	
-    	&.fa-facebook:before{
-				background-image: url(../img/FB_White.svg);
-			}
-			&.fa-twitter:before{
-				background-image: url(../img/Twit_White.svg);
-			}
-			&.fa-telegram:before{
-				background-image: url(../img/Telegram_White.svg);
-			}
-			&.fa-vk:before{
-				background-image: url(../img/Vk_White.svg);
-			}
-			&.fa-tumblr:before{
-				background-image: url(../img/Tmblr_White.svg);
-			}
+    	opacity: 1; 
+    	& path{
+				fill: white;
+    	}	    	
+    }
+    &.fa-telegram{
+    	&:hover{
+    		& circle{
+					fill: white;
+	    	}	 
+	    	& path{
+					fill: @social;
+	    	}   
+    	}
     }
 		& .link-name{
 			font-size: 14px;
@@ -1196,6 +1186,15 @@ img.monochrome {
 		height: 29px;
 		width: 29px;
 		margin-left: 6px;
+		&:before{
+			content: "";
+			position: absolute;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;			
+			left: 0;			
+			width: 100%;
+		}
 		&.fa-facebook:before{
 			background-image: url(../img/facebook.png);
 		}
@@ -1402,7 +1401,7 @@ img.monochrome {
 		margin-bottom: 60px;
 	}
 	& .border-bottom{
-		border-bottom: 2px solid @new-grey;
+		border-bottom: 1px solid @new-grey;
     clear: both;
     margin-left: 15px;
     margin-right: 15px;
@@ -1481,7 +1480,7 @@ img.monochrome {
 .view-display-id-video{
 	margin-bottom: 30px;
 	& .border-bottom{
-		border-bottom: 2px solid @grey;
+		border-bottom: 1px solid @grey;
     clear: both;
     margin-left: 15px;
     margin-right: 15px;    
@@ -1697,15 +1696,15 @@ img.monochrome {
 		margin-left: 13%;
 	}
 }
-.view-display-id-top3_places form{
-	overflow: hidden;
+.view-display-id-top3_places form{	
 	@media @mobile{
+
 		margin-bottom: 20px;
 	}
 }
 .node-type-place .ctools-auto-submit-full-form, .node-type-event .ctools-auto-submit-full-form{
-	overflow: hidden;
 	@media @mobile{
+
 		padding: 0 15px;
 		margin-bottom: 20px;
 	}
