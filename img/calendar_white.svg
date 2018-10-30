@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-date-range-24px copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Afisha" transform="translate(-1313.000000, -164.000000)">
+            <g id="ic-date-range-24px-copy" transform="translate(1310.000000, 161.000000)">
+                <path d="M19,5 L18,5 L18,3 L16,3 L16,5 L8,5 L8,3 L6,3 L6,5 L5,5 C3.89,5 3.01,5.9 3.01,7 L3,21 C3,22.1 3.89,23 5,23 L19,23 C20.1,23 21,22.1 21,21 L21,7 C21,5.9 20.1,5 19,5 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <polygon id="Path" fill="#24B8D1" points="19 21 5 21 5 9 19 9"></polygon>
+                <polygon id="Path" fill="#FFFFFF" points="9 17 7 17 7 19 9 19"></polygon>
+                <polygon id="Path" fill="#FFFFFF" points="13 17 11 17 11 19 13 19"></polygon>
+                <polygon id="Path" fill="#FFFFFF" points="9 14 7 14 7 16 9 16"></polygon>
+                <polygon id="Path" fill="#FFFFFF" points="13 14 11 14 11 16 13 16"></polygon>
+                <polygon id="Path" fill="#FFFFFF" points="17 14 15 14 15 16 17 16"></polygon>
+                <polygon id="Path" fill="#FFFFFF" points="13 11 11 11 11 13 13 13"></polygon>
+                <polygon id="Path" fill="#FFFFFF" points="17 11 15 11 15 13 17 13"></polygon>
+                <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

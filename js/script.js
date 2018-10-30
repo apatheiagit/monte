@@ -153,13 +153,16 @@ Drupal.behaviors.my_custom_behavior = {
 			$('.customPrevBtn').click(function() {
 			    var current_carousel = $(this).parent().parent().parent().find('.photo-carousel');
 			    current_carousel.trigger('prev.owl.carousel', [300]);
-			})
+			});
+
+			$( ".topMenu" ).clone().appendTo( ".somit-header" ).addClass('fixMenu').css({'top':'-95px'});
 
 			$(window).scroll(function() {
 			    if ($(this).scrollTop() > 350) {
-			         $('.topMenu').addClass('fixMenu').css('top', '0');
-			    } else {
-			         $('.topMenu').removeClass('fixMenu').css('top', '-90px');
+
+			      $('.fixMenu').css({'top':'0'});
+			    } else {			    	
+			      $('.fixMenu').css({'top':'-95px'});
 			    }
 			});
 

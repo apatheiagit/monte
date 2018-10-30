@@ -157,7 +157,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	border-right: 1px solid @grey-fon;
 }
 .bordered-top{
-	border-top: 1px solid @grey-fon;
+	border-top: 1px solid @monte-grey;
 }
 .margin-bottom{
 	margin-bottom: 30px;
@@ -675,6 +675,9 @@ html.js fieldset.collapsed{
 				color: white;				
 			}
 	}
+	& .form-item-when-value-date input:hover {
+		background-image: url(../img/calendar_white.svg);
+	}
 	& .caret{ 
 		color: @blue;
 		right: 18px !important;
@@ -991,22 +994,27 @@ html.js fieldset.collapsed{
 	height: 26px;
 	background-position: -6px -96px;
 }
-.icon-to-top {
-    background: url(../img/icon-to-top.png) no-repeat top left;
+.icon-to-top {    
     bottom: 10%;
+    right: 5%;
     box-sizing: content-box;
     cursor: pointer;
     display: none;
-    height: 51px;
-    opacity: 0.5;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
 		-webkit-transition:all .2s ease-in-out;
 		transition:all .2s ease-in-out;
     position: fixed;
-    right: 5%;
-    width: 51px;    
+    
+        
     &:hover {
-		opacity: 1;
-	}  
+			opacity: 1;
+			background-color: @blue;
+			& polygon{
+				fill: white;
+			}
+		}  
 	@media @mobile{
 		display: none !important;
 	}
@@ -1121,6 +1129,10 @@ img.monochrome {
 		margin: 10px 25px 0 0;
 		padding: 11px 0px 12px 0;
     text-align: center;
+    @media @mobile{
+    	width: 122px;
+			margin: 10px 10px 0 0;
+    }
     &:hover{
     	background-color: @social;
     	border-color: @social;
@@ -1143,7 +1155,10 @@ img.monochrome {
     }
 		& .link-name{
 			font-size: 14px;
-		  text-transform: uppercase;		  
+		  text-transform: uppercase;		
+		  @media @mobile{
+		  	font-size: 14px;
+		  }  
 		}
 		&:before{
 			top: 10px;
@@ -1375,7 +1390,7 @@ img.monochrome {
 		position: absolute;
 		height: 1px;
 		width: 40%;
-		background-color: @new-grey;
+		background-color: @monte-grey;
 		top: 50%;
 		@media @tablet{
 			width: 30%;
@@ -1401,7 +1416,7 @@ img.monochrome {
 		margin-bottom: 60px;
 	}
 	& .border-bottom{
-		border-bottom: 1px solid @new-grey;
+		border-bottom: 1px solid @monte-grey;
     clear: both;
     margin-left: 15px;
     margin-right: 15px;
@@ -1418,7 +1433,7 @@ img.monochrome {
 		margin-bottom: 30px;
 	}
 	& .border-bottom{
-		border-bottom: 1px solid @new-grey;
+		border-bottom: 1px solid @monte-grey;
     clear: both;
     margin-left: 15px;
     margin-right: 15px;
@@ -1480,7 +1495,7 @@ img.monochrome {
 .view-display-id-video{
 	margin-bottom: 30px;
 	& .border-bottom{
-		border-bottom: 1px solid @grey;
+		border-bottom: 1px solid @monte-grey;
     clear: both;
     margin-left: 15px;
     margin-right: 15px;    

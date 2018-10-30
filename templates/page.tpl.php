@@ -1,5 +1,5 @@
 <?php $page_type = arg(0); ?>
-<?php global $user; $clear_class = "";
+<?php global $user; $clear_class = ""; $theme_path = path_to_theme();
       global $language_content; $lang = $language_content->language; if ($lang == 'en') $prefix = '/en'; else $prefix = '';
 ?>
 <div class="somit somit-header <?php print $page_type; ?> ">  
@@ -8,8 +8,8 @@
     <span class="wrap-toggle-btn hidden-sm hidden-md hidden-lg"><span class="toggle-btn"></span></span>      
       <div class="row">        
         <div class="col-xs-12 col-sm-2 col-md-3 col-logo">
-           <a href="<?php print $prefix;?>/" class="top-logo hidden-sm "><img src="/sites/all/themes/cyprus_new/logo.svg"  alt="MontenegroForTravellers"></a>
-           <a href="<?php print $prefix;?>/" class="mini-logo hidden-lg hidden-md hidden-xs"><img src="/sites/all/themes/cyprus_new/img/logo-mini.svg"  alt="MontenegroForTravellers"></a>
+           <a href="<?php print $prefix;?>/" class="top-logo hidden-sm "><img src="/<?php print $theme_path;?>/logo.svg"  alt="MontenegroForTravellers"></a>
+           <a href="<?php print $prefix;?>/" class="mini-logo hidden-lg hidden-md hidden-xs"><img src="/<?php print $theme_path;?>/img/logo-mini.svg"  alt="MontenegroForTravellers"></a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-6 main-header">        
           <div class="main-menu">        
@@ -82,6 +82,6 @@
 </div>
 <div class="totopcontroller">
   <div class="container">
-    <div class="icon icon-to-top"></div>
+    <div class="icon-to-top"><?php print file_get_contents($theme_path."/img/totop.svg");?></div>
   </div>
 </div>
