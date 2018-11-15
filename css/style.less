@@ -604,6 +604,12 @@ html.js fieldset.collapsed{
     	float: none;
     }
 	}
+	& .dropdown-menu.open{
+		width: 190px;
+		@media @mobile{  
+      width: 100%;
+    }
+	}
 	& .form-item-section, & .form-item-type{
 		margin-left: -1px;
 		@media @mobile{ margin-left: 0; }
@@ -1006,8 +1012,8 @@ html.js fieldset.collapsed{
 		-webkit-transition:all .2s ease-in-out;
 		transition:all .2s ease-in-out;
     position: fixed;
-    
-        
+    background-color: white;
+    z-index: 1000;        
     &:hover {
 			opacity: 1;
 			background-color: @blue;
@@ -1078,12 +1084,8 @@ img.monochrome {
 		border-radius: 50%;
 		display: inline-block;	
 		position: relative;
-		opacity: 1;
-		transition: all 0.5s ease-in-out;
-		&:hover{
-			opacity: .7;
-		}		
-		& path, & circle{
+		transition: all 0.5s ease-in-out;	
+		& path, & circle, & rect{
 			transition: all 0.5s ease-in-out;
 		}
 		& svg{
@@ -1129,6 +1131,14 @@ img.monochrome {
 		margin: 10px 25px 0 0;
 		padding: 11px 0px 12px 0;
     text-align: center;
+    @media @medium{
+    	width: 152px;
+    	margin: 10px 10px 0 0;
+    }
+    @media @tablet{
+    	width: 152px;
+    	margin: 10px 10px 0 0;
+    }
     @media @mobile{
     	width: 122px;
 			margin: 10px 10px 0 0;
@@ -1138,7 +1148,6 @@ img.monochrome {
     	border-color: @social;
     	color: white;
     	text-decoration: none;   
-    	opacity: 1; 
     	& path{
 				fill: white;
     	}	    	
@@ -1196,61 +1205,17 @@ img.monochrome {
 .small-share-block{
 	margin-top: 10px;
 	& .fa{
-		background-color: @footer-link;	
 		border-radius: 3px;
 		height: 29px;
 		width: 29px;
-		margin-left: 6px;
-		&:before{
-			content: "";
-			position: absolute;
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: contain;			
-			left: 0;			
-			width: 100%;
+		margin-left: 3px;
+		& rect, & .rect{
+			fill: @footer-link;
 		}
-		&.fa-facebook:before{
-			background-image: url(../img/facebook.png);
-		}
-		&.fa-twitter:before{
-			background-image: url(../img/twitter.png);
-		}
-		&.fa-telegram:before{
-			background-image: url(../img/telegram.png);
-		}
-		&.fa-vk:before{
-			background-image: url(../img/vkontakte.png);
-		}
-		&.fa-tumblr:before{
-			background-image: url(../img/tumblr.png);
-		}
-		&.fa-instagram:before{
-			background-image: url(../img/instagram.png);
-		}
-		&.fa-facebook:before{
-			height: 18px;
-			top: 5px;
-		}
-		&.fa-twitter:before{
-			height: 16px;
-			top: 6px;
-		}
-		&.fa-telegram:before{
-			height: 12px;
-			top: 4px;
-		}
-		&.fa-vk:before{
-			height: 12px;
-			top: 8px;
-		}
-		&.fa-tumblr:before{
-			height: 18px;
-			top: 5px;
-		}
-		&.fa-instagram:before{
-			height: 18px;
-			top: 5px;
+		&:hover{
+			& rect, & .rect{
+				fill: @blue;
+			}
 		}
 	}
 }
@@ -1463,6 +1428,9 @@ img.monochrome {
 			margin-right: 10px;
 			vertical-align: middle;
 			float: none;
+			@media @medium{
+				margin-right: 0px;
+			}
 			@media @tablet{
 				margin-right: 0px;
 			}

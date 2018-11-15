@@ -63,16 +63,34 @@
       <div class="col-sm-5 col-md-6 social-block">         
         <div class="small-share-block share-links">          
           <?php if ($lang == 'en'):?>
-            <a class="fa fa-facebook" title="Go Facebook" href="https://www.facebook.com/cyprusfortravellers.net/" rel="nofollow" target="_blank"><span class="visuallyhidden">Facebook</span></a>
-            <a class="fa fa-tumblr" title="Go Tumblr" href="http://cyprusfortravellers.tumblr.com/" rel="nofollow" target="_blank"><span class="visuallyhidden">Tumblr</span></a>          
-            <a class="fa fa-twitter" title="Go Twitter" href="https://twitter.com/cyprusfortravel" rel="nofollow" target="_blank"><span class="visuallyhidden">Twitter</span></a>
-            <a class="fa-instagram" title="Go Instagram" href="https://instagram.com/cyprusfortravellers" rel="nofollow" target="_blank"><span class="visuallyhidden">Instagram</span></a>
+            <a class="fa fa-facebook" title="Go Facebook" href="https://www.facebook.com/cyprusfortravellers.net/" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_facebook.svg");?>
+              <span class="visuallyhidden">Facebook</span></a>
+            <a class="fa fa-tumblr" title="Go Tumblr" href="http://cyprusfortravellers.tumblr.com/" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_tumblr.svg");?>
+              <span class="visuallyhidden">Tumblr</span></a>          
+            <a class="fa fa-twitter" title="Go Twitter" href="https://twitter.com/cyprusfortravel" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_twitter.svg");?>
+              <span class="visuallyhidden">Twitter</span></a>
+            <a class="fa-instagram" title="Go Instagram" href="https://instagram.com/cyprusfortravellers" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_instagram.svg");?>
+              <span class="visuallyhidden">Instagram</span></a>
           <?php else:?>
-            <a class="fa fa-vk" title="Перейти в группу Вконтакте" href="https://vk.com/cyprusfortravellers" rel="nofollow" target="_blank"><span class="visuallyhidden">ВКонтакте</span></a>
-            <a class="fa fa-facebook" title="Перейти в группу в Фейсбуке" href="https://www.facebook.com/cyprusfortravellers/" rel="nofollow" target="_blank"><span class="visuallyhidden">Facebook</span></a>  
-            <a class="fa fa-tumblr" title="Перейти в группу в Tumblr" href="http://cyprusfortravellers.tumblr.com/" rel="nofollow" target="_blank"><span class="visuallyhidden">Tumblr</span></a>          
-            <a class="fa fa-twitter" title="Перейти в группу в Twitter" href="https://twitter.com/cyprusfortravel" rel="nofollow" target="_blank"><span class="visuallyhidden">Twitter</span></a>
-            <a class="fa fa-instagram" title="Перейти на страницу в Instagram" href="https://instagram.com/cyprusfortravellers" rel="nofollow" target="_blank"><span class="visuallyhidden">Instagram</span></a> 
+            <a class="fa fa-vk" title="Перейти в группу Вконтакте" href="https://vk.com/cyprusfortravellers" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_vk.svg");?>
+              <span class="visuallyhidden">ВКонтакте</span></a>
+            <a class="fa fa-facebook" title="Перейти в группу в Фейсбуке" href="https://www.facebook.com/cyprusfortravellers/" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_facebook.svg");?>
+              <span class="visuallyhidden">Facebook</span></a>  
+            <a class="fa fa-tumblr" title="Перейти в группу в Tumblr" href="http://cyprusfortravellers.tumblr.com/" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_tumblr.svg");?>
+              <span class="visuallyhidden">Tumblr</span></a>          
+            <a class="fa fa-twitter" title="Перейти в группу в Twitter" href="https://twitter.com/cyprusfortravel" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_twitter.svg");?>
+              <span class="visuallyhidden">Twitter</span></a>
+            <a class="fa fa-instagram" title="Перейти на страницу в Instagram" href="https://instagram.com/cyprusfortravellers" rel="nofollow" target="_blank">
+              <?php print file_get_contents($theme_path."/img/f_instagram.svg");?>
+              <span class="visuallyhidden">Instagram</span></a> 
           <?php endif;?>
         </div>
       </div>

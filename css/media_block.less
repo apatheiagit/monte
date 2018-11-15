@@ -107,10 +107,10 @@
 }
 
 .media-block--review{
-  height: @review-height;
+  /*height: @review-height;
   @media @medium{
     height: @review-height * 0.9;
-  }
+  }*/
   & .category{
     margin-top: 20px;
   }
@@ -708,10 +708,10 @@
   color: white;
   position: relative;
   height: @new-review-height; 
-  @media @mobile{
-    height: @new-review-height * 0.7; 
+  @media @mobile_tablet_medium{
+    height: @new-review-height * 0.94; 
     & .photo img{
-      height: @new-review-height * 0.7 !important;
+      height: @new-review-height * 0.94 !important;
     }
   }
   & .category{
@@ -737,6 +737,12 @@
     }
     & .title{
       font-size: 22px;
+      @media @medium{
+       font-size: 20px; 
+      }
+      @media @mobile{
+       font-size: 20px; 
+      }
       @media @tablet{
        font-size: 20px; 
       }
@@ -1220,25 +1226,24 @@
     }
   }
 }
+.view-id-cyprus_reviews .media-block--review-page{
+  height: @pop-review-height;
+  color: white;
+  @media @mobile_tablet_medium{
+    height: @pop-review-height * 0.94 ;
+    & .photo img{
+      height: @pop-review-height * 0.94 ;
+      max-width: none;
+    }
+  }
+}
 .media-block--pop-review, .media-block--review-page{
   height: @pop-review-height;
-  color: white;  
-  @media @mobile{
-    height: @pop-review-height * 0.94;
+  color: white;
+  @media @mobile_tablet_medium{
+    height: @pop-review-height * 0.94 ;
     & .photo img{
-      height: @pop-review-height * 0.94 !important;
-    }
-  }
-  @media @medium{
-    height: @pop-review-height * 0.94; 
-    & .photo img{
-      height: @pop-review-height * 0.94 !important;
-    }
-  }
-  @media @tablet{
-    height: @pop-review-height * 0.94; 
-    & .photo img{
-      height: @pop-review-height * 0.94 !important;
+      height: @pop-review-height * 0.94 ;
       max-width: none;
     }
   }
@@ -1291,6 +1296,15 @@
     }
     & .title{
       font-size: 22px;
+      @media @mobile{
+        font-size: 20px;
+      }
+      @media @tablet{
+        font-size: 20px;
+      }
+      @media @medium{
+        font-size: 20px;
+      }
     }
   }
   .media-wrapper--third &{
@@ -1298,9 +1312,18 @@
       height: @pop-review-height;
       max-width: none;
       margin-left: -50%;
+      @media @mobile_tablet_medium{
+        height: @pop-review-height * 0.94;
+      }
     }
     & .descr{
       display: none;
     }
   }
+}
+.view-id-blog .blog-wrap--2 .col-blog:first-child{
+ margin-left: 25%;
+ @media @mobile_tablet{
+   margin-left: 0;
+ }
 }
