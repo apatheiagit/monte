@@ -17,11 +17,11 @@
 			<?php print $row; ?>
 		</div>
 	<?php elseif($id == 1):?>
-		<div class="col-sm-4 col-md-6 media-wrapper--half">			
+		<div class="col-st-6 col-sm-6 col-md-6 media-wrapper--half">			
 	    <?php print $row; ?>
 		</div>
 	<?php else:?>
-		<div class="col-sm-4 col-md-3 media-wrapper--third">			
+		<div class="col-st-6 col-sm-6 col-md-3 media-wrapper--third">			
 	    <?php print $row; ?>
 		</div>
 	<?php endif;?>

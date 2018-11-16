@@ -43,7 +43,7 @@
  	$titleLength = iconv_strlen($title, 'UTF-8');
  	$type = "";
 ?>
-<div class="col-sm-4 media-wrapper--normal">
+<div class="col-st-6 col-sm-4 media-wrapper--normal">
 <div class="media-block media-block--review <?php if(isset($rubric_type)):?>media-block--rubric<?endif;?> media-block--<?php print $type;?> media-block--<?php print $english;?>">
 	<?php if(isset($rubric_type) && $type != "photo"):?>
 		<div class="rubric">
