@@ -12,27 +12,27 @@
       if ($photo_count == 3 || $photo_count % 3 == 0){
         foreach ($photo_array as $key => $photo){
           $file_url = file_create_url($photo['uri']);
-          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE,);
+          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE, 'alt' => $photo['title']);
           $magnific .= '<div class="col-sm-6 col-md-4 photo-item">';
-          $magnific .= '<a href="'.$file_url.'">';
+          $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
           $magnific .= theme('image_style', $photo_param);
           $magnific .= '</a></div>';
         }
       }else{
         for ($i = 0; $i < $photo_count - $remainder; $i++){
           $file_url = file_create_url($photo_array[$i]['uri']);
-          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE,);
+          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE, 'alt' => $photo_array[$i]['title']);
           $magnific .= '<div class="col-sm-6 col-md-3 photo-item">';
-          $magnific .= '<a href="'.$file_url.'">';
+          $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
           $magnific .= theme('image_style', $photo_param);
           $magnific .= '</a></div>';
         }
         for ($i = $photo_count - $remainder; $i < $photo_count; $i++){
           if ($i != $photo_count - $remainder) $dop_class = '';
           $file_url = file_create_url($photo_array[$i]['uri']);
-          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE,);
+          $photo_param = array('style_name' => 'cyprus1140x720', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE, 'alt' => $photo_array[$i]['title']);
           $magnific .= '<div class="col-sm-6 col-md-3 photo-item col-md-offset-'.$dop_class.'">';
-          $magnific .= '<a href="'.$file_url.'">';
+          $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
           $magnific .= theme('image_style', $photo_param);
           $magnific .= '</a></div>';
         }

@@ -48,8 +48,14 @@
     </div> 
     <div class="main-info">
       <div class="category"><a href="<?php print $prefix;?>/places?city=<?php print $content['field_city']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_city->name;?></a></div>
-      <div class="title-descr">     
-        <h1 class="main-title" id="mainTitle"><?php print $title; ?></h1>
+      <div class="title-descr">            
+        <h1 class="main-title" id="mainTitle">
+          <?php if (isset($content['field_title']['#items']['0']['value'])):?>
+            <?php print $content['field_title']['#items']['0']['value']; ?>
+          <?php else:?>
+            <?php print $title; ?>
+          <?php endif;?>
+        </h1>
         <div class="descr"><?php print $content['body']['#items'][0]['summary']; ?></div>
       </div> 
       <div class="statistic">

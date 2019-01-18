@@ -218,12 +218,12 @@ Drupal.behaviors.my_custom_behavior = {
 			})
 
 			$('.article-content-text a').mouseenter(function(){
-				if (!isFirefox && !isIE){
+				if (!isFirefox && !isIE && !$(this).hasClass('gallery_link')){
 					let url = $(this).attr('href');
 					let lang = document.documentElement.lang;
 					current_link = $(this).attr('id');
 					$('.link-tooltip').remove();
-					if ((url.indexOf('//montenegrofortravellers') !== -1) || (url.charAt(0) == '/')){
+					if ((url.indexOf('//www.montenegrofortravellers') !== -1) || (url.charAt(0) == '/')){
 						getURLcontent(url, current_link, lang);
 					}	
 				}			
