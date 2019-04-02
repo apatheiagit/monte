@@ -5,39 +5,29 @@
     if ($lang == 'en') $prefix = '/en'; else $prefix = '';
     $term_city = taxonomy_term_load($content['field_city']['#items'][0]['taxonomy_term']->tid);
     $translated_term_city = i18n_taxonomy_localize_terms($term_city); 
-    function print_magnific($photo_array){
-      $magnific = '<div class="row popup-gallery">';
-      $photo_count = count($photo_array); 
+    function print_magnific($photo_array, $watermark = 1){ 
+      $magnific = '<div class="row popup-gallery ">'; 
+      $photo_count = count($photo_array);
       $remainder = $photo_count % 4; $dop_class = (12 - 3 * $remainder) / 2; $dop_class = str_replace(".", "_", $dop_class); 
-      if ($photo_count == 3 || $photo_count % 3 == 0){
-        foreach ($photo_array as $key => $photo){
-          $file_url = image_style_url('cyprus1140x720', $photo['uri']);
-          $photo_param = array('style_name' => 'monte254x160', 'path' => $photo['uri'],'getsize' => FALSE, 'alt' => $photo['title']);
-          $magnific .= '<div class="col-sm-6 col-md-4 photo-item">';
-          $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
-          $magnific .= theme('image_style', $photo_param);
-          $magnific .= '</a></div>';
-        }
-      }else{
-        for ($i = 0; $i < $photo_count - $remainder; $i++){
-          $file_url = image_style_url('cyprus1140x720', $photo_array[$i]['uri']);
-          $photo_param = array('style_name' => 'monte254x160', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE, 'alt' => $photo_array[$i]['title']);
-          $magnific .= '<div class="col-sm-6 col-md-3 photo-item">';
-          $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
-          $magnific .= theme('image_style', $photo_param);
-          $magnific .= '</a></div>';
-        }
-        for ($i = $photo_count - $remainder; $i < $photo_count; $i++){
-          if ($i != $photo_count - $remainder) $dop_class = '';
-          $file_url = image_style_url('cyprus1140x720', $photo_array[$i]['uri']);
-          $photo_param = array('style_name' => 'monte254x160', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE, 'alt' => $photo_array[$i]['title']);
-          $magnific .= '<div class="col-sm-6 col-md-3 photo-item col-md-offset-'.$dop_class.'">';
-          $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
-          $magnific .= theme('image_style', $photo_param);
-          $magnific .= '</a></div>';
-        }
+      $style_name = 'cyprus1140x720';
+      if ($watermark == 0) $style_name = 'cyprus1140x720wo';
+      for ($i = 0; $i < $photo_count - $remainder; $i++){
+        $file_url = image_style_url($style_name, $photo_array[$i]['uri']);
+        $photo_param = array('style_name' => 'monte254x160', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE, 'alt' => $photo_array[$i]['title']);
+        $magnific .= '<div class="col-sm-6 col-md-3 photo-item">';
+        $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
+        $magnific .= theme('image_style', $photo_param);
+        $magnific .= '</a></div>';
       }
-
+      for ($i = $photo_count - $remainder; $i < $photo_count; $i++){
+        if ($i != $photo_count - $remainder) $dop_class = '';
+        $file_url = image_style_url($style_name, $photo_array[$i]['uri']);
+        $photo_param = array('style_name' => 'monte254x160', 'path' => $photo_array[$i]['uri'],'getsize' => FALSE, 'alt' => $photo_array[$i]['title']);
+        $magnific .= '<div class="col-sm-6 col-md-3 photo-item col-md-offset-'.$dop_class.'">';
+        $magnific .= '<a href="'.$file_url.'" class="gallery_link">';
+        $magnific .= theme('image_style', $photo_param);
+        $magnific .= '</a></div>';
+      }
       $magnific .= '<div class="clearfix"></div></div>';
       print $magnific;
     }  
@@ -154,7 +144,7 @@
       <?php endif;?>
     </div>
     <div class="info">      
-      <div class="title"><span class='label'><?php print t('Author'); ?>:</span> <b><?php print $author->name;?></b></div>
+      <div class="title"><span class='label'><?php print t('Author'); ?>:</span> <a href="<?php print $prefix;?>/reviews/author/<?php print $author->tid;?>"><b><?php print $author->name;?></b></a></div>
       <?php if(isset($content['field_translator']['#items']['0']['taxonomy_term'])):?>
         <?php $translator = $content['field_translator']['#items']['0']['taxonomy_term'];?>
         <div class="title translator"><span class='label'><?php print t('Translation'); ?>:</span> <?php print $translator->name;?></div>
@@ -192,7 +182,7 @@
               if(isset($content['field_photogallery']['#items'][$key])){
                 $photo_gallery = $content['field_photogallery']['#items'][$key]['entity'];
                 $photo_gallery_photos = $photo_gallery->field_photos['und'];
-                print_magnific($photo_gallery_photos);
+                print_magnific($photo_gallery_photos, $photo_gallery->field_watermark['und'][0]['value']);
                 $global_key = $key;
               }
             }
@@ -205,7 +195,10 @@
         if ($type == 'photo'):?>
         <?php foreach ($content['field_photos']['#items'] as $photo):?>
           <div class="photo-intext">
-            <?php $param = array( 'style_name' => 'cyprus1140x720', 'path' => $photo['uri'],'getsize' => FALSE);
+            <?php 
+                if ($content['field_watermark']['#items']['0']['value'] == 1) $style_name = 'cyprus1140x720';
+                else $style_name = 'cyprus1140x720wo';
+                $param = array('style_name' => $style_name, 'path' => $photo['uri'],'getsize' => FALSE);
                 print theme('image_style', $param); ?> 
           </div>
         <?php endforeach; ?>
@@ -213,7 +206,7 @@
       <?php 
         /* Если фотографии просто добавлены в обзор, выводим magnific-popup */
         if (isset($content['field_photos']['#items'])):?>
-          <?php print_magnific($content['field_photos']['#items']); ?>        
+          <?php print_magnific($content['field_photos']['#items'], $content['field_watermark']['#items']['0']['value']); ?>        
       <?php endif;?>
       <?php endif;?>
 
@@ -291,7 +284,7 @@
               if (isset($content['field_photogallery']['#items'][$global_key])){
                 $photo_gallery = $content['field_photogallery']['#items'][$global_key]['entity'];
                 $photo_gallery_photos = $photo_gallery->field_photos['und'];
-                print_magnific($photo_gallery_photos);
+                print_magnific($photo_gallery_photos, $photo_gallery->field_watermark['und'][0]['value']);
                 $global_key = $global_key + 1;
               }
             }
@@ -301,8 +294,11 @@
       ?>
       <?php 
         /* Если к обзору привязан фотообзор, то показываем фото в виде magnific-popup */
-        if (isset($content['field_photo_review']['#items']['0'])):?>
-          <?php print_magnific($content['field_photo_review']['#items']); ?>  
+        if (isset($content['field_photo_review']['#items']['0'])):
+          $photo_review = $content['field_photo_review']['#items']['0']['entity'];
+          $photo_review_photos = $photo_review->field_photos['und'];
+          print_magnific($photo_review_photos, $photo_review->field_watermark['und'][0]['value']); 
+      ?>  
       <?php endif; ?> 
       </div>
       <div class="tags-block">

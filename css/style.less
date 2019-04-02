@@ -496,8 +496,8 @@ html.js fieldset.collapsed{
 		background-color: @blue;
 		color: white;
 		display: inline-block;
-		font-size: 24px;
-		font-weight: bold;
+		font-size: 20px;
+		//font-weight: bold;
 		transition: all 0.4s ease-in;
 		padding: 10px 40px;
 		position: relative;
@@ -609,6 +609,12 @@ html.js fieldset.collapsed{
 		@media @mobile{  
       width: 100%;
     }
+	}
+	& .dropdown-menu{
+		padding: 10px 0;
+		& a{
+			padding: 8px 20px;
+		}
 	}
 	& .form-item-section, & .form-item-type{
 		margin-left: -1px;
@@ -733,6 +739,7 @@ html.js fieldset.collapsed{
 		border-radius: 0;
 		font-family: @font-family;
 		width: 265px;
+		z-index: 1000 !important;
 		& .ui-widget-header{
 			border: none;
 			background: none;
@@ -768,13 +775,13 @@ html.js fieldset.collapsed{
 				border: 1px solid @grey-fon;
 	    }
 	    &.ui-state-active{
-	    	border: 1px solid @orange;
+	    	border: 1px solid @blue;
 	    }	   
 		}
 	  & .ui-datepicker-week-end{
-    	color: @orange;
+    	color: @blue;
     	& .ui-state-default{
-				color: @orange;
+				color: @blue;
     	}
     }
 		& .ui-datepicker-calendar td {
@@ -1015,8 +1022,8 @@ html.js fieldset.collapsed{
     box-sizing: content-box;
     cursor: pointer;
     display: none;
-    height: 65px;
-    width: 65px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
 		-webkit-transition:all .2s ease-in-out;
 		transition:all .2s ease-in-out;
@@ -1093,9 +1100,9 @@ img.monochrome {
 		border-radius: 50%;
 		display: inline-block;	
 		position: relative;
-		transition: all 0.5s ease-in-out;	
+		transition: all 0.3s ease-in-out;	
 		& path, & circle, & rect{
-			transition: all 0.5s ease-in-out;
+			transition: all 0.3s ease-in-out;
 		}
 		& svg{
 			vertical-align: middle;
@@ -1105,14 +1112,14 @@ img.monochrome {
 	}
 }
 .detail-share-block{
-	padding: 30px;
+	//padding: 30px;
 	margin: 30px 0;
-	text-align: center;
+	text-align: center;	
+	background-color: @almost-white;
+	border-radius: 4px;	
+	padding: 30px 30px 50px 30px;
 	.not-front &{
-		background-color: @almost-white;
-		border-radius: 4px;
 		margin: 0 0 30px 0;
-		padding: 30px 30px 50px 30px;
 	}
 	& .title{
 	  font-size: 32px;
@@ -1132,7 +1139,7 @@ img.monochrome {
 	& .fa{
 		border-style: solid;
 		border-width: 1px;
-		border-color: @light-text;
+		border-color: black;
 		border-radius: 4px;
 		color: @dark-text;
 		height: 50px;
@@ -1354,7 +1361,7 @@ img.monochrome {
 }
 .border-title{
 	font-size: 24px;
-	font-weight: bold;
+	//font-weight: bold;
   line-height: 1.33;
   text-align: center;
   margin-bottom: 30px;
@@ -1513,7 +1520,7 @@ img.monochrome {
 }
 .index-head{
   font-size: 24px;
-  font-weight: bold;
+  //font-weight: bold;
   line-height: 1.33;
   margin: 20px 0 30px 0;
   position: relative;
@@ -1560,7 +1567,7 @@ img.monochrome {
 	}
 	& .start-date{
 		font-size: 24px;
-		font-weight: 600;
+		//font-weight: 600;
 		line-height: 1;
 		color: @text-color;		
 		float: left;
@@ -1620,9 +1627,10 @@ img.monochrome {
   text-align: center;
   padding: 68px 15px 78px;
   position: relative;
-  margin: 20px auto;
+  margin: 40px auto;
   @media @mobile{
   	padding: 38px 15px 48px;
+  	margin: 20px auto;
   }
   @media (min-width: 768px){
     width: 750px;    
@@ -1637,12 +1645,14 @@ img.monochrome {
   	content: "";
     position: absolute;
   	background-image: url(../img/quotation.svg);
-  	height: 36px;
-  	width: 54px;
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	height: 32px;
+    width: 48px;    
   	@media @mobile{
   		height: 18px;
   		width: 27px;
-  		background-size: contain;
+  		
   	}
   }
   &:before{
@@ -1653,24 +1663,24 @@ img.monochrome {
 		bottom: 0;
   }
   & .big-quotation{
-  	font-size: 48px;
+  	font-size: 32px;
   	font-family: @special-font;
-  	line-height: 1.42;
+  	line-height: 1.6;
   	color: #202828;
   	margin-bottom: 20px;
   	@media @tablet{
-  		font-size: 40px;
+  		font-size: 30px;
   	}
   	@media @mobile{
   		font-size: 26px;
   	}
   }
   & .big-signature{
-  	font-size: 36px;
+  	font-size: 28px;
   	font-weight: bold;
   	color: @blue;
   	@media @tablet{
-  		font-size: 32px;
+  		font-size: 24px;
   	}
   	@media @mobile{
   		font-size: 20px;

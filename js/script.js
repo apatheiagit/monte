@@ -96,34 +96,34 @@ Drupal.behaviors.my_custom_behavior = {
 	        currentCategory = $('.breadcrumb span.first a').attr('href');
 	        $('.breadcrumb span.first a').addClass(currentCategory.substring(1));
 	    };
-	    $('.articles--index').owlCarousel({
-		    items: 1,
-		    loop: true,
-		    dots: true,		   
-		    nav: true,
-		    animateOut: 'fadeOut',
-    		animateIn: 'fadeIn',
-		    /*onInitialize: function (event) {
-	        if ($('.articles--index .article-item').size() <= 1) {
-	           this.settings.loop = false;
-	           this.settings.dotsClass = 'disable-dots';
-	        }
-	    	}*/
-		  });
-		  $('.affiche-carousel').owlCarousel({
-		    items: 1,
-		    loop: true,
-		    dots: true,		   
-		    nav: true,
-		    animateOut: 'fadeOut',
-    		animateIn: 'fadeIn',
-		    onInitialize: function (event) {
-	        if ($('.affiche-carousel .article-item').size() <= 1) {
-	           this.settings.loop = false;
-	           this.settings.dotsClass = 'disable-dots';
-	        }
-	    	}
-		  });	
+	    var owl = $('.articles--index');
+			if (owl.children().length > 1) {
+			  $('.articles--index').owlCarousel({
+			    items: 1,
+			    loop: true,
+			    dots: true,		   
+			    nav: true,
+			    animateOut: 'fadeOut',
+	    		animateIn: 'fadeIn',
+			    /*onInitialize: function (event) {
+		        if ($('.articles--index .article-item').size() <= 1) {
+		           this.settings.loop = false;
+		           this.settings.dotsClass = 'disable-dots';
+		        }
+		    	}*/
+			  });
+			}
+			var owl2 = $('.affiche-carousel');
+			if (owl2.children().length > 1) {
+			  $('.affiche-carousel').owlCarousel({
+			    items: 1,
+			    loop: true,
+			    dots: true,		   
+			    nav: true,
+			    animateOut: 'fadeOut',
+	    		animateIn: 'fadeIn'
+			  });
+		  }	
 		  $('.thevideo').hide();
 			$('.theimage').click(function(){
 				var src = $('.thevideo iframe').attr('src');

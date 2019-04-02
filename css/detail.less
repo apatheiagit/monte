@@ -6,7 +6,7 @@
 	border-bottom: solid 1px @monte-grey;
 	font-size: 24px !important;
 	font-family: @special-font;
-	line-height: 1.42 !important;
+	line-height: 1.66 !important;
 	color: @middle-text;
 	padding-bottom: 30px;
 	margin-bottom: 40px !important;
@@ -60,6 +60,7 @@
 		background-color: @blue;
 		position: relative;
 		display: inline-block;
+		padding: 0 3px;
 		& strong{
 			font-weight: normal;
 		}
@@ -348,6 +349,9 @@
 		margin-bottom: 30px;
 		& .photo-item{
 			padding: 20px;
+			& a{
+				padding: 0;
+			}
 			& img{
 				border-radius: 4px;
 			}
@@ -721,10 +725,12 @@
 		border-radius: 2px;
   	border: solid 1px @dark-grey;
   	padding: 7px 10px;
+  	transition: all 0.3s ease-in; 
 		&:hover{
-			color: @blue;
+			background-color: @blue;
 			border-color: @blue;
 			text-decoration: none;
+			color: white;
 		}
 	}
 }

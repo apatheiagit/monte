@@ -50,7 +50,7 @@
 				<?php endif;?>
 			</div>		
 			<div class="title">
-				<span class="big"><a href="<?php print $path;?>"><?php print $title?></a></span><!--<br><span class="small"><a href="<?php print $path;?>"><?php print $subtitle?></a></span>-->
+				<span class="big"><a href="<?php print $path;?>"><?php print $title?></a></span><br><span class="small"><a href="<?php print $path;?>"><?php print $subtitle?></a></span>
 			</div>
 			<div class="statistic">
 				<div class="metrika metrika-watch"><?php print file_get_contents($theme_path."/img/views.svg");?><span class="count"><?php print $totalcount;?></span></div>
