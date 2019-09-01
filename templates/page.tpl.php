@@ -66,20 +66,20 @@
              <a class="fa fa-vk" title="Перейти в группу Вконтакте" href="https://vk.com/montenegrofortravellers" rel="nofollow" target="_blank">
               <?php print file_get_contents($theme_path."/img/f_vk.svg");?>
               <span class="visuallyhidden">ВКонтакте</span></a>
-            <a class="fa fa-facebook" title="Перейти в группу в Фейсбуке" href="https://www.facebook.com/montenegrofortravellers/" rel="nofollow" target="_blank">
+            <a class="fa fa-facebook" title="Перейти в группу в Фейсбуке" href="https://www.facebook.com/Montenegro-for-travellers-International-1046187118925282/" rel="nofollow" target="_blank">
               <?php print file_get_contents($theme_path."/img/f_facebook.svg");?>
               <span class="visuallyhidden">Facebook</span></a>                 
-            <a class="fa fa-twitter" title="Перейти в группу в Twitter" href="https://twitter.com/cyprusfortravel" rel="nofollow" target="_blank">
+            <a class="fa fa-twitter" title="Перейти в группу в Twitter" href="https://twitter.com/ForMontenegro" rel="nofollow" target="_blank">
               <?php print file_get_contents($theme_path."/img/f_twitter.svg");?>
               <span class="visuallyhidden">Twitter</span></a>            
           <?php else:?>
             <a class="fa fa-vk" title="Перейти в группу Вконтакте" href="https://vk.com/montenegrofortravellers" rel="nofollow" target="_blank">
               <?php print file_get_contents($theme_path."/img/f_vk.svg");?>
               <span class="visuallyhidden">ВКонтакте</span></a>
-            <a class="fa fa-facebook" title="Перейти в группу в Фейсбуке" href="https://www.facebook.com/montenegrofortravellers/" rel="nofollow" target="_blank">
+            <a class="fa fa-facebook" title="Перейти в группу в Фейсбуке" href="https://www.facebook.com/Montenegrofortravellersru/" rel="nofollow" target="_blank">
               <?php print file_get_contents($theme_path."/img/f_facebook.svg");?>
               <span class="visuallyhidden">Facebook</span></a>                    
-            <a class="fa fa-twitter" title="Перейти в группу в Twitter" href="https://twitter.com/cyprusfortravel" rel="nofollow" target="_blank">
+            <a class="fa fa-twitter" title="Перейти в группу в Twitter" href="https://twitter.com/ForMontenegro" rel="nofollow" target="_blank">
               <?php print file_get_contents($theme_path."/img/f_twitter.svg");?>
               <span class="visuallyhidden">Twitter</span></a>
             

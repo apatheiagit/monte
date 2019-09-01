@@ -45,7 +45,18 @@
 		margin-top: 10px;
 		margin-bottom: 10px;		
 		line-height: 1.62;
+		font-size: 18px;
 	}	
+	& ul li{
+		list-style: none;
+		position: relative;
+		margin: 5px 0;
+		&:before{
+			content: "▪";
+			color: @blue;
+			padding-right: 10px;
+		}
+	}
 	& h1, & h2, & h3, & h4, & h5, & h6, & p, & ul, & ol, & hr{
 		margin-right: 16.66666667%;
 		margin-left: 16.66666667%;

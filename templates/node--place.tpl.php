@@ -152,7 +152,7 @@
     function initialize() {
       geocoder = new google.maps.Geocoder();
       var latlng = new google.maps.LatLng(35.126413, 33.429859);
-      var mapOptions =  {zoom: 15, center: latlng}
+      var mapOptions =  {zoom: 17, center: latlng}
       map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);      
       codeAddress(Address[0]);      
       for (var i = 0; i < Address.length; i++) {

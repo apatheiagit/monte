@@ -252,6 +252,17 @@
   margin-top: 10px;
   margin-bottom: 10px;
   line-height: 1.62;
+  font-size: 18px;
+}
+.article-content ul li {
+  list-style: none;
+  position: relative;
+  margin: 5px 0;
+}
+.article-content ul li:before {
+  content: "▪";
+  color: #24b8d1;
+  padding-right: 10px;
 }
 .article-content h1,
 .article-content h2,

@@ -10,7 +10,7 @@
     if($id == 'field_when') { $when = $field->content; }
     if($id == 'field_event_type') { $event_type = $field->content; }
     if($id == 'field_when_1') { $when_start = $field->content; }
-    if($id == 'field_when_2') { $when_end = $field->content; }
+    if($id == 'field_when_2') { $when_end = $field->content; }    
  endforeach; ?>
 <?php 	
 	$theme_path = path_to_theme();
@@ -31,11 +31,20 @@
 	</div>	
 	<div class="category">		
 		<span class="date">
-			<?php print $when; /*if ($when_start == $when_end){
+			<?php 
+			if ($when_start == $when_end){
 				print $when;
 			}else{
-				print $when_start." - ".$when_end;
-			} */?>
+				$start_month = substr($when_start, 2);
+				$end_month = substr($when_end, 2);
+				if ($start_month == $end_month){
+					$start_day = substr($when_start, 0, 2);
+					print $start_day." - ".$when_end;
+				}else{
+					print $when_start." - ".$when_end;
+				}
+			}
+			?>
 		</span> | 
 		<a href="<?php print $prefix;?>/events?city=<?php print $city;?>"><?php print $city_name;?></a>		
 	</div>
