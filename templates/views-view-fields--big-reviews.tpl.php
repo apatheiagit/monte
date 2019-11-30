@@ -10,6 +10,7 @@
     if($id == 'field_subtitle') { $subtitle = $field->content; }
     if($id == 'field_specproekt') { $specproekt_tid = $field->content; }
     if($id == 'totalcount') { $totalcount = $field->content; }
+    if($id == 'field_type') { $type = $field->content; }
  endforeach; ?>
  <?php 	
  	$theme_path = path_to_theme();
@@ -40,7 +41,7 @@
 	</div>
 	<div class="container" onclick="location.href='<?php print $path;?>'">
 		<div class="text">		
-			<div class="category">
+			<div class="category <?php if($type == 'video') print 'category-video';?>">
 				<?php if(isset($specproekt_tid)):?>
 					<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>
 				<?php elseif(isset($city)):?>

@@ -35,16 +35,13 @@
  		$specproekt = $specproekt_name_localize->name;	
  	}
 ?>
-<div class="media-block media-block--top3review media-block--<?php print $type;?> media-block--<?php print $english;?>">
+<div class="media-block media-block--top3review media-block--<?php print $english;?>">
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="container">
-		<div class="text">
-			<?php if($type == 'photo'):?>
-				<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
-			<?php endif;?>	
-			<div class="category">
+	<div class="container" onclick="location.href='<?php print $path;?>'">
+		<div class="text">			
+			<div class="category <?php if($type == 'video') print 'category-video';?>">
 				<?php if($special == 1):?>
 					<?php if(isset($specproekt_tid)):?>
 						<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>

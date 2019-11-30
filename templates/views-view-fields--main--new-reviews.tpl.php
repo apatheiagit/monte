@@ -4,6 +4,7 @@
     if($id == 'path') { $path = $field->content; }
     if($id == 'body') { $body = $field->content; }
     if($id == 'field_section') { $section = $field->content; }
+    if($id == 'field_city') { $city = $field->content; }
     if($id == 'field_type') { $type = $field->content; }
     if($id == 'field_title') { $title = $field->content; }
     if($id == 'field_subtitle') { $subtitle = $field->content; }
@@ -21,7 +22,7 @@
  		$term_city = taxonomy_term_load($city);
  		$city_name_localize = i18n_taxonomy_localize_terms($term_city);
  		$city_name = $city_name_localize->name;
- 		if ($city == '134' && $lang == 'ru') $city_name = "Весь Кипр";
+ 		if ($city == '279' && $lang == 'ru') $city_name = "Черногория";
  	}
 	if (isset($section)){
  		$terms = taxonomy_term_load($section);
@@ -41,15 +42,10 @@
  	$titleLength = iconv_strlen($title, 'UTF-8');
 ?>
 <div class="media-block media-block--review media-block--new-review <?php if(isset($rubric_type)):?>media-block--rubric<?endif;?>  media-block--<?php print $english;?>">
-	<?php if(isset($rubric_type) && $type != "photo"):?>
-		<div class="rubric">
-			<a href="<?php print $path;?>"><span class="canvas canvas--<?php print $rubric_type;?>"></span></a>
-		</div>
-	<?php endif;?>
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="category">
+	<div class="category <?php if($type == 'video') print 'category-video';?>">
 		<?php if($special == 1):?>
 			<?php if(isset($specproekt_tid)):?>
 				<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>

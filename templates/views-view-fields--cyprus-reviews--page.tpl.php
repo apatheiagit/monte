@@ -47,16 +47,11 @@
 	}
  	$titleLength = iconv_strlen($title, 'UTF-8');
 ?>
-<div class="media-block media-block--review media-block--review-page <?php if(isset($rubric_type)):?>media-block--rubric<?endif;?> media-block--<?php print $type;?> media-block--<?php print $english;?>">
-	<?php if(isset($rubric_type) && $type != "photo"):?>
-		<div class="rubric">
-			<a href="<?php print $path;?>"><span class="canvas canvas--<?php print $rubric_type;?>"></span></a>
-		</div>
-	<?php endif;?>
+<div class="media-block media-block--review media-block--review-page <?php if(isset($rubric_type)):?>media-block--rubric<?endif;?> media-block--<?php print $english;?>">	
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="category">
+	<div class="category <?php if($type == 'video') print 'category-video';?>">
 		<?php if(isset($category)):?>
 			<a href="<?php print $prefix;?>/recipes?category_recipe=<?php print $category;?>"><?php print $category_name;?></a>
 		<?php endif;?>
@@ -74,10 +69,7 @@
 				<a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
 		<?php endif;?>
 	</div>		
-	<div class="text">
-		<?php if($type == 'photo'):?>
-			<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
-		<?php endif;?>		
+	<div class="text">		
 		<div class="title"><a href="<?php print $path;?>"><?php print $title?></a></div>
 		<div class="descr"><a href="<?php print $path;?>"><?php print $body;?></a></div>
 	</div>

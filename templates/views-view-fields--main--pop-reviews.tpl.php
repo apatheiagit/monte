@@ -21,7 +21,7 @@
  		$term_city = taxonomy_term_load($city);
  		$city_name_localize = i18n_taxonomy_localize_terms($term_city);
  		$city_name = $city_name_localize->name;
- 		if ($city == '134' && $lang == 'ru') $city_name = "Весь Кипр";
+ 		if ($city == '279' && $lang == 'ru') $city_name = "Черногория";
  	}
 	if (isset($section)){
  		$terms = taxonomy_term_load($section);
@@ -37,11 +37,11 @@
  	$titleLength = iconv_strlen($title, 'UTF-8');
 ?>
 	
-<div class="media-block media-block--review media-block--pop-review  media-block--<?php print $type;?> media-block--<?php print $english;?>">
+<div class="media-block media-block--review media-block--pop-review  media-block--<?php print $english;?>">
 	<div class="photo">		
 		<?php print $image;?>
 	</div>	
-	<div class="category">
+	<div class="category <?php if($type == 'video') print 'category-video';?>">
 		<?php if($special == 1):?>
 			<?php if(isset($specproekt_tid)):?>
 				<a href="<?php print $prefix;?>/special/<?php print $specproekt_tid;?>"><?php print $specproekt;?></a>
@@ -56,11 +56,7 @@
 				<a href="<?php print $prefix;?>/<?php print $english;?>"><?php print $russian; ?></a>
 		<?php endif;?>
 		</div>		
-	<div class="text">
-		<?php if($type == 'photo'):?>
-			<a class="photo-icon" href="<?php print $prefix;?>/photoreviews"></a>
-		<?php endif;?>
-		
+	<div class="text">	
 		<div class="title"><a href="<?php print $path;?>"><?php print $title?></a></div>
 		<?php if ($titleLength < 43):?>
 			<div class="descr"><a href="<?php print $path;?>"><?php print $body;?></a></div>

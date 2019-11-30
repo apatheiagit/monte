@@ -61,7 +61,7 @@
   <div class="container">
     <div class="text">    
       <?php if($type != 'top5'):?>
-      <div class="category">
+      <div class="category <?php if($type == 'video') print 'category-video';?>">
        <?php if(isset($content['field_specproekt'])):?>
           <?php $term_specproekt = taxonomy_term_load($content['field_specproekt']['#items'][0]['taxonomy_term']->tid); $translated_term_specproekt = i18n_taxonomy_localize_terms($term_specproekt); ?>
           <a href="<?php print $prefix;?>/special/<?php print $content['field_specproekt']['#items'][0]['taxonomy_term']->tid;?>"><?php print $translated_term_specproekt->name;?></a>
@@ -190,26 +190,13 @@
             print $new_body;
           }
        ?>
-      <?php 
-        /* Если это фоторепортаж, то выводим крупно фотографии в виде ленты */
-        if ($type == 'photo'):?>
-        <?php foreach ($content['field_photos']['#items'] as $photo):?>
-          <div class="photo-intext">
-            <?php 
-                if ($content['field_watermark']['#items']['0']['value'] == 1) $style_name = 'cyprus1140x720';
-                else $style_name = 'cyprus1140x720wo';
-                $param = array('style_name' => $style_name, 'path' => $photo['uri'],'getsize' => FALSE);
-                print theme('image_style', $param); ?> 
-          </div>
-        <?php endforeach; ?>
-      <?php else:?>
+      
       <?php 
         /* Если фотографии просто добавлены в обзор, выводим magnific-popup */
         if (isset($content['field_photos']['#items'])):?>
           <?php print_magnific($content['field_photos']['#items'], $content['field_watermark']['#items']['0']['value']); ?>        
       <?php endif;?>
-      <?php endif;?>
-
+      
 	    <?php
         /* Если к обзору привязаны рецепты, показываем их */
         if (isset($content['field_recipe']['#items']['0'])): ?>
