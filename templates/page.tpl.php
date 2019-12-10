@@ -37,6 +37,14 @@
   <?php print render($page['content']); ?>
   <?php print render($page['bottom']); ?>
 </div>
+<div class="container">
+  <div class="mrc-widget">
+    <script text="text/javascript" src="https://static.myrentacar.com/widget/v2/app.js"></script>
+    <mrc-widget affiliate="3746" apikey="denis_panin_gmail_com" apisign="15d0a1c353242c0a456deae1fc2fa288" country="133" city="5" apisign="15d0a1c353242c0a456deae1fc2fa288" border="false" background="transparent" logo="false" cars="true">
+    </mrc-widget>
+  </div>
+</div>
+</div>
 <div class="somit somit-footer">
   <div class="container">
   <div class="top-string">
@@ -87,8 +95,7 @@
         </div>
       </div>
     </div>
-  </div>
-  </div>
+  </div>  
 </div>
 <div class="totopcontroller">
   <div class="container">
