@@ -688,14 +688,6 @@
   margin-bottom: 0;
   text-align: center;
 }
-@media (min-width: 1921px) {
-  .media-block--index,
-  .media-block--top3review,
-  .media-block--special,
-  .media-wrapper--full .media-block--top3places {
-    height: 726px;
-  }
-}
 @media (min-width: 1280px) and (max-width: 1366px) {
   .media-block--index img,
   .media-block--top3review img,
